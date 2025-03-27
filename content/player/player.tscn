@@ -1,0 +1,56 @@
+[gd_scene load_steps=4 format=3 uid="uid://cjt7j7iawm8n5"]
+
+[ext_resource type="Script" uid="uid://cpvknkf3ckv14" path="res://content/player/player.gd" id="1_2rga7"]
+
+[sub_resource type="CapsuleShape3D" id="CapsuleShape3D_y66qv"]
+radius = 0.25
+height = 1.75
+
+[sub_resource type="CapsuleMesh" id="CapsuleMesh_2rga7"]
+radius = 0.25
+height = 1.75
+radial_segments = 12
+rings = 4
+
+[node name="Player" type="CharacterBody3D"]
+script = ExtResource("1_2rga7")
+
+[node name="ControllerCollider" type="CollisionShape3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.875, 0)
+shape = SubResource("CapsuleShape3D_y66qv")
+debug_fill = false
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.875, 0)
+mesh = SubResource("CapsuleMesh_2rga7")
+
+[node name="CameraJoint" type="Node3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 0.965926, 0.258819, 0, -0.258819, 0.965926, 0, 1.5, 0)
+
+[node name="SpringArm3D" type="SpringArm3D" parent="CameraJoint"]
+spring_length = 2.5
+
+[node name="Camera3D" type="Camera3D" parent="CameraJoint/SpringArm3D"]
+
+[node name="PlayerUI" type="MarginContainer" parent="."]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="VBoxContainer" type="VBoxContainer" parent="PlayerUI"]
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 8
+
+[node name="StaminaBar" type="ProgressBar" parent="PlayerUI/VBoxContainer"]
+layout_mode = 2
+value = 50.0
+show_percentage = false
+
+[node name="HealthBar" type="ProgressBar" parent="PlayerUI/VBoxContainer"]
+custom_minimum_size = Vector2(200, 10)
+layout_mode = 2
+value = 75.0
+show_percentage = false

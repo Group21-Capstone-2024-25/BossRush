@@ -1,0 +1,4 @@
+[gd_scene format=3 uid="uid://78bwii1mgilk"]
+
+[node name="Game" type="MarginContainer"]
+metadata/_tab_index = 0

@@ -1,0 +1,43 @@
+[gd_scene load_steps=6 format=3 uid="uid://ix8j8adfco2e"]
+
+[ext_resource type="PackedScene" uid="uid://78bwii1mgilk" path="res://content/ui/game_settings/game_settings.tscn" id="1_mfpwo"]
+[ext_resource type="PackedScene" uid="uid://dg0fveb5s1q55" path="res://content/ui/control_settings/control_settings.tscn" id="2_ggatp"]
+[ext_resource type="PackedScene" uid="uid://ciyy7n4fk2agl" path="res://content/ui/graphics_settings/graphics_settings.tscn" id="3_tq6yh"]
+[ext_resource type="PackedScene" uid="uid://cklyf1wupa8mx" path="res://content/ui/audio_settings/audio_settings.tscn" id="4_3inxf"]
+[ext_resource type="PackedScene" uid="uid://7adk57risb6l" path="res://content/ui/accessibility_settings/accessibility_settings.tscn" id="5_bwpby"]
+
+[node name="SettingsMenu" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="MarginContainer" type="MarginContainer" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="TabContainer" type="TabContainer" parent="MarginContainer"]
+layout_mode = 2
+current_tab = 0
+
+[node name="Game" parent="MarginContainer/TabContainer" instance=ExtResource("1_mfpwo")]
+layout_mode = 2
+
+[node name="Controls" parent="MarginContainer/TabContainer" instance=ExtResource("2_ggatp")]
+visible = false
+layout_mode = 2
+
+[node name="Graphics" parent="MarginContainer/TabContainer" instance=ExtResource("3_tq6yh")]
+layout_mode = 2
+
+[node name="Audio" parent="MarginContainer/TabContainer" instance=ExtResource("4_3inxf")]
+layout_mode = 2
+
+[node name="Accessibility" parent="MarginContainer/TabContainer" instance=ExtResource("5_bwpby")]
+layout_mode = 2

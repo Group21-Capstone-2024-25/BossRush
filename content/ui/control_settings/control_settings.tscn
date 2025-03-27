@@ -1,0 +1,4 @@
+[gd_scene format=3 uid="uid://dg0fveb5s1q55"]
+
+[node name="Controls" type="MarginContainer"]
+metadata/_tab_index = 1

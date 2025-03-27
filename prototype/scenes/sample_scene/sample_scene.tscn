@@ -1,0 +1,38 @@
+[gd_scene load_steps=7 format=3 uid="uid://0nx5usosf4xy"]
+
+[ext_resource type="PackedScene" uid="uid://bl0j4cix4gebk" path="res://prototype/props/floor/floor.tscn" id="1_fku3v"]
+[ext_resource type="PackedScene" uid="uid://ciirg31ussdaa" path="res://prototype/props/wall/wall.tscn" id="2_0figo"]
+[ext_resource type="PackedScene" uid="uid://cjt7j7iawm8n5" path="res://content/player/player.tscn" id="3_aiakf"]
+
+[sub_resource type="NavigationMesh" id="NavigationMesh_fku3v"]
+
+[sub_resource type="CapsuleShape3D" id="CapsuleShape3D_fku3v"]
+
+[sub_resource type="CapsuleMesh" id="CapsuleMesh_0figo"]
+
+[node name="SampleScene" type="NavigationRegion3D"]
+navigation_mesh = SubResource("NavigationMesh_fku3v")
+
+[node name="Floor_001" parent="." instance=ExtResource("1_fku3v")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.5, 0)
+
+[node name="Wall_001" parent="." instance=ExtResource("2_0figo")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -5.5)
+
+[node name="Player" parent="." instance=ExtResource("3_aiakf")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 3)
+metadata/_edit_group_ = true
+
+[node name="Enemy" type="CharacterBody3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -3.5)
+metadata/_edit_group_ = true
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Enemy"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, 0)
+shape = SubResource("CapsuleShape3D_fku3v")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="Enemy"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, 0)
+mesh = SubResource("CapsuleMesh_0figo")
+
+[node name="NavigationAgent3D" type="NavigationAgent3D" parent="Enemy"]
