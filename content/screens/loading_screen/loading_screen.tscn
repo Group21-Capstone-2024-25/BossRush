@@ -1,4 +1,6 @@
-[gd_scene format=3 uid="uid://bv07wa0kjkjf0"]
+[gd_scene load_steps=2 format=3 uid="uid://bv07wa0kjkjf0"]
+
+[ext_resource type="Script" uid="uid://bcv1m57j05qa1" path="res://content/screens/loading_screen/loading_screen.gd" id="1_fkxpp"]
 
 [node name="LoadingScreen" type="Control"]
 layout_mode = 3
@@ -7,3 +9,24 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
+script = ExtResource("1_fkxpp")
+
+[node name="ColorRect" type="ColorRect" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="ProgressBar" type="ProgressBar" parent="."]
+custom_minimum_size = Vector2(0, 10)
+layout_mode = 1
+anchors_preset = 12
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_top = -4.0
+grow_horizontal = 2
+grow_vertical = 0
+show_percentage = false

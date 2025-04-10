@@ -1,4 +1,9 @@
-[gd_scene format=3 uid="uid://dxh4707gmucwi"]
+[gd_scene load_steps=3 format=3 uid="uid://dxh4707gmucwi"]
+
+[ext_resource type="Script" uid="uid://e6hr7ms7f743" path="res://content/screens/splash_screen/splash_screen.gd" id="1_pkklj"]
+
+[sub_resource type="VideoStreamTheora" id="VideoStreamTheora_sfpsn"]
+file = "res://resources/video/godot_intro_animation_hd.ogg"
 
 [node name="SplashScreen" type="Control"]
 layout_mode = 3
@@ -7,3 +12,17 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
+script = ExtResource("1_pkklj")
+
+[node name="VideoStreamPlayer" type="VideoStreamPlayer" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+stream = SubResource("VideoStreamTheora_sfpsn")
+autoplay = true
+expand = true
+
+[connection signal="finished" from="VideoStreamPlayer" to="." method="_on_video_stream_player_finished"]
