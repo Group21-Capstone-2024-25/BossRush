@@ -1,0 +1,7 @@
+[gd_resource type="StandardMaterial3D" load_steps=2 format=3 uid="uid://bq2n7en44vwvu"]
+
+[ext_resource type="Texture2D" uid="uid://dj0u8807uxxrt" path="res://resources/textures/mediumshield_albedo.png" id="1_5a8n4"]
+
+[resource]
+resource_name = "MediumShield"
+albedo_texture = ExtResource("1_5a8n4")

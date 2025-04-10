@@ -15,7 +15,11 @@ run/main_scene="uid://dxh4707gmucwi"
 config/features=PackedStringArray("4.4", "Forward Plus")
 boot_splash/bg_color=Color(0.0545738, 0.0545738, 0.0545738, 1)
 boot_splash/show_image=false
-config/icon="res://icon.svg"
+config/icon="res://settings/icon.svg"
+
+[audio]
+
+buses/default_bus_layout="res://settings/default_bus_layout.tres"
 
 [autoload]
 

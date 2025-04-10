@@ -1,0 +1,7 @@
+[gd_resource type="StandardMaterial3D" load_steps=2 format=3 uid="uid://dceplleyfvi0y"]
+
+[ext_resource type="Texture2D" uid="uid://dmsk535hxvw8i" path="res://resources/textures/largeshield_albedo.png" id="1_egxsn"]
+
+[resource]
+resource_name = "LargeShield"
+albedo_texture = ExtResource("1_egxsn")

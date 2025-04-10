@@ -1,0 +1,38 @@
+[remap]
+
+importer="texture"
+type="CompressedTexture2D"
+uid="uid://cteoy4oucabyg"
+path.s3tc="res://.godot/imported/bear_albedo.jpg-e2cdec6afc8f4d22edc2ca76bf9f8fab.s3tc.ctex"
+metadata={
+"imported_formats": ["s3tc_bptc"],
+"vram_texture": true
+}
+generator_parameters={
+"md5": "7c88a7f8c0242586d0cb187974ea89a9"
+}
+
+[deps]
+
+source_file="res://resources/textures/bear_albedo.jpg"
+dest_files=["res://.godot/imported/bear_albedo.jpg-e2cdec6afc8f4d22edc2ca76bf9f8fab.s3tc.ctex"]
+
+[params]
+
+compress/mode=2
+compress/high_quality=false
+compress/lossy_quality=0.7
+compress/hdr_compression=1
+compress/normal_map=0
+compress/channel_pack=0
+mipmaps/generate=true
+mipmaps/limit=-1
+roughness/mode=0
+roughness/src_normal=""
+process/fix_alpha_border=true
+process/premult_alpha=false
+process/normal_map_invert_y=false
+process/hdr_as_srgb=false
+process/hdr_clamp_exposure=false
+process/size_limit=0
+detect_3d/compress_to=0
