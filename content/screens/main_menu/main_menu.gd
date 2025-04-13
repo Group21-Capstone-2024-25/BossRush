@@ -2,12 +2,24 @@ extends Control
 
 @onready var intro_screen: Control = $IntroScreen
 @onready var menu: Control = $Menu
+@onready var buttons: MenuButtons = $Menu/VBoxContainer/Buttons
+@onready var settings_menu: SettingsMenu = $SettingsMenu
+
+
 
 func _ready() -> void:
-	if (GameManager.init):
+	if GameManager.init:
 		start_intro()
 		GameManager.init = false
 	
+	# Connect signal from settings menu
+	buttons.settings_pressed.connect(_on_settings_button_pressed)
+	settings_menu.exit_option_menu.connect(_on_settings_exit_pressed)
+
+func _on_settings_exit_pressed() -> void:
+	settings_menu.hide()
+	menu.show()
+
 
 func start_intro():
 	intro_screen.play()
@@ -22,7 +34,9 @@ func _on_new_game_button_pressed() -> void:
 	GameManager.start_game()
 
 func _on_settings_button_pressed() -> void:
-	UI.open_settings()
+	menu.hide()
+	settings_menu.show()
+
 
 
 
