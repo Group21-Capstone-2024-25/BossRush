@@ -4,7 +4,7 @@
 [ext_resource type="Script" uid="uid://b68yr1fex780a" path="res://content/screens/main_menu/buttons.gd" id="1_yny2g"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_yny2g"]
-bg_color = Color(0.779688, 0.484737, 0.0507895, 1)
+bg_color = Color(1, 0.843137, 0, 1)
 border_color = Color(0.324031, 0.327958, 0.474636, 0.666667)
 
 [node name="Buttons" type="Control"]

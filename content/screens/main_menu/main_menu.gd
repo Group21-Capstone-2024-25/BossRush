@@ -35,6 +35,7 @@ func _on_new_game_button_pressed() -> void:
 
 func _on_settings_button_pressed() -> void:
 	menu.hide()
+	settings_menu.set_process(true)
 	settings_menu.show()
 
 
