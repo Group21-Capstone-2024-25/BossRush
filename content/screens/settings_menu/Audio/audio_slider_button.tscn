@@ -1,6 +1,9 @@
-[gd_scene load_steps=3 format=3 uid="uid://jcas23bxnw7n"]
+[gd_scene load_steps=4 format=3 uid="uid://jcas23bxnw7n"]
 
 [ext_resource type="Script" uid="uid://bbism104vwgx3" path="res://content/screens/settings_menu/Audio/audio_slider_button.gd" id="1_ortbn"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_ortbn"]
+bg_color = Color(0, 0, 0, 1)
 
 [sub_resource type="GDScript" id="GDScript_b10o0"]
 script/source = "extends HSlider
@@ -35,6 +38,7 @@ layout_mode = 2
 custom_minimum_size = Vector2(200, 32)
 layout_mode = 2
 size_flags_vertical = 1
+theme_override_styles/grabber_area_highlight = SubResource("StyleBoxFlat_ortbn")
 max_value = 1.0
 step = 0.001
 script = SubResource("GDScript_b10o0")
@@ -45,5 +49,6 @@ layout_mode = 2
 [node name="Audio_num_label2" type="Label" parent="HBoxContainer"]
 custom_minimum_size = Vector2(300, 0)
 layout_mode = 2
+theme_override_colors/font_color = Color(0, 0, 0, 1)
 theme_override_font_sizes/font_size = 32
 text = "99.2"

@@ -1,18 +1,27 @@
-[gd_scene load_steps=9 format=3 uid="uid://ix8j8adfco2e"]
+[gd_scene load_steps=13 format=3 uid="uid://ix8j8adfco2e"]
 
 [ext_resource type="Script" uid="uid://de587yqreloik" path="res://content/screens/settings_menu/settings_menu.gd" id="1_ggatp"]
 [ext_resource type="PackedScene" uid="uid://5g7ji6chk1tm" path="res://content/screens/settings_menu/hotkey_rebind_button.tscn" id="2_apj3c"]
+[ext_resource type="Texture2D" uid="uid://diuq1yuy6tl7t" path="res://content/screens/main_menu/assets/pngwing.com.png" id="2_ggatp"]
 [ext_resource type="PackedScene" uid="uid://djs5dc5kn5yft" path="res://content/screens/settings_menu/graphics/window_mode_button.tscn" id="3_a5c04"]
 [ext_resource type="PackedScene" uid="uid://jcas23bxnw7n" path="res://content/screens/settings_menu/Audio/audio_slider_button.tscn" id="4_3ivbi"]
 [ext_resource type="PackedScene" uid="uid://swvd1fh8njj2" path="res://content/screens/settings_menu/graphics/resolution_mode_button.tscn" id="4_mfpwo"]
+[ext_resource type="Texture2D" uid="uid://dj3uw6jf4hdke" path="res://content/screens/main_menu/assets/panel-border-003.png" id="7_tq6yh"]
 
 [sub_resource type="SystemFont" id="SystemFont_ggatp"]
 font_names = PackedStringArray("Javanese Text")
 subpixel_positioning = 0
 
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_tq6yh"]
+texture = ExtResource("2_ggatp")
+region_rect = Rect2(29, 115, 591, 562)
+
 [sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_ggatp"]
 
 [sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_tq6yh"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_3inxf"]
+bg_color = Color(0.893806, 0.701319, 0, 1)
 
 [node name="SettingsMenu" type="Control"]
 layout_mode = 3
@@ -45,6 +54,7 @@ theme_override_constants/outline_size = 4
 theme_override_fonts/font = SubResource("SystemFont_ggatp")
 theme_override_font_sizes/font_size = 25
 text = "           Settings"
+horizontal_alignment = 1
 vertical_alignment = 1
 
 [node name="MarginContainer" type="MarginContainer" parent="VBoxContainer"]
@@ -56,8 +66,10 @@ theme_override_constants/margin_bottom = 0
 
 [node name="TabContainer" type="TabContainer" parent="VBoxContainer/MarginContainer"]
 layout_mode = 2
+theme_override_font_sizes/font_size = 20
+theme_override_styles/panel = SubResource("StyleBoxTexture_tq6yh")
 tab_alignment = 1
-current_tab = 3
+current_tab = 1
 
 [node name="Game" type="TabBar" parent="VBoxContainer/MarginContainer/TabContainer"]
 visible = false
@@ -86,7 +98,6 @@ layout_mode = 2
 layout_mode = 2
 
 [node name="Controls" type="TabBar" parent="VBoxContainer/MarginContainer/TabContainer"]
-visible = false
 custom_minimum_size = Vector2(300, 300)
 layout_mode = 2
 tab_alignment = 1
@@ -108,7 +119,7 @@ layout_mode = 2
 [node name="VBoxContainer" type="VBoxContainer" parent="VBoxContainer/MarginContainer/TabContainer/Controls/MarginContainer/ScrollContainer"]
 layout_mode = 2
 size_flags_horizontal = 3
-theme_override_constants/separation = 64
+theme_override_constants/separation = 80
 alignment = 1
 
 [node name="HSeparator" type="HSeparator" parent="VBoxContainer/MarginContainer/TabContainer/Controls/MarginContainer/ScrollContainer/VBoxContainer"]
@@ -186,6 +197,7 @@ layout_mode = 2
 layout_mode = 2
 
 [node name="Audio" type="TabBar" parent="VBoxContainer/MarginContainer/TabContainer"]
+visible = false
 custom_minimum_size = Vector2(300, 300)
 layout_mode = 2
 tab_alignment = 1
@@ -226,8 +238,30 @@ bus_name = "SFX"
 layout_mode = 2
 bus_name = "UI"
 
-[node name="Button" type="Button" parent="VBoxContainer"]
+[node name="NinePatchRect" type="NinePatchRect" parent="VBoxContainer"]
+custom_minimum_size = Vector2(0, 60)
 layout_mode = 2
 size_flags_vertical = 10
-theme_override_font_sizes/font_size = 30
+texture = ExtResource("7_tq6yh")
+region_rect = Rect2(-1, -1, 48, 49)
+patch_margin_left = 25
+patch_margin_top = 25
+patch_margin_right = 25
+patch_margin_bottom = 25
+
+[node name="Button" type="Button" parent="VBoxContainer/NinePatchRect"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 10.0
+offset_top = 10.0
+offset_right = -10.0
+offset_bottom = -10.0
+grow_horizontal = 2
+grow_vertical = 2
+size_flags_vertical = 10
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_font_sizes/font_size = 20
+theme_override_styles/normal = SubResource("StyleBoxFlat_3inxf")
 text = "Back"

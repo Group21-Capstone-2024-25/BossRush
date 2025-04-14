@@ -2,7 +2,8 @@ class_name HotkeyRebindButton
 extends Control
 
 @onready var label: Label = $HBoxContainer/Label
-@onready var button: Button = $HBoxContainer/Button
+
+@onready var button: Button = $HBoxContainer/NinePatchRect/Button
 
 
 @export var action_name : String = "move_forward"

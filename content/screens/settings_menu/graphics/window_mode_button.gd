@@ -1,7 +1,6 @@
 extends Control
 
-
-@onready var option_button: OptionButton = $HBoxContainer/OptionButton
+@onready var option_button: OptionButton = $HBoxContainer/NinePatchRect/OptionButton
 
 const WINDOW_MODE_ARRAY : Array[String] = [
 	"Full-screen",

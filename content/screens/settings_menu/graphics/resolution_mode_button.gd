@@ -1,5 +1,6 @@
 extends Control
-@onready var option_button: OptionButton = $HBoxContainer/OptionButton
+
+@onready var option_button: OptionButton = $HBoxContainer/NinePatchRect/OptionButton
 
 const RESOLUTION_DICTIONARY : Dictionary = {
 	"960 x 540": Vector2i(960,540),

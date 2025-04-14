@@ -1,4 +1,9 @@
-[gd_scene format=3 uid="uid://b4fwjaltepg8"]
+[gd_scene load_steps=3 format=3 uid="uid://b4fwjaltepg8"]
+
+[ext_resource type="Texture2D" uid="uid://dj3uw6jf4hdke" path="res://content/screens/main_menu/assets/panel-border-003.png" id="1_cv4cr"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_cv4cr"]
+bg_color = Color(0, 0, 0, 1)
 
 [node name="Settings_Display_Button" type="Control"]
 layout_mode = 3
@@ -24,6 +29,20 @@ vertical_alignment = 1
 [node name="VSeparator" type="VSeparator" parent="HBoxContainer"]
 layout_mode = 2
 
-[node name="OptionButton" type="OptionButton" parent="HBoxContainer"]
+[node name="NinePatchRect" type="NinePatchRect" parent="HBoxContainer"]
+custom_minimum_size = Vector2(280, 88)
+layout_mode = 2
+texture = ExtResource("1_cv4cr")
+patch_margin_left = 20
+patch_margin_top = 20
+patch_margin_right = 20
+patch_margin_bottom = 20
+
+[node name="OptionButton" type="OptionButton" parent="HBoxContainer/NinePatchRect"]
 custom_minimum_size = Vector2(256, 64)
 layout_mode = 2
+offset_left = 13.0
+offset_top = 11.0
+offset_right = 269.0
+offset_bottom = 75.0
+theme_override_styles/normal = SubResource("StyleBoxFlat_cv4cr")
