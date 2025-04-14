@@ -40,7 +40,7 @@ size_flags_horizontal = 4
 theme_override_constants/separation = 20
 
 [node name="NinePatchRect" type="NinePatchRect" parent="HBoxContainer/VBoxContainer"]
-custom_minimum_size = Vector2(200, 0)
+custom_minimum_size = Vector2(200, 40)
 layout_mode = 2
 texture = ExtResource("1_2y2fv")
 patch_margin_left = 25
@@ -64,7 +64,7 @@ theme_override_styles/normal = SubResource("StyleBoxFlat_yny2g")
 text = "New Game"
 
 [node name="NinePatchRect2" type="NinePatchRect" parent="HBoxContainer/VBoxContainer"]
-custom_minimum_size = Vector2(200, 0)
+custom_minimum_size = Vector2(200, 40)
 layout_mode = 2
 texture = ExtResource("1_2y2fv")
 patch_margin_left = 25
@@ -88,7 +88,7 @@ theme_override_styles/normal = SubResource("StyleBoxFlat_yny2g")
 text = "Continue"
 
 [node name="NinePatchRect3" type="NinePatchRect" parent="HBoxContainer/VBoxContainer"]
-custom_minimum_size = Vector2(200, 0)
+custom_minimum_size = Vector2(200, 40)
 layout_mode = 2
 texture = ExtResource("1_2y2fv")
 patch_margin_left = 25
@@ -112,7 +112,7 @@ theme_override_styles/normal = SubResource("StyleBoxFlat_yny2g")
 text = "Settings"
 
 [node name="NinePatchRect4" type="NinePatchRect" parent="HBoxContainer/VBoxContainer"]
-custom_minimum_size = Vector2(200, 0)
+custom_minimum_size = Vector2(200, 40)
 layout_mode = 2
 texture = ExtResource("1_2y2fv")
 patch_margin_left = 25
