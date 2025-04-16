@@ -1,0 +1,5 @@
+[gd_resource type="StandardMaterial3D" format=3 uid="uid://dsdelh1h7ic8a"]
+
+[resource]
+resource_name = "ArenaWall"
+albedo_color = Color(0.906332, 0.486334, 0, 1)

@@ -1,0 +1,5 @@
+[gd_resource type="StandardMaterial3D" format=3 uid="uid://bk7yr3wsl2g4y"]
+
+[resource]
+resource_name = "Rope"
+albedo_color = Color(0.213326, 0.0865521, 0.0141897, 1)

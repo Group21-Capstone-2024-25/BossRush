@@ -43,6 +43,7 @@ project/assembly_name="BossRush"
 [global_group]
 
 Player=""
+navigation_mesh_source_group=""
 
 [input]
 
