@@ -6,6 +6,7 @@ extends Control
 @onready var game: TabBar = $VBoxContainer/MarginContainer/TabContainer/Game
 @onready var graphics: TabBar = $VBoxContainer/MarginContainer/TabContainer/Graphics
 @onready var audio: TabBar = $VBoxContainer/MarginContainer/TabContainer/Audio
+@onready var margin_container: MarginContainer = $VBoxContainer/MarginContainer
 
 signal exit_option_menu
 
@@ -25,9 +26,13 @@ func _process(_delta):
 		game.custom_minimum_size.y = 750 
 		graphics.custom_minimum_size.y = 750 
 		audio.custom_minimum_size.y = 750 
+		margin_container.add_theme_constant_override("margin_left", 60)
+		margin_container.add_theme_constant_override("margin_right", 60)
+		
 	else:
 		controls.custom_minimum_size.y = 300  # different value for windowed mode
 		game.custom_minimum_size.y = 300
 		graphics.custom_minimum_size.y = 300
 		audio.custom_minimum_size.y = 300
-		
+		margin_container.add_theme_constant_override("margin_left", 30)
+		margin_container.add_theme_constant_override("margin_right", 30)

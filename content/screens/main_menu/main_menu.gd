@@ -4,6 +4,7 @@ extends Control
 @onready var menu: Control = $Menu
 @onready var buttons: MenuButtons = $Menu/VBoxContainer/Buttons
 @onready var settings_menu: SettingsMenu = $SettingsMenu
+@onready var main_menu: Control = $"."
 
 
 
@@ -15,6 +16,7 @@ func _ready() -> void:
 	# Connect signal from settings menu
 	buttons.settings_pressed.connect(_on_settings_button_pressed)
 	settings_menu.exit_option_menu.connect(_on_settings_exit_pressed)
+	buttons.new_game_pressed.connect(_on_new_game_button_pressed)
 
 func _on_settings_exit_pressed() -> void:
 	settings_menu.hide()
@@ -31,6 +33,7 @@ func _on_continue_button_pressed() -> void:
 	GameManager.load_game()
 
 func _on_new_game_button_pressed() -> void:
+	main_menu.hide()
 	GameManager.start_game()
 
 func _on_settings_button_pressed() -> void:

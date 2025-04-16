@@ -40,6 +40,10 @@ window/size/resizable=false
 
 project/assembly_name="BossRush"
 
+[global_group]
+
+Player=""
+
 [input]
 
 move_forward={
