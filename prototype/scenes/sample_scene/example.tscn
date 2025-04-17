@@ -19,6 +19,7 @@ shadow_enabled = true
 mesh = SubResource("BoxMesh_jpiij")
 
 [node name="StaticBody3D" type="StaticBody3D" parent="MeshInstance3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.0233335, -4.76837e-07, -0.0124846)
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="MeshInstance3D/StaticBody3D"]
 shape = SubResource("ConvexPolygonShape3D_ou1jp")

@@ -1,6 +1,8 @@
-[gd_scene load_steps=5 format=3 uid="uid://bqgbbeiwhaxx1"]
+[gd_scene load_steps=8 format=3 uid="uid://bqgbbeiwhaxx1"]
 
 [ext_resource type="PackedScene" uid="uid://dbo3hq82xbs2c" path="res://content/actors/minotaur/minotaur.tscn" id="1_fbabv"]
+[ext_resource type="PackedScene" uid="uid://emle8j506jtm" path="res://prototype/props/proxies/AxeWielder.tscn" id="2_n88sd"]
+[ext_resource type="PackedScene" uid="uid://dkpqkttbd6w67" path="res://prototype/props/proxies/proxy_player.tscn" id="3_icroi"]
 
 [sub_resource type="Environment" id="Environment_4uwe5"]
 background_mode = 2
@@ -11,7 +13,9 @@ reflected_light_source = 2
 
 [sub_resource type="BoxMesh" id="BoxMesh_4uwe5"]
 
-[sub_resource type="PlaneMesh" id="PlaneMesh_4uwe5"]
+[sub_resource type="BoxMesh" id="BoxMesh_n88sd"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_icroi"]
 
 [node name="NewGameScene" type="Node3D"]
 
@@ -22,18 +26,25 @@ environment = SubResource("Environment_4uwe5")
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.635918, 0)
 mesh = SubResource("BoxMesh_4uwe5")
 
-[node name="Camera3D" type="Camera3D" parent="."]
-transform = Transform3D(0.903694, -0.206244, 0.375233, 0, 0.876349, 0.481677, -0.428178, -0.435289, 0.791951, 1.7888, 1.57474, 3.91489)
-current = true
-
 [node name="DirectionalLight3D" type="DirectionalLight3D" parent="."]
 transform = Transform3D(-0.427349, 0.121569, 0.895876, 0.73177, 0.628433, 0.26379, -0.530929, 0.768305, -0.357521, 16.7282, 4.71888, -6.77323)
 light_color = Color(0.893155, 0.505999, 0.107612, 1)
 shadow_enabled = true
 
-[node name="floor_panel" type="MeshInstance3D" parent="."]
-transform = Transform3D(11.22, 0, 0, 0, 1, 0, 0, 0, 5.29, 0, 0.118166, 0)
-mesh = SubResource("PlaneMesh_4uwe5")
-
 [node name="Minotaur" parent="." instance=ExtResource("1_fbabv")]
 transform = Transform3D(0.648386, 0, 0.761312, 0, 1, 0, -0.761312, 0, 0.648386, 1.20632, 0, 1.08645)
+
+[node name="AxeWielder" parent="." instance=ExtResource("2_n88sd")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -7.8053, 1.44131, 0.612445)
+
+[node name="ProxyPlayer" parent="." instance=ExtResource("3_icroi")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -7.02633, 1.70317, 37.0464)
+
+[node name="floor" type="MeshInstance3D" parent="."]
+transform = Transform3D(-219.895, 0, 0, 0, -1.41088, 0, 0, 0, 164.672, 0, 0, 0)
+mesh = SubResource("BoxMesh_n88sd")
+
+[node name="StaticBody3D" type="StaticBody3D" parent="floor"]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="floor/StaticBody3D"]
+shape = SubResource("BoxShape3D_icroi")
