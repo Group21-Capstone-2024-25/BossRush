@@ -1,0 +1,7 @@
+[gd_resource type="StandardMaterial3D" load_steps=2 format=3 uid="uid://cgjofvvx0xik8"]
+
+[ext_resource type="Texture2D" uid="uid://37j0clk3imt2" path="res://resources/textures/chinesewarrior1_albedo.png" id="1_oqtce"]
+
+[resource]
+resource_name = "ChineseWarrior1"
+albedo_texture = ExtResource("1_oqtce")

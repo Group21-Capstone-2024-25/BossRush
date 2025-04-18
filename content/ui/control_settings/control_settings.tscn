@@ -1,4 +1,430 @@
-[gd_scene format=3 uid="uid://dg0fveb5s1q55"]
+[gd_scene load_steps=3 format=3 uid="uid://dg0fveb5s1q55"]
+
+[ext_resource type="Theme" uid="uid://7nmlsyfocodh" path="res://resources/themes/default.theme" id="1_7nfjp"]
+[ext_resource type="Script" uid="uid://dvnnxgas51t0e" path="res://content/ui/control_settings/control_settings.gd" id="2_03vic"]
 
 [node name="Controls" type="MarginContainer"]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme = ExtResource("1_7nfjp")
+theme_override_constants/margin_left = 10
+theme_override_constants/margin_top = 10
+theme_override_constants/margin_right = 10
+theme_override_constants/margin_bottom = 10
+script = ExtResource("2_03vic")
 metadata/_tab_index = 1
+
+[node name="ScrollContainer" type="ScrollContainer" parent="."]
+layout_mode = 2
+
+[node name="VBoxContainer" type="VBoxContainer" parent="ScrollContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+
+[node name="CameraSettings" type="PanelContainer" parent="ScrollContainer/VBoxContainer"]
+layout_mode = 2
+
+[node name="MarginContainer" type="MarginContainer" parent="ScrollContainer/VBoxContainer/CameraSettings"]
+layout_mode = 2
+
+[node name="VBoxContainer" type="VBoxContainer" parent="ScrollContainer/VBoxContainer/CameraSettings/MarginContainer"]
+layout_mode = 2
+
+[node name="Label" type="Label" parent="ScrollContainer/VBoxContainer/CameraSettings/MarginContainer/VBoxContainer"]
+layout_mode = 2
+text = "Camera Settings"
+
+[node name="HSeparator" type="HSeparator" parent="ScrollContainer/VBoxContainer/CameraSettings/MarginContainer/VBoxContainer"]
+layout_mode = 2
+
+[node name="InvertXSetting" type="HBoxContainer" parent="ScrollContainer/VBoxContainer/CameraSettings/MarginContainer/VBoxContainer"]
+layout_mode = 2
+
+[node name="Label" type="Label" parent="ScrollContainer/VBoxContainer/CameraSettings/MarginContainer/VBoxContainer/InvertXSetting"]
+layout_mode = 2
+size_flags_horizontal = 3
+text = "Invert X"
+
+[node name="InvertX" type="CheckButton" parent="ScrollContainer/VBoxContainer/CameraSettings/MarginContainer/VBoxContainer/InvertXSetting"]
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="HorizontalSensitivitySetting" type="HBoxContainer" parent="ScrollContainer/VBoxContainer/CameraSettings/MarginContainer/VBoxContainer"]
+layout_mode = 2
+
+[node name="Label" type="Label" parent="ScrollContainer/VBoxContainer/CameraSettings/MarginContainer/VBoxContainer/HorizontalSensitivitySetting"]
+layout_mode = 2
+size_flags_horizontal = 3
+text = "Horizontal Sensitivity"
+
+[node name="HorizontalSensitivity" type="SpinBox" parent="ScrollContainer/VBoxContainer/CameraSettings/MarginContainer/VBoxContainer/HorizontalSensitivitySetting"]
+layout_mode = 2
+size_flags_horizontal = 3
+step = 0.01
+value = 1.0
+
+[node name="InvertYSetting" type="HBoxContainer" parent="ScrollContainer/VBoxContainer/CameraSettings/MarginContainer/VBoxContainer"]
+layout_mode = 2
+
+[node name="Label" type="Label" parent="ScrollContainer/VBoxContainer/CameraSettings/MarginContainer/VBoxContainer/InvertYSetting"]
+layout_mode = 2
+size_flags_horizontal = 3
+text = "Invert Y"
+
+[node name="InvertY" type="CheckButton" parent="ScrollContainer/VBoxContainer/CameraSettings/MarginContainer/VBoxContainer/InvertYSetting"]
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="VerticalSensitivitySetting" type="HBoxContainer" parent="ScrollContainer/VBoxContainer/CameraSettings/MarginContainer/VBoxContainer"]
+layout_mode = 2
+
+[node name="Label" type="Label" parent="ScrollContainer/VBoxContainer/CameraSettings/MarginContainer/VBoxContainer/VerticalSensitivitySetting"]
+layout_mode = 2
+size_flags_horizontal = 3
+text = "Vertical Sensitivity"
+
+[node name="VerticalSensitivity" type="SpinBox" parent="ScrollContainer/VBoxContainer/CameraSettings/MarginContainer/VBoxContainer/VerticalSensitivitySetting"]
+layout_mode = 2
+size_flags_horizontal = 3
+step = 0.01
+value = 1.0
+
+[node name="KeybindSettings" type="PanelContainer" parent="ScrollContainer/VBoxContainer"]
+layout_mode = 2
+
+[node name="MarginContainer" type="MarginContainer" parent="ScrollContainer/VBoxContainer/KeybindSettings"]
+layout_mode = 2
+
+[node name="TabContainer" type="TabContainer" parent="ScrollContainer/VBoxContainer/KeybindSettings/MarginContainer"]
+layout_mode = 2
+current_tab = 0
+
+[node name="Keyboard" type="VBoxContainer" parent="ScrollContainer/VBoxContainer/KeybindSettings/MarginContainer/TabContainer"]
+layout_mode = 2
+metadata/_tab_index = 0
+
+[node name="MovementSettings" type="PanelContainer" parent="ScrollContainer/VBoxContainer/KeybindSettings/MarginContainer/TabContainer/Keyboard"]
+layout_mode = 2
+
+[node name="MarginContainer" type="MarginContainer" parent="ScrollContainer/VBoxContainer/KeybindSettings/MarginContainer/TabContainer/Keyboard/MovementSettings"]
+layout_mode = 2
+
+[node name="VBoxContainer" type="VBoxContainer" parent="ScrollContainer/VBoxContainer/KeybindSettings/MarginContainer/TabContainer/Keyboard/MovementSettings/MarginContainer"]
+layout_mode = 2
+
+[node name="Label" type="Label" parent="ScrollContainer/VBoxContainer/KeybindSettings/MarginContainer/TabContainer/Keyboard/MovementSettings/MarginContainer/VBoxContainer"]
+layout_mode = 2
+text = "Movement"
+
+[node name="HSeparator" type="HSeparator" parent="ScrollContainer/VBoxContainer/KeybindSettings/MarginContainer/TabContainer/Keyboard/MovementSettings/MarginContainer/VBoxContainer"]
+layout_mode = 2
+
+[node name="MoveForwardKey" type="HBoxContainer" parent="ScrollContainer/VBoxContainer/KeybindSettings/MarginContainer/TabContainer/Keyboard/MovementSettings/MarginContainer/VBoxContainer"]
+layout_mode = 2
+
+[node name="Label" type="Label" parent="ScrollContainer/VBoxContainer/KeybindSettings/MarginContainer/TabContainer/Keyboard/MovementSettings/MarginContainer/VBoxContainer/MoveForwardKey"]
+layout_mode = 2
+size_flags_horizontal = 3
+text = "Forward"
+
+[node name="MoveForwardButton" type="Button" parent="ScrollContainer/VBoxContainer/KeybindSettings/MarginContainer/TabContainer/Keyboard/MovementSettings/MarginContainer/VBoxContainer/MoveForwardKey"]
+layout_mode = 2
+size_flags_horizontal = 3
+text = "W"
+
+[node name="MoveLeftKey" type="HBoxContainer" parent="ScrollContainer/VBoxContainer/KeybindSettings/MarginContainer/TabContainer/Keyboard/MovementSettings/MarginContainer/VBoxContainer"]
+layout_mode = 2
+
+[node name="Label" type="Label" parent="ScrollContainer/VBoxContainer/KeybindSettings/MarginContainer/TabContainer/Keyboard/MovementSettings/MarginContainer/VBoxContainer/MoveLeftKey"]
+layout_mode = 2
+size_flags_horizontal = 3
+text = "Left"
+
+[node name="MoveLeftButton" type="Button" parent="ScrollContainer/VBoxContainer/KeybindSettings/MarginContainer/TabContainer/Keyboard/MovementSettings/MarginContainer/VBoxContainer/MoveLeftKey"]
+layout_mode = 2
+size_flags_horizontal = 3
+text = "A"
+
+[node name="MoveBackwardKey" type="HBoxContainer" parent="ScrollContainer/VBoxContainer/KeybindSettings/MarginContainer/TabContainer/Keyboard/MovementSettings/MarginContainer/VBoxContainer"]
+layout_mode = 2
+
+[node name="Label" type="Label" parent="ScrollContainer/VBoxContainer/KeybindSettings/MarginContainer/TabContainer/Keyboard/MovementSettings/MarginContainer/VBoxContainer/MoveBackwardKey"]
+layout_mode = 2
+size_flags_horizontal = 3
+text = "Back"
+
+[node name="MoveBackwardButton" type="Button" parent="ScrollContainer/VBoxContainer/KeybindSettings/MarginContainer/TabContainer/Keyboard/MovementSettings/MarginContainer/VBoxContainer/MoveBackwardKey"]
+layout_mode = 2
+size_flags_horizontal = 3
+text = "S"
+
+[node name="MoveRightKey" type="HBoxContainer" parent="ScrollContainer/VBoxContainer/KeybindSettings/MarginContainer/TabContainer/Keyboard/MovementSettings/MarginContainer/VBoxContainer"]
+layout_mode = 2
+
+[node name="Label" type="Label" parent="ScrollContainer/VBoxContainer/KeybindSettings/MarginContainer/TabContainer/Keyboard/MovementSettings/MarginContainer/VBoxContainer/MoveRightKey"]
+layout_mode = 2
+size_flags_horizontal = 3
+text = "Right"
+
+[node name="MoveRightButton" type="Button" parent="ScrollContainer/VBoxContainer/KeybindSettings/MarginContainer/TabContainer/Keyboard/MovementSettings/MarginContainer/VBoxContainer/MoveRightKey"]
+layout_mode = 2
+size_flags_horizontal = 3
+text = "D"
+
+[node name="AttackKey" type="HBoxContainer" parent="ScrollContainer/VBoxContainer/KeybindSettings/MarginContainer/TabContainer/Keyboard"]
+layout_mode = 2
+
+[node name="Label" type="Label" parent="ScrollContainer/VBoxContainer/KeybindSettings/MarginContainer/TabContainer/Keyboard/AttackKey"]
+layout_mode = 2
+size_flags_horizontal = 3
+text = "Attack"
+
+[node name="AttackButton" type="Button" parent="ScrollContainer/VBoxContainer/KeybindSettings/MarginContainer/TabContainer/Keyboard/AttackKey"]
+layout_mode = 2
+size_flags_horizontal = 3
+text = "Right Mouse Button"
+
+[node name="DefendKey" type="HBoxContainer" parent="ScrollContainer/VBoxContainer/KeybindSettings/MarginContainer/TabContainer/Keyboard"]
+layout_mode = 2
+
+[node name="Label" type="Label" parent="ScrollContainer/VBoxContainer/KeybindSettings/MarginContainer/TabContainer/Keyboard/DefendKey"]
+layout_mode = 2
+size_flags_horizontal = 3
+text = "Defend"
+
+[node name="DefendButton" type="Button" parent="ScrollContainer/VBoxContainer/KeybindSettings/MarginContainer/TabContainer/Keyboard/DefendKey"]
+layout_mode = 2
+size_flags_horizontal = 3
+text = "Left Mouse Button"
+
+[node name="InteractKey" type="HBoxContainer" parent="ScrollContainer/VBoxContainer/KeybindSettings/MarginContainer/TabContainer/Keyboard"]
+layout_mode = 2
+
+[node name="Label" type="Label" parent="ScrollContainer/VBoxContainer/KeybindSettings/MarginContainer/TabContainer/Keyboard/InteractKey"]
+layout_mode = 2
+size_flags_horizontal = 3
+text = "Interact"
+
+[node name="InteractButton" type="Button" parent="ScrollContainer/VBoxContainer/KeybindSettings/MarginContainer/TabContainer/Keyboard/InteractKey"]
+layout_mode = 2
+size_flags_horizontal = 3
+text = "F"
+
+[node name="EvadeKey" type="HBoxContainer" parent="ScrollContainer/VBoxContainer/KeybindSettings/MarginContainer/TabContainer/Keyboard"]
+layout_mode = 2
+
+[node name="Label" type="Label" parent="ScrollContainer/VBoxContainer/KeybindSettings/MarginContainer/TabContainer/Keyboard/EvadeKey"]
+layout_mode = 2
+size_flags_horizontal = 3
+text = "Evade"
+
+[node name="EvadeButton" type="Button" parent="ScrollContainer/VBoxContainer/KeybindSettings/MarginContainer/TabContainer/Keyboard/EvadeKey"]
+layout_mode = 2
+size_flags_horizontal = 3
+text = "Space"
+
+[node name="LockOnKey" type="HBoxContainer" parent="ScrollContainer/VBoxContainer/KeybindSettings/MarginContainer/TabContainer/Keyboard"]
+layout_mode = 2
+
+[node name="Label" type="Label" parent="ScrollContainer/VBoxContainer/KeybindSettings/MarginContainer/TabContainer/Keyboard/LockOnKey"]
+layout_mode = 2
+size_flags_horizontal = 3
+text = "Lock On"
+
+[node name="LockOnButton" type="Button" parent="ScrollContainer/VBoxContainer/KeybindSettings/MarginContainer/TabContainer/Keyboard/LockOnKey"]
+layout_mode = 2
+size_flags_horizontal = 3
+text = "Q"
+
+[node name="UseItemKey" type="HBoxContainer" parent="ScrollContainer/VBoxContainer/KeybindSettings/MarginContainer/TabContainer/Keyboard"]
+layout_mode = 2
+
+[node name="Label" type="Label" parent="ScrollContainer/VBoxContainer/KeybindSettings/MarginContainer/TabContainer/Keyboard/UseItemKey"]
+layout_mode = 2
+size_flags_horizontal = 3
+text = "Use Item"
+
+[node name="UseItemButton" type="Button" parent="ScrollContainer/VBoxContainer/KeybindSettings/MarginContainer/TabContainer/Keyboard/UseItemKey"]
+layout_mode = 2
+size_flags_horizontal = 3
+text = "E"
+
+[node name="Controller" type="VBoxContainer" parent="ScrollContainer/VBoxContainer/KeybindSettings/MarginContainer/TabContainer"]
+visible = false
+layout_mode = 2
+metadata/_tab_index = 1
+
+[node name="MovementSettings" type="PanelContainer" parent="ScrollContainer/VBoxContainer/KeybindSettings/MarginContainer/TabContainer/Controller"]
+layout_mode = 2
+
+[node name="MarginContainer" type="MarginContainer" parent="ScrollContainer/VBoxContainer/KeybindSettings/MarginContainer/TabContainer/Controller/MovementSettings"]
+layout_mode = 2
+
+[node name="VBoxContainer" type="VBoxContainer" parent="ScrollContainer/VBoxContainer/KeybindSettings/MarginContainer/TabContainer/Controller/MovementSettings/MarginContainer"]
+layout_mode = 2
+
+[node name="Label" type="Label" parent="ScrollContainer/VBoxContainer/KeybindSettings/MarginContainer/TabContainer/Controller/MovementSettings/MarginContainer/VBoxContainer"]
+layout_mode = 2
+text = "Movement"
+
+[node name="HSeparator" type="HSeparator" parent="ScrollContainer/VBoxContainer/KeybindSettings/MarginContainer/TabContainer/Controller/MovementSettings/MarginContainer/VBoxContainer"]
+layout_mode = 2
+
+[node name="MoveForwardKey" type="HBoxContainer" parent="ScrollContainer/VBoxContainer/KeybindSettings/MarginContainer/TabContainer/Controller/MovementSettings/MarginContainer/VBoxContainer"]
+layout_mode = 2
+
+[node name="Label" type="Label" parent="ScrollContainer/VBoxContainer/KeybindSettings/MarginContainer/TabContainer/Controller/MovementSettings/MarginContainer/VBoxContainer/MoveForwardKey"]
+layout_mode = 2
+size_flags_horizontal = 3
+text = "Forward"
+
+[node name="MoveForwardButton" type="Button" parent="ScrollContainer/VBoxContainer/KeybindSettings/MarginContainer/TabContainer/Controller/MovementSettings/MarginContainer/VBoxContainer/MoveForwardKey"]
+layout_mode = 2
+size_flags_horizontal = 3
+text = "LeftStickUp"
+
+[node name="MoveLeftKey" type="HBoxContainer" parent="ScrollContainer/VBoxContainer/KeybindSettings/MarginContainer/TabContainer/Controller/MovementSettings/MarginContainer/VBoxContainer"]
+layout_mode = 2
+
+[node name="Label" type="Label" parent="ScrollContainer/VBoxContainer/KeybindSettings/MarginContainer/TabContainer/Controller/MovementSettings/MarginContainer/VBoxContainer/MoveLeftKey"]
+layout_mode = 2
+size_flags_horizontal = 3
+text = "Left"
+
+[node name="MoveLeftButton" type="Button" parent="ScrollContainer/VBoxContainer/KeybindSettings/MarginContainer/TabContainer/Controller/MovementSettings/MarginContainer/VBoxContainer/MoveLeftKey"]
+layout_mode = 2
+size_flags_horizontal = 3
+text = "LeftStickLeft"
+
+[node name="MoveBackwardKey" type="HBoxContainer" parent="ScrollContainer/VBoxContainer/KeybindSettings/MarginContainer/TabContainer/Controller/MovementSettings/MarginContainer/VBoxContainer"]
+layout_mode = 2
+
+[node name="Label" type="Label" parent="ScrollContainer/VBoxContainer/KeybindSettings/MarginContainer/TabContainer/Controller/MovementSettings/MarginContainer/VBoxContainer/MoveBackwardKey"]
+layout_mode = 2
+size_flags_horizontal = 3
+text = "Back"
+
+[node name="MoveBackwardButton" type="Button" parent="ScrollContainer/VBoxContainer/KeybindSettings/MarginContainer/TabContainer/Controller/MovementSettings/MarginContainer/VBoxContainer/MoveBackwardKey"]
+layout_mode = 2
+size_flags_horizontal = 3
+text = "LeftStickDown"
+
+[node name="MoveRightKey" type="HBoxContainer" parent="ScrollContainer/VBoxContainer/KeybindSettings/MarginContainer/TabContainer/Controller/MovementSettings/MarginContainer/VBoxContainer"]
+layout_mode = 2
+
+[node name="Label" type="Label" parent="ScrollContainer/VBoxContainer/KeybindSettings/MarginContainer/TabContainer/Controller/MovementSettings/MarginContainer/VBoxContainer/MoveRightKey"]
+layout_mode = 2
+size_flags_horizontal = 3
+text = "Right"
+
+[node name="MoveRightButton" type="Button" parent="ScrollContainer/VBoxContainer/KeybindSettings/MarginContainer/TabContainer/Controller/MovementSettings/MarginContainer/VBoxContainer/MoveRightKey"]
+layout_mode = 2
+size_flags_horizontal = 3
+text = "LeftStickRight"
+
+[node name="AttackKey" type="HBoxContainer" parent="ScrollContainer/VBoxContainer/KeybindSettings/MarginContainer/TabContainer/Controller"]
+layout_mode = 2
+
+[node name="Label" type="Label" parent="ScrollContainer/VBoxContainer/KeybindSettings/MarginContainer/TabContainer/Controller/AttackKey"]
+layout_mode = 2
+size_flags_horizontal = 3
+text = "Attack"
+
+[node name="AttackButton" type="Button" parent="ScrollContainer/VBoxContainer/KeybindSettings/MarginContainer/TabContainer/Controller/AttackKey"]
+layout_mode = 2
+size_flags_horizontal = 3
+text = "B/Circle"
+
+[node name="DefendKey" type="HBoxContainer" parent="ScrollContainer/VBoxContainer/KeybindSettings/MarginContainer/TabContainer/Controller"]
+layout_mode = 2
+
+[node name="Label" type="Label" parent="ScrollContainer/VBoxContainer/KeybindSettings/MarginContainer/TabContainer/Controller/DefendKey"]
+layout_mode = 2
+size_flags_horizontal = 3
+text = "Defend"
+
+[node name="DefendButton" type="Button" parent="ScrollContainer/VBoxContainer/KeybindSettings/MarginContainer/TabContainer/Controller/DefendKey"]
+layout_mode = 2
+size_flags_horizontal = 3
+text = "X/Square"
+
+[node name="InteractKey" type="HBoxContainer" parent="ScrollContainer/VBoxContainer/KeybindSettings/MarginContainer/TabContainer/Controller"]
+layout_mode = 2
+
+[node name="Label" type="Label" parent="ScrollContainer/VBoxContainer/KeybindSettings/MarginContainer/TabContainer/Controller/InteractKey"]
+layout_mode = 2
+size_flags_horizontal = 3
+text = "Interact"
+
+[node name="InteractButton" type="Button" parent="ScrollContainer/VBoxContainer/KeybindSettings/MarginContainer/TabContainer/Controller/InteractKey"]
+layout_mode = 2
+size_flags_horizontal = 3
+text = "Y/Triangle"
+
+[node name="EvadeKey" type="HBoxContainer" parent="ScrollContainer/VBoxContainer/KeybindSettings/MarginContainer/TabContainer/Controller"]
+layout_mode = 2
+
+[node name="Label" type="Label" parent="ScrollContainer/VBoxContainer/KeybindSettings/MarginContainer/TabContainer/Controller/EvadeKey"]
+layout_mode = 2
+size_flags_horizontal = 3
+text = "Evade"
+
+[node name="EvadeButton" type="Button" parent="ScrollContainer/VBoxContainer/KeybindSettings/MarginContainer/TabContainer/Controller/EvadeKey"]
+layout_mode = 2
+size_flags_horizontal = 3
+text = "A/Cross"
+
+[node name="LockOnKey" type="HBoxContainer" parent="ScrollContainer/VBoxContainer/KeybindSettings/MarginContainer/TabContainer/Controller"]
+layout_mode = 2
+
+[node name="Label" type="Label" parent="ScrollContainer/VBoxContainer/KeybindSettings/MarginContainer/TabContainer/Controller/LockOnKey"]
+layout_mode = 2
+size_flags_horizontal = 3
+text = "Lock On"
+
+[node name="LockOnButton" type="Button" parent="ScrollContainer/VBoxContainer/KeybindSettings/MarginContainer/TabContainer/Controller/LockOnKey"]
+layout_mode = 2
+size_flags_horizontal = 3
+text = "RB/R1"
+
+[node name="UseItemKey" type="HBoxContainer" parent="ScrollContainer/VBoxContainer/KeybindSettings/MarginContainer/TabContainer/Controller"]
+layout_mode = 2
+
+[node name="Label" type="Label" parent="ScrollContainer/VBoxContainer/KeybindSettings/MarginContainer/TabContainer/Controller/UseItemKey"]
+layout_mode = 2
+size_flags_horizontal = 3
+text = "Use Item"
+
+[node name="UseItemButton" type="Button" parent="ScrollContainer/VBoxContainer/KeybindSettings/MarginContainer/TabContainer/Controller/UseItemKey"]
+layout_mode = 2
+size_flags_horizontal = 3
+text = "LB/L1"
+
+[connection signal="toggled" from="ScrollContainer/VBoxContainer/CameraSettings/MarginContainer/VBoxContainer/InvertXSetting/InvertX" to="." method="_on_invert_x_toggled"]
+[connection signal="value_changed" from="ScrollContainer/VBoxContainer/CameraSettings/MarginContainer/VBoxContainer/HorizontalSensitivitySetting/HorizontalSensitivity" to="." method="_on_horizontal_sensitivity_value_changed"]
+[connection signal="toggled" from="ScrollContainer/VBoxContainer/CameraSettings/MarginContainer/VBoxContainer/InvertYSetting/InvertY" to="." method="_on_invert_y_toggled"]
+[connection signal="value_changed" from="ScrollContainer/VBoxContainer/CameraSettings/MarginContainer/VBoxContainer/VerticalSensitivitySetting/VerticalSensitivity" to="." method="_on_vertical_sensitivity_value_changed"]
+[connection signal="pressed" from="ScrollContainer/VBoxContainer/KeybindSettings/MarginContainer/TabContainer/Keyboard/MovementSettings/MarginContainer/VBoxContainer/MoveForwardKey/MoveForwardButton" to="." method="_on_move_forward_button_pressed"]
+[connection signal="pressed" from="ScrollContainer/VBoxContainer/KeybindSettings/MarginContainer/TabContainer/Keyboard/MovementSettings/MarginContainer/VBoxContainer/MoveLeftKey/MoveLeftButton" to="." method="_on_move_left_button_pressed"]
+[connection signal="pressed" from="ScrollContainer/VBoxContainer/KeybindSettings/MarginContainer/TabContainer/Keyboard/MovementSettings/MarginContainer/VBoxContainer/MoveBackwardKey/MoveBackwardButton" to="." method="_on_move_backward_button_pressed"]
+[connection signal="pressed" from="ScrollContainer/VBoxContainer/KeybindSettings/MarginContainer/TabContainer/Keyboard/MovementSettings/MarginContainer/VBoxContainer/MoveRightKey/MoveRightButton" to="." method="_on_move_right_button_pressed"]
+[connection signal="pressed" from="ScrollContainer/VBoxContainer/KeybindSettings/MarginContainer/TabContainer/Keyboard/AttackKey/AttackButton" to="." method="_on_attack_button_pressed"]
+[connection signal="pressed" from="ScrollContainer/VBoxContainer/KeybindSettings/MarginContainer/TabContainer/Keyboard/DefendKey/DefendButton" to="." method="_on_defend_button_pressed"]
+[connection signal="pressed" from="ScrollContainer/VBoxContainer/KeybindSettings/MarginContainer/TabContainer/Keyboard/InteractKey/InteractButton" to="." method="_on_interact_button_pressed"]
+[connection signal="pressed" from="ScrollContainer/VBoxContainer/KeybindSettings/MarginContainer/TabContainer/Keyboard/EvadeKey/EvadeButton" to="." method="_on_evade_button_pressed"]
+[connection signal="pressed" from="ScrollContainer/VBoxContainer/KeybindSettings/MarginContainer/TabContainer/Keyboard/LockOnKey/LockOnButton" to="." method="_on_lock_on_button_pressed"]
+[connection signal="pressed" from="ScrollContainer/VBoxContainer/KeybindSettings/MarginContainer/TabContainer/Keyboard/UseItemKey/UseItemButton" to="." method="_on_use_item_button_pressed"]
+[connection signal="pressed" from="ScrollContainer/VBoxContainer/KeybindSettings/MarginContainer/TabContainer/Controller/MovementSettings/MarginContainer/VBoxContainer/MoveForwardKey/MoveForwardButton" to="." method="_on_move_forward_button_pressed"]
+[connection signal="pressed" from="ScrollContainer/VBoxContainer/KeybindSettings/MarginContainer/TabContainer/Controller/MovementSettings/MarginContainer/VBoxContainer/MoveLeftKey/MoveLeftButton" to="." method="_on_move_left_button_pressed"]
+[connection signal="pressed" from="ScrollContainer/VBoxContainer/KeybindSettings/MarginContainer/TabContainer/Controller/MovementSettings/MarginContainer/VBoxContainer/MoveBackwardKey/MoveBackwardButton" to="." method="_on_move_backward_button_pressed"]
+[connection signal="pressed" from="ScrollContainer/VBoxContainer/KeybindSettings/MarginContainer/TabContainer/Controller/MovementSettings/MarginContainer/VBoxContainer/MoveRightKey/MoveRightButton" to="." method="_on_move_right_button_pressed"]
+[connection signal="pressed" from="ScrollContainer/VBoxContainer/KeybindSettings/MarginContainer/TabContainer/Controller/AttackKey/AttackButton" to="." method="_on_attack_button_pressed"]
+[connection signal="pressed" from="ScrollContainer/VBoxContainer/KeybindSettings/MarginContainer/TabContainer/Controller/DefendKey/DefendButton" to="." method="_on_defend_button_pressed"]
+[connection signal="pressed" from="ScrollContainer/VBoxContainer/KeybindSettings/MarginContainer/TabContainer/Controller/InteractKey/InteractButton" to="." method="_on_interact_button_pressed"]
+[connection signal="pressed" from="ScrollContainer/VBoxContainer/KeybindSettings/MarginContainer/TabContainer/Controller/EvadeKey/EvadeButton" to="." method="_on_evade_button_pressed"]
+[connection signal="pressed" from="ScrollContainer/VBoxContainer/KeybindSettings/MarginContainer/TabContainer/Controller/LockOnKey/LockOnButton" to="." method="_on_lock_on_button_pressed"]
+[connection signal="pressed" from="ScrollContainer/VBoxContainer/KeybindSettings/MarginContainer/TabContainer/Controller/UseItemKey/UseItemButton" to="." method="_on_use_item_button_pressed"]

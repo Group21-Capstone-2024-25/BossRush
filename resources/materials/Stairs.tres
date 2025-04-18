@@ -1,6 +1,0 @@
-[gd_resource type="StandardMaterial3D" format=3 uid="uid://cugqvto1ncgpn"]
-
-[resource]
-resource_name = "Stairs"
-cull_mode = 2
-albedo_color = Color(0.906332, 0.658644, 0, 1)

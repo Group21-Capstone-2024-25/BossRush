@@ -3,7 +3,7 @@
 importer="scene"
 importer_version=1
 type="PackedScene"
-uid="uid://v434ra3ov8md"
+uid="uid://ds8o4de0ad4xc"
 path="res://.godot/imported/Colosseum.glb-8f03b517ede361d50fb546b5673a8e3b.scn"
 
 [deps]
@@ -22,59 +22,16 @@ nodes/use_node_type_suffixes=true
 meshes/ensure_tangents=true
 meshes/generate_lods=true
 meshes/create_shadow_meshes=true
-meshes/light_baking=3
+meshes/light_baking=1
 meshes/lightmap_texel_size=0.2
 meshes/force_disable_compression=false
 skins/use_named_skins=true
-animation/import=false
+animation/import=true
 animation/fps=30
 animation/trimming=false
 animation/remove_immutable_tracks=true
 animation/import_rest_as_RESET=false
 import_script/path=""
-_subresources={
-"materials": {
-"ArenaWall": {
-"use_external/enabled": true,
-"use_external/path": "res://resources/materials/ArenaWall.tres"
-},
-"Cloth": {
-"use_external/enabled": true,
-"use_external/path": "res://resources/materials/Cloth.tres"
-},
-"Entrance": {
-"use_external/enabled": true,
-"use_external/path": "res://resources/materials/Entrance.tres"
-},
-"Floor": {
-"use_external/enabled": true,
-"use_external/path": "res://resources/materials/Floor.tres"
-},
-"Paths": {
-"use_external/enabled": true,
-"use_external/path": "res://resources/materials/Paths.tres"
-},
-"Roof": {
-"use_external/enabled": true,
-"use_external/path": "res://resources/materials/Roof.tres"
-},
-"Rope": {
-"use_external/enabled": true,
-"use_external/path": "res://resources/materials/Rope.tres"
-},
-"Seats": {
-"use_external/enabled": true,
-"use_external/path": "res://resources/materials/Seats.tres"
-},
-"Stairs": {
-"use_external/enabled": true,
-"use_external/path": "res://resources/materials/Stairs.tres"
-},
-"Walls": {
-"use_external/enabled": true,
-"use_external/path": "res://resources/materials/Walls.tres"
-}
-}
-}
+_subresources={}
 gltf/naming_version=1
 gltf/embedded_image_handling=1

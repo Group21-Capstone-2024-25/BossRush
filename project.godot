@@ -23,18 +23,15 @@ buses/default_bus_layout="res://settings/default_bus_layout.tres"
 
 [autoload]
 
-GameManager="*res://autoloads/game_manager.gd"
-InputManager="*res://autoloads/input_manager.gd"
-SettingsManager="*res://autoloads/settings_manager.gd"
-UI="*res://autoloads/ui.gd"
-Game="*res://autoloads/game.gd"
+GameManager="*res://scripts/autoloads/game_manager.gd"
+SettingsManager="*res://scripts/autoloads/settings_manager.gd"
 
 [display]
 
 window/size/viewport_width=960
 window/size/viewport_height=540
-window/size/mode=3
 window/size/resizable=false
+window/stretch/mode="viewport"
 
 [dotnet]
 
@@ -114,3 +111,11 @@ game_pause={
 3d_physics/layer_7="EnemyHurtbox"
 3d_physics/layer_8="Interactor"
 3d_physics/layer_9="Interactable"
+
+[limbo_ai]
+
+behavior_tree/behavior_tree_default_dir="res://resources/ai"
+
+[rendering]
+
+environment/defaults/default_clear_color=Color(0, 0, 0, 1)

@@ -1,7 +1,7 @@
 [gd_scene load_steps=16 format=3 uid="uid://emle8j506jtm"]
 
 [ext_resource type="Script" uid="uid://drbwvu730px2y" path="res://prototype/props/proxies/axe_wielder.gd" id="1_xckng"]
-[ext_resource type="BehaviorTree" uid="uid://emdchu1wo3a0" path="res://ai/trees/axeWielder.tres" id="2_vj5da"]
+[ext_resource type="BehaviorTree" uid="uid://emdchu1wo3a0" path="res://resources/ai/trees/axeWielder.tres" id="2_vj5da"]
 
 [sub_resource type="CapsuleShape3D" id="CapsuleShape3D_7jq8m"]
 

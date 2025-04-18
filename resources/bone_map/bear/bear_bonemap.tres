@@ -1,7 +1,0 @@
-[gd_resource type="BoneMap" load_steps=2 format=3 uid="uid://d28urb05gwxe4"]
-
-[ext_resource type="SkeletonProfile" uid="uid://cpxrg41fvh8un" path="res://resources/bone_map/bear/bear_skeleton.tres" id="1_yjr4e"]
-
-[resource]
-profile = ExtResource("1_yjr4e")
-bonemap = null

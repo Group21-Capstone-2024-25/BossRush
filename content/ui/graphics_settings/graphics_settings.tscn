@@ -1,5 +1,133 @@
-[gd_scene format=3 uid="uid://ciyy7n4fk2agl"]
+[gd_scene load_steps=3 format=3 uid="uid://ciyy7n4fk2agl"]
+
+[ext_resource type="Theme" uid="uid://7nmlsyfocodh" path="res://resources/themes/default.theme" id="1_kdet0"]
+[ext_resource type="Script" uid="uid://dgd4ubkbv35yb" path="res://content/ui/graphics_settings/graphics_settings.gd" id="2_f7i3w"]
 
 [node name="Graphics" type="MarginContainer"]
-visible = false
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme = ExtResource("1_kdet0")
+script = ExtResource("2_f7i3w")
 metadata/_tab_index = 2
+
+[node name="ScrollContainer" type="ScrollContainer" parent="."]
+layout_mode = 2
+
+[node name="VBoxContainer" type="VBoxContainer" parent="ScrollContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+
+[node name="ResolutionSetting" type="HBoxContainer" parent="ScrollContainer/VBoxContainer"]
+layout_mode = 2
+
+[node name="Label" type="Label" parent="ScrollContainer/VBoxContainer/ResolutionSetting"]
+layout_mode = 2
+size_flags_horizontal = 3
+text = "Resolution"
+
+[node name="ResolutionOption" type="OptionButton" parent="ScrollContainer/VBoxContainer/ResolutionSetting"]
+layout_mode = 2
+size_flags_horizontal = 3
+selected = 0
+item_count = 7
+popup/item_0/text = "1920 X 1080"
+popup/item_0/id = 0
+popup/item_1/text = "2560 X 1440"
+popup/item_1/id = 1
+popup/item_2/text = "3440 X 1440"
+popup/item_2/id = 2
+popup/item_3/text = "1920 X 1200"
+popup/item_3/id = 3
+popup/item_4/text = "1366 X 768"
+popup/item_4/id = 4
+popup/item_5/text = "1440 X 900"
+popup/item_5/id = 5
+popup/item_6/text = "3840 x 1080"
+popup/item_6/id = 6
+
+[node name="WindowSetting" type="HBoxContainer" parent="ScrollContainer/VBoxContainer"]
+layout_mode = 2
+
+[node name="Label" type="Label" parent="ScrollContainer/VBoxContainer/WindowSetting"]
+layout_mode = 2
+size_flags_horizontal = 3
+text = "Window"
+
+[node name="WindowOption" type="OptionButton" parent="ScrollContainer/VBoxContainer/WindowSetting"]
+layout_mode = 2
+size_flags_horizontal = 3
+selected = 0
+item_count = 3
+popup/item_0/text = "Fullscreen"
+popup/item_0/id = 0
+popup/item_1/text = "Windowed"
+popup/item_1/id = 1
+popup/item_2/text = "Exclusive Fullscreen"
+popup/item_2/id = 2
+
+[node name="AntiAliasingSetting" type="HBoxContainer" parent="ScrollContainer/VBoxContainer"]
+layout_mode = 2
+
+[node name="Label" type="Label" parent="ScrollContainer/VBoxContainer/AntiAliasingSetting"]
+layout_mode = 2
+size_flags_horizontal = 3
+text = "Anti-Aliasing"
+
+[node name="AntiAliasingOption" type="OptionButton" parent="ScrollContainer/VBoxContainer/AntiAliasingSetting"]
+layout_mode = 2
+size_flags_horizontal = 3
+selected = 3
+item_count = 4
+popup/item_0/text = "MSAA 2X"
+popup/item_0/id = 0
+popup/item_1/text = "MSAA 4X"
+popup/item_1/id = 1
+popup/item_2/text = "MSAA 8X"
+popup/item_2/id = 2
+popup/item_3/text = "Disabled"
+popup/item_3/id = 3
+
+[node name="FrameRateSetting" type="HBoxContainer" parent="ScrollContainer/VBoxContainer"]
+layout_mode = 2
+
+[node name="Label" type="Label" parent="ScrollContainer/VBoxContainer/FrameRateSetting"]
+layout_mode = 2
+size_flags_horizontal = 3
+text = "FrameRate"
+
+[node name="FrameRateOption" type="OptionButton" parent="ScrollContainer/VBoxContainer/FrameRateSetting"]
+layout_mode = 2
+size_flags_horizontal = 3
+selected = 1
+item_count = 5
+popup/item_0/text = "30"
+popup/item_0/id = 0
+popup/item_1/text = "60"
+popup/item_1/id = 1
+popup/item_2/text = "120"
+popup/item_2/id = 2
+popup/item_3/text = "144"
+popup/item_3/id = 3
+popup/item_4/text = "Uncapped"
+popup/item_4/id = 4
+
+[node name="VSyncSetting" type="HBoxContainer" parent="ScrollContainer/VBoxContainer"]
+layout_mode = 2
+
+[node name="Label" type="Label" parent="ScrollContainer/VBoxContainer/VSyncSetting"]
+layout_mode = 2
+size_flags_horizontal = 3
+text = "VSync"
+
+[node name="VSyncCheck" type="CheckButton" parent="ScrollContainer/VBoxContainer/VSyncSetting"]
+layout_mode = 2
+
+[connection signal="item_selected" from="ScrollContainer/VBoxContainer/ResolutionSetting/ResolutionOption" to="." method="_on_resolution_option_item_selected"]
+[connection signal="item_selected" from="ScrollContainer/VBoxContainer/WindowSetting/WindowOption" to="." method="_on_window_option_item_selected"]
+[connection signal="item_selected" from="ScrollContainer/VBoxContainer/AntiAliasingSetting/AntiAliasingOption" to="." method="_on_anti_aliasing_option_item_selected"]
+[connection signal="item_selected" from="ScrollContainer/VBoxContainer/FrameRateSetting/FrameRateOption" to="." method="_on_frame_rate_option_item_selected"]
+[connection signal="pressed" from="ScrollContainer/VBoxContainer/VSyncSetting/VSyncCheck" to="." method="_on_v_sync_check_pressed"]

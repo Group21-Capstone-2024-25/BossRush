@@ -1,5 +1,0 @@
-[gd_scene format=3 uid="uid://7adk57risb6l"]
-
-[node name="Accessibility" type="MarginContainer"]
-visible = false
-metadata/_tab_index = 4

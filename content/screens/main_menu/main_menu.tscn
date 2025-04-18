@@ -1,15 +1,11 @@
-[gd_scene load_steps=8 format=3 uid="uid://ddkrp2go4mvw6"]
+[gd_scene load_steps=5 format=3 uid="uid://ddkrp2go4mvw6"]
 
-[ext_resource type="Theme" uid="uid://jt5mflqhhsga" path="res://prototype/themes/prototype.theme" id="1_gat03"]
+[ext_resource type="Theme" uid="uid://7nmlsyfocodh" path="res://resources/themes/default.theme" id="1_q0glk"]
 [ext_resource type="Script" uid="uid://uql4hk3u0s57" path="res://content/screens/main_menu/main_menu.gd" id="2_8xp43"]
-[ext_resource type="Texture2D" uid="uid://t6qamtgfgv1u" path="res://content/screens/main_menu/assets/2117697-3840x2160-desktop-4k-dark-wallpaper.jpg" id="3_q0glk"]
-[ext_resource type="PackedScene" uid="uid://d350fprq34pu6" path="res://content/screens/main_menu/buttons.tscn" id="4_0xciq"]
-[ext_resource type="PackedScene" uid="uid://ix8j8adfco2e" path="res://content/screens/settings_menu/settings_menu.tscn" id="5_0xciq"]
-[ext_resource type="AudioStream" uid="uid://da6xsrd7s52vj" path="res://content/screens/main_menu/assets/2-cherry-cute-bgm-271158.mp3" id="5_rxp4c"]
+[ext_resource type="AudioStream" uid="uid://b0i4q2w4u1xkr" path="res://resources/music/cherrycute.mp3" id="5_rxp4c"]
 
-[sub_resource type="SystemFont" id="SystemFont_rxp4c"]
-font_names = PackedStringArray("Javanese Text")
-subpixel_positioning = 0
+[sub_resource type="PlaceholderTexture2D" id="PlaceholderTexture2D_qiwau"]
+size = Vector2(32, 32)
 
 [node name="MainMenu" type="Control"]
 layout_mode = 3
@@ -18,77 +14,116 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
-theme = ExtResource("1_gat03")
+theme = ExtResource("1_q0glk")
 script = ExtResource("2_8xp43")
 
-[node name="TextureRect" type="TextureRect" parent="."]
+[node name="PanelContainer" type="PanelContainer" parent="."]
 layout_mode = 1
-anchors_preset = 15
-anchor_right = 1.0
+anchors_preset = -1
+anchor_left = 0.15
+anchor_right = 0.35
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
-texture = ExtResource("3_q0glk")
-expand_mode = 1
+theme = ExtResource("1_q0glk")
 
-[node name="ColorRect" type="ColorRect" parent="."]
-visible = false
-layout_mode = 1
-anchors_preset = 15
-anchor_right = 1.0
-anchor_bottom = 1.0
-grow_horizontal = 2
-grow_vertical = 2
-color = Color(0, 0, 0, 1)
-
-[node name="Menu" type="MarginContainer" parent="."]
-layout_mode = 1
-anchors_preset = 15
-anchor_right = 1.0
-anchor_bottom = 1.0
-grow_horizontal = 2
-grow_vertical = 2
-theme = ExtResource("1_gat03")
-
-[node name="GameTitle" type="Label" parent="Menu"]
+[node name="VBoxContainer" type="VBoxContainer" parent="PanelContainer"]
 layout_mode = 2
-size_flags_horizontal = 4
-size_flags_vertical = 0
-theme_override_colors/font_color = Color(0.779688, 0.484737, 0.0507895, 1)
-theme_override_colors/font_shadow_color = Color(0, 0, 0, 1)
-theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
-theme_override_constants/shadow_offset_x = 3
-theme_override_constants/shadow_offset_y = 3
-theme_override_constants/outline_size = 4
-theme_override_fonts/font = SubResource("SystemFont_rxp4c")
-theme_override_font_sizes/font_size = 72
-text = "Lords of Sparta"
+theme = ExtResource("1_q0glk")
+alignment = 1
 
-[node name="VBoxContainer" type="VBoxContainer" parent="Menu"]
+[node name="Title" type="Control" parent="PanelContainer/VBoxContainer"]
 layout_mode = 2
-size_flags_horizontal = 4
-size_flags_vertical = 4
-theme = ExtResource("1_gat03")
+size_flags_vertical = 3
+theme = ExtResource("1_q0glk")
 
-[node name="Buttons" parent="Menu/VBoxContainer" instance=ExtResource("4_0xciq")]
-layout_mode = 2
-
-[node name="IntroScreen" type="MarginContainer" parent="."]
-visible = false
+[node name="Title" type="Label" parent="PanelContainer/VBoxContainer/Title"]
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
+theme = ExtResource("1_q0glk")
+theme_override_font_sizes/font_size = 55
+text = "Boss Rush"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="HSeparator" type="HSeparator" parent="PanelContainer/VBoxContainer"]
+layout_mode = 2
+theme = ExtResource("1_q0glk")
+
+[node name="ContinueButton" type="Button" parent="PanelContainer/VBoxContainer"]
+layout_mode = 2
+theme = ExtResource("1_q0glk")
+disabled = true
+text = "Continue"
+
+[node name="NewGameButton" type="Button" parent="PanelContainer/VBoxContainer"]
+layout_mode = 2
+theme = ExtResource("1_q0glk")
+text = "New Game"
+
+[node name="LoadGameButton" type="Button" parent="PanelContainer/VBoxContainer"]
+layout_mode = 2
+theme = ExtResource("1_q0glk")
+text = "Load Game"
+
+[node name="SettingsButton" type="Button" parent="PanelContainer/VBoxContainer"]
+layout_mode = 2
+theme = ExtResource("1_q0glk")
+text = "Settings"
+
+[node name="QuitButton" type="Button" parent="PanelContainer/VBoxContainer"]
+layout_mode = 2
+theme = ExtResource("1_q0glk")
+text = "Quit"
+
+[node name="Subtitle" type="Control" parent="PanelContainer/VBoxContainer"]
+layout_mode = 2
+size_flags_vertical = 3
+theme = ExtResource("1_q0glk")
+
+[node name="Label" type="Label" parent="PanelContainer/VBoxContainer/Subtitle"]
+layout_mode = 1
+anchors_preset = 12
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_top = -23.0
+grow_horizontal = 2
+grow_vertical = 0
+theme = ExtResource("1_q0glk")
+theme_override_colors/font_color = Color(0.350064, 0.350064, 0.350064, 1)
+theme_override_font_sizes/font_size = 0
+horizontal_alignment = 1
+
+[node name="MarginContainer" type="MarginContainer" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="SelectButton" type="Button" parent="MarginContainer"]
+layout_mode = 2
+size_flags_horizontal = 8
+size_flags_vertical = 8
+text = "Select"
+icon = SubResource("PlaceholderTexture2D_qiwau")
 
 [node name="IdleTimer" type="Timer" parent="."]
 
 [node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
 stream = ExtResource("5_rxp4c")
-volume_db = -15.671
 autoplay = true
+bus = &"UI"
 
-[node name="SettingsMenu" parent="." instance=ExtResource("5_0xciq")]
-visible = false
-layout_mode = 1
+[connection signal="pressed" from="PanelContainer/VBoxContainer/ContinueButton" to="." method="_on_continue_button_pressed"]
+[connection signal="pressed" from="PanelContainer/VBoxContainer/NewGameButton" to="." method="_on_new_game_button_pressed"]
+[connection signal="pressed" from="PanelContainer/VBoxContainer/LoadGameButton" to="." method="_on_load_game_button_pressed"]
+[connection signal="pressed" from="PanelContainer/VBoxContainer/SettingsButton" to="." method="_on_settings_button_pressed"]
+[connection signal="pressed" from="PanelContainer/VBoxContainer/QuitButton" to="." method="_on_quit_button_pressed"]
+[connection signal="pressed" from="MarginContainer/SelectButton" to="." method="_on_select_button_pressed"]

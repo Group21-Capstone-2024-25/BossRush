@@ -1,0 +1,99 @@
+[remap]
+
+importer="scene"
+importer_version=1
+type="PackedScene"
+uid="uid://3yn2fu54g37o"
+path="res://.godot/imported/ChineseWarrior1.glb-81b73279f798ba01df953f4ef8cb1d44.scn"
+
+[deps]
+
+source_file="res://import/ChineseWarrior1.glb"
+dest_files=["res://.godot/imported/ChineseWarrior1.glb-81b73279f798ba01df953f4ef8cb1d44.scn"]
+
+[params]
+
+nodes/root_type=""
+nodes/root_name=""
+nodes/apply_root_scale=true
+nodes/root_scale=1.0
+nodes/import_as_skeleton_bones=true
+nodes/use_node_type_suffixes=true
+meshes/ensure_tangents=true
+meshes/generate_lods=false
+meshes/create_shadow_meshes=true
+meshes/light_baking=0
+meshes/lightmap_texel_size=0.2
+meshes/force_disable_compression=false
+skins/use_named_skins=true
+animation/import=true
+animation/fps=30
+animation/trimming=false
+animation/remove_immutable_tracks=true
+animation/import_rest_as_RESET=true
+import_script/path=""
+_subresources={
+"materials": {
+"ChineseWarrior1": {
+"use_external/enabled": true,
+"use_external/path": "res://resources/materials/ChineseWarrior1.tres"
+}
+},
+"meshes": {
+"ChineseWarrior1_Helmet": {
+"generate/lightmap_uv": 0,
+"generate/lods": 0,
+"generate/shadow_meshes": 0,
+"lods/normal_merge_angle": 60.0,
+"save_to_file/enabled": true,
+"save_to_file/path": "res://resources/meshes/ChineseWarrior1_Helmet.res"
+},
+"ChineseWarrior1_ShoulderPad_L": {
+"generate/lightmap_uv": 0,
+"generate/lods": 0,
+"generate/shadow_meshes": 0,
+"lods/normal_merge_angle": 60.0,
+"save_to_file/enabled": true,
+"save_to_file/path": "res://resources/meshes/ChineseWarrior1_ShoulderPad_L.res"
+},
+"ChineseWarrior1_ShoulderPad_R": {
+"generate/lightmap_uv": 0,
+"generate/lods": 0,
+"generate/shadow_meshes": 0,
+"lods/normal_merge_angle": 60.0,
+"save_to_file/enabled": true,
+"save_to_file/path": "res://resources/meshes/ChineseWarrior1_ShoulderPad_R.res"
+},
+"ChineseWarrior1_ThighArmour_L": {
+"generate/lightmap_uv": 0,
+"generate/lods": 0,
+"generate/shadow_meshes": 0,
+"lods/normal_merge_angle": 60.0,
+"save_to_file/enabled": true,
+"save_to_file/path": "res://resources/meshes/ChineseWarrior1_ThighArmour_L.res"
+},
+"ChineseWarrior1_ThighArmour_R": {
+"generate/lightmap_uv": 0,
+"generate/lods": 0,
+"generate/shadow_meshes": 0,
+"lods/normal_merge_angle": 60.0,
+"save_to_file/enabled": true,
+"save_to_file/path": "res://resources/meshes/ChineseWarrior1_ThighArmour_R.res"
+},
+"ChineseWarrior1_body": {
+"generate/lightmap_uv": 0,
+"generate/lods": 0,
+"generate/shadow_meshes": 0,
+"lods/normal_merge_angle": 60.0,
+"save_to_file/enabled": true,
+"save_to_file/path": "res://resources/meshes/ChineseWarrior1_body.res"
+}
+},
+"nodes": {
+"PATH:Skeleton3D": {
+"retarget/bone_map": Resource("res://resources/bonemap/human_bonemap.tres")
+}
+}
+}
+gltf/naming_version=1
+gltf/embedded_image_handling=1

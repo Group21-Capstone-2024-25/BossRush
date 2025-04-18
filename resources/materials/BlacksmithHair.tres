@@ -1,0 +1,11 @@
+[gd_resource type="StandardMaterial3D" load_steps=2 format=3 uid="uid://dkj8abkfdep4u"]
+
+[ext_resource type="Texture2D" uid="uid://dfgojhmx764ek" path="res://resources/textures/blacksmithhair_albedo.png" id="1_5oklj"]
+
+[resource]
+resource_name = "BlacksmithHair"
+transparency = 2
+alpha_scissor_threshold = 0.5
+alpha_antialiasing_mode = 0
+cull_mode = 2
+albedo_texture = ExtResource("1_5oklj")

@@ -1,5 +1,0 @@
-[gd_resource type="StandardMaterial3D" format=3 uid="uid://c01tgdtrmbcvt"]
-
-[resource]
-resource_name = "Paths"
-albedo_color = Color(0.518773, 0.906332, 0, 1)

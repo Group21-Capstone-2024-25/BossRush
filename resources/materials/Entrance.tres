@@ -1,5 +1,0 @@
-[gd_resource type="StandardMaterial3D" format=3 uid="uid://dyjto2qbahn7b"]
-
-[resource]
-resource_name = "Entrance"
-albedo_color = Color(0.256015, 0.451248, 0.906332, 1)

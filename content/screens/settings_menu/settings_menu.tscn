@@ -1,27 +1,13 @@
-[gd_scene load_steps=13 format=3 uid="uid://ix8j8adfco2e"]
+[gd_scene load_steps=7 format=3 uid="uid://ix8j8adfco2e"]
 
-[ext_resource type="Script" uid="uid://de587yqreloik" path="res://content/screens/settings_menu/settings_menu.gd" id="1_ggatp"]
-[ext_resource type="PackedScene" uid="uid://5g7ji6chk1tm" path="res://content/screens/settings_menu/controls/hotkey_rebind_button.tscn" id="2_apj3c"]
-[ext_resource type="Texture2D" uid="uid://diuq1yuy6tl7t" path="res://content/screens/main_menu/assets/pngwing.com.png" id="2_ggatp"]
-[ext_resource type="PackedScene" uid="uid://djs5dc5kn5yft" path="res://content/screens/settings_menu/graphics/window_mode_button.tscn" id="3_a5c04"]
-[ext_resource type="PackedScene" uid="uid://jcas23bxnw7n" path="res://content/screens/settings_menu/Audio/audio_slider_button.tscn" id="4_3ivbi"]
-[ext_resource type="PackedScene" uid="uid://swvd1fh8njj2" path="res://content/screens/settings_menu/graphics/resolution_mode_button.tscn" id="4_mfpwo"]
-[ext_resource type="Texture2D" uid="uid://dj3uw6jf4hdke" path="res://content/screens/main_menu/assets/panel-border-003.png" id="7_tq6yh"]
+[ext_resource type="PackedScene" uid="uid://78bwii1mgilk" path="res://content/ui/game_settings/game_settings.tscn" id="1_3ivbi"]
+[ext_resource type="Theme" uid="uid://7nmlsyfocodh" path="res://resources/themes/default.theme" id="1_mfpwo"]
+[ext_resource type="PackedScene" uid="uid://dg0fveb5s1q55" path="res://content/ui/control_settings/control_settings.tscn" id="2_mfpwo"]
+[ext_resource type="PackedScene" uid="uid://ciyy7n4fk2agl" path="res://content/ui/graphics_settings/graphics_settings.tscn" id="3_ggatp"]
+[ext_resource type="PackedScene" uid="uid://cklyf1wupa8mx" path="res://content/ui/audio_settings/audio_settings.tscn" id="4_tq6yh"]
 
-[sub_resource type="SystemFont" id="SystemFont_ggatp"]
-font_names = PackedStringArray("Javanese Text")
-subpixel_positioning = 0
-
-[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_tq6yh"]
-texture = ExtResource("2_ggatp")
-region_rect = Rect2(29, 115, 591, 562)
-
-[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_ggatp"]
-
-[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_tq6yh"]
-
-[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_3inxf"]
-bg_color = Color(0.893806, 0.701319, 0, 1)
+[sub_resource type="PlaceholderTexture2D" id="PlaceholderTexture2D_mfpwo"]
+size = Vector2(32, 32)
 
 [node name="SettingsMenu" type="Control"]
 layout_mode = 3
@@ -30,238 +16,42 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
-script = ExtResource("1_ggatp")
+theme = ExtResource("1_mfpwo")
 
-[node name="VBoxContainer" type="VBoxContainer" parent="."]
-layout_mode = 1
-anchors_preset = 15
-anchor_right = 1.0
-anchor_bottom = 1.0
-offset_top = -5.0
-offset_bottom = -1.0
-grow_horizontal = 2
-grow_vertical = 2
-theme_override_constants/separation = 10
-
-[node name="Label" type="Label" parent="VBoxContainer"]
-layout_mode = 2
-theme_override_colors/font_color = Color(0.779688, 0.484737, 0.0507895, 1)
-theme_override_colors/font_shadow_color = Color(0, 0, 0, 1)
-theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
-theme_override_constants/shadow_offset_x = 3
-theme_override_constants/shadow_offset_y = 3
-theme_override_constants/outline_size = 4
-theme_override_fonts/font = SubResource("SystemFont_ggatp")
-theme_override_font_sizes/font_size = 25
-text = "           Settings"
-horizontal_alignment = 1
-vertical_alignment = 1
-
-[node name="MarginContainer" type="MarginContainer" parent="VBoxContainer"]
-layout_mode = 2
-theme_override_constants/margin_left = 30
-theme_override_constants/margin_top = 0
-theme_override_constants/margin_right = 30
-theme_override_constants/margin_bottom = 0
-
-[node name="TabContainer" type="TabContainer" parent="VBoxContainer/MarginContainer"]
-layout_mode = 2
-theme_override_font_sizes/font_size = 20
-theme_override_styles/panel = SubResource("StyleBoxTexture_tq6yh")
-tab_alignment = 1
-current_tab = 1
-
-[node name="Game" type="TabBar" parent="VBoxContainer/MarginContainer/TabContainer"]
-visible = false
-custom_minimum_size = Vector2(0, 300)
-layout_mode = 2
-size_flags_vertical = 3
-tab_alignment = 1
-metadata/_tab_index = 0
-
-[node name="MarginContainer" type="MarginContainer" parent="VBoxContainer/MarginContainer/TabContainer/Game"]
+[node name="MarginContainer" type="MarginContainer" parent="."]
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
-theme_override_constants/margin_left = 24
-theme_override_constants/margin_top = 24
-theme_override_constants/margin_right = 24
-theme_override_constants/margin_bottom = 24
+size_flags_horizontal = 3
+theme = ExtResource("1_mfpwo")
 
-[node name="ScrollContainer" type="ScrollContainer" parent="VBoxContainer/MarginContainer/TabContainer/Game/MarginContainer"]
-layout_mode = 2
-
-[node name="VBoxContainer" type="VBoxContainer" parent="VBoxContainer/MarginContainer/TabContainer/Game/MarginContainer/ScrollContainer"]
-layout_mode = 2
-
-[node name="Controls" type="TabBar" parent="VBoxContainer/MarginContainer/TabContainer"]
-custom_minimum_size = Vector2(300, 300)
-layout_mode = 2
-tab_alignment = 1
-metadata/_tab_index = 1
-
-[node name="MarginContainer" type="MarginContainer" parent="VBoxContainer/MarginContainer/TabContainer/Controls"]
-layout_mode = 1
-anchors_preset = 15
-anchor_right = 1.0
-anchor_bottom = 1.0
-offset_top = 12.0
-grow_horizontal = 2
-grow_vertical = 2
-theme_override_constants/margin_left = 20
-
-[node name="ScrollContainer" type="ScrollContainer" parent="VBoxContainer/MarginContainer/TabContainer/Controls/MarginContainer"]
-layout_mode = 2
-
-[node name="VBoxContainer" type="VBoxContainer" parent="VBoxContainer/MarginContainer/TabContainer/Controls/MarginContainer/ScrollContainer"]
+[node name="TabContainer" type="TabContainer" parent="MarginContainer"]
 layout_mode = 2
 size_flags_horizontal = 3
-theme_override_constants/separation = 80
-alignment = 1
+theme = ExtResource("1_mfpwo")
+current_tab = 0
 
-[node name="HSeparator" type="HSeparator" parent="VBoxContainer/MarginContainer/TabContainer/Controls/MarginContainer/ScrollContainer/VBoxContainer"]
-layout_mode = 2
-theme_override_constants/separation = 12
-theme_override_styles/separator = SubResource("StyleBoxEmpty_ggatp")
-
-[node name="Hotkey_Rebind_Button" parent="VBoxContainer/MarginContainer/TabContainer/Controls/MarginContainer/ScrollContainer/VBoxContainer" instance=ExtResource("2_apj3c")]
+[node name="Game" parent="MarginContainer/TabContainer" instance=ExtResource("1_3ivbi")]
 layout_mode = 2
 
-[node name="Hotkey_Rebind_Button2" parent="VBoxContainer/MarginContainer/TabContainer/Controls/MarginContainer/ScrollContainer/VBoxContainer" instance=ExtResource("2_apj3c")]
-layout_mode = 2
-action_name = "move_backward"
-
-[node name="Hotkey_Rebind_Button3" parent="VBoxContainer/MarginContainer/TabContainer/Controls/MarginContainer/ScrollContainer/VBoxContainer" instance=ExtResource("2_apj3c")]
-layout_mode = 2
-action_name = "move_right"
-
-[node name="Hotkey_Rebind_Button4" parent="VBoxContainer/MarginContainer/TabContainer/Controls/MarginContainer/ScrollContainer/VBoxContainer" instance=ExtResource("2_apj3c")]
-layout_mode = 2
-action_name = "move_left"
-
-[node name="Hotkey_Rebind_Button5" parent="VBoxContainer/MarginContainer/TabContainer/Controls/MarginContainer/ScrollContainer/VBoxContainer" instance=ExtResource("2_apj3c")]
-layout_mode = 2
-action_name = "action_jump"
-
-[node name="Hotkey_Rebind_Button6" parent="VBoxContainer/MarginContainer/TabContainer/Controls/MarginContainer/ScrollContainer/VBoxContainer" instance=ExtResource("2_apj3c")]
-layout_mode = 2
-action_name = "action_counter"
-
-[node name="Hotkey_Rebind_Button7" parent="VBoxContainer/MarginContainer/TabContainer/Controls/MarginContainer/ScrollContainer/VBoxContainer" instance=ExtResource("2_apj3c")]
-layout_mode = 2
-action_name = "action_interact"
-
-[node name="Hotkey_Rebind_Button8" parent="VBoxContainer/MarginContainer/TabContainer/Controls/MarginContainer/ScrollContainer/VBoxContainer" instance=ExtResource("2_apj3c")]
-layout_mode = 2
-action_name = "game_pause"
-
-[node name="HSeparator2" type="HSeparator" parent="VBoxContainer/MarginContainer/TabContainer/Controls/MarginContainer/ScrollContainer/VBoxContainer"]
-layout_mode = 2
-theme_override_constants/separation = 12
-theme_override_styles/separator = SubResource("StyleBoxEmpty_tq6yh")
-
-[node name="Graphics" type="TabBar" parent="VBoxContainer/MarginContainer/TabContainer"]
+[node name="Controls" parent="MarginContainer/TabContainer" instance=ExtResource("2_mfpwo")]
 visible = false
-custom_minimum_size = Vector2(300, 300)
-layout_mode = 2
-tab_alignment = 1
-metadata/_tab_index = 2
-
-[node name="MarginContainer" type="MarginContainer" parent="VBoxContainer/MarginContainer/TabContainer/Graphics"]
-layout_mode = 1
-anchors_preset = 15
-anchor_right = 1.0
-anchor_bottom = 1.0
-grow_horizontal = 2
-grow_vertical = 2
-theme_override_constants/margin_left = 20
-theme_override_constants/margin_top = 20
-theme_override_constants/margin_right = 20
-theme_override_constants/margin_bottom = 20
-
-[node name="ScrollContainer" type="ScrollContainer" parent="VBoxContainer/MarginContainer/TabContainer/Graphics/MarginContainer"]
 layout_mode = 2
 
-[node name="VBoxContainer" type="VBoxContainer" parent="VBoxContainer/MarginContainer/TabContainer/Graphics/MarginContainer/ScrollContainer"]
-layout_mode = 2
-theme_override_constants/separation = 128
-alignment = 1
-
-[node name="Window_Mode_Button" parent="VBoxContainer/MarginContainer/TabContainer/Graphics/MarginContainer/ScrollContainer/VBoxContainer" instance=ExtResource("3_a5c04")]
-layout_mode = 2
-
-[node name="resolution_mode_button" parent="VBoxContainer/MarginContainer/TabContainer/Graphics/MarginContainer/ScrollContainer/VBoxContainer" instance=ExtResource("4_mfpwo")]
-layout_mode = 2
-
-[node name="Audio" type="TabBar" parent="VBoxContainer/MarginContainer/TabContainer"]
+[node name="Graphics" parent="MarginContainer/TabContainer" instance=ExtResource("3_ggatp")]
 visible = false
-custom_minimum_size = Vector2(300, 300)
-layout_mode = 2
-tab_alignment = 1
-metadata/_tab_index = 3
-
-[node name="MarginContainer" type="MarginContainer" parent="VBoxContainer/MarginContainer/TabContainer/Audio"]
-layout_mode = 1
-anchors_preset = 15
-anchor_right = 1.0
-anchor_bottom = 1.0
-grow_horizontal = 2
-grow_vertical = 2
-theme_override_constants/margin_left = 20
-theme_override_constants/margin_top = 20
-theme_override_constants/margin_right = 20
-theme_override_constants/margin_bottom = 20
-
-[node name="ScrollContainer" type="ScrollContainer" parent="VBoxContainer/MarginContainer/TabContainer/Audio/MarginContainer"]
 layout_mode = 2
 
-[node name="VBoxContainer" type="VBoxContainer" parent="VBoxContainer/MarginContainer/TabContainer/Audio/MarginContainer/ScrollContainer"]
-layout_mode = 2
-theme_override_constants/separation = 64
-alignment = 1
-
-[node name="Audio_Slider_Button" parent="VBoxContainer/MarginContainer/TabContainer/Audio/MarginContainer/ScrollContainer/VBoxContainer" instance=ExtResource("4_3ivbi")]
+[node name="Audio" parent="MarginContainer/TabContainer" instance=ExtResource("4_tq6yh")]
+visible = false
 layout_mode = 2
 
-[node name="Audio_Slider_Button2" parent="VBoxContainer/MarginContainer/TabContainer/Audio/MarginContainer/ScrollContainer/VBoxContainer" instance=ExtResource("4_3ivbi")]
+[node name="BackButton" type="Button" parent="MarginContainer"]
 layout_mode = 2
-bus_name = "Music"
-
-[node name="Audio_Slider_Button3" parent="VBoxContainer/MarginContainer/TabContainer/Audio/MarginContainer/ScrollContainer/VBoxContainer" instance=ExtResource("4_3ivbi")]
-layout_mode = 2
-bus_name = "SFX"
-
-[node name="Audio_Slider_Button4" parent="VBoxContainer/MarginContainer/TabContainer/Audio/MarginContainer/ScrollContainer/VBoxContainer" instance=ExtResource("4_3ivbi")]
-layout_mode = 2
-bus_name = "UI"
-
-[node name="NinePatchRect" type="NinePatchRect" parent="VBoxContainer"]
-custom_minimum_size = Vector2(0, 60)
-layout_mode = 2
-size_flags_vertical = 10
-texture = ExtResource("7_tq6yh")
-region_rect = Rect2(-1, -1, 48, 49)
-patch_margin_left = 25
-patch_margin_top = 25
-patch_margin_right = 25
-patch_margin_bottom = 25
-
-[node name="Button" type="Button" parent="VBoxContainer/NinePatchRect"]
-layout_mode = 1
-anchors_preset = 15
-anchor_right = 1.0
-anchor_bottom = 1.0
-offset_left = 10.0
-offset_top = 10.0
-offset_right = -10.0
-offset_bottom = -10.0
-grow_horizontal = 2
-grow_vertical = 2
-size_flags_vertical = 10
-theme_override_colors/font_color = Color(0, 0, 0, 1)
-theme_override_font_sizes/font_size = 20
-theme_override_styles/normal = SubResource("StyleBoxFlat_3inxf")
+size_flags_horizontal = 8
+size_flags_vertical = 8
 text = "Back"
+icon = SubResource("PlaceholderTexture2D_mfpwo")

@@ -1,0 +1,7 @@
+[gd_resource type="StandardMaterial3D" load_steps=2 format=3 uid="uid://dg50c106jvxb0"]
+
+[ext_resource type="Texture2D" uid="uid://d28q6hl50dgte" path="res://resources/textures/cyclops_albedo_2.png" id="1_4d8tf"]
+
+[resource]
+resource_name = "cyclops_mat2"
+albedo_texture = ExtResource("1_4d8tf")

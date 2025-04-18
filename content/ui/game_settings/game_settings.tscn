@@ -1,4 +1,135 @@
-[gd_scene format=3 uid="uid://78bwii1mgilk"]
+[gd_scene load_steps=4 format=3 uid="uid://78bwii1mgilk"]
+
+[ext_resource type="Script" uid="uid://cyedoh7m4mtbq" path="res://content/ui/game_settings/game_settings.gd" id="1_3s35y"]
+[ext_resource type="Theme" uid="uid://7nmlsyfocodh" path="res://resources/themes/default.theme" id="1_d8vo7"]
+[ext_resource type="ButtonGroup" uid="uid://cawex2fqu0mtx" path="res://resources/buttongroups/difficulty_buttongroup.tres" id="2_036qa"]
 
 [node name="Game" type="MarginContainer"]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme = ExtResource("1_d8vo7")
+script = ExtResource("1_3s35y")
 metadata/_tab_index = 0
+
+[node name="ScrollContainer" type="ScrollContainer" parent="."]
+layout_mode = 2
+theme = ExtResource("1_d8vo7")
+
+[node name="VBoxContainer" type="VBoxContainer" parent="ScrollContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+theme = ExtResource("1_d8vo7")
+
+[node name="DifficultySetting" type="HBoxContainer" parent="ScrollContainer/VBoxContainer"]
+layout_mode = 2
+theme = ExtResource("1_d8vo7")
+
+[node name="Label" type="Label" parent="ScrollContainer/VBoxContainer/DifficultySetting"]
+layout_mode = 2
+size_flags_horizontal = 3
+text = "Difficulty"
+
+[node name="PanelContainer" type="PanelContainer" parent="ScrollContainer/VBoxContainer/DifficultySetting"]
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="HBoxContainer" type="HBoxContainer" parent="ScrollContainer/VBoxContainer/DifficultySetting/PanelContainer"]
+layout_mode = 2
+
+[node name="EasyButton" type="Button" parent="ScrollContainer/VBoxContainer/DifficultySetting/PanelContainer/HBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+toggle_mode = true
+button_group = ExtResource("2_036qa")
+text = "Easy
+"
+
+[node name="NormalButton" type="Button" parent="ScrollContainer/VBoxContainer/DifficultySetting/PanelContainer/HBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+toggle_mode = true
+button_pressed = true
+button_group = ExtResource("2_036qa")
+text = "Normal"
+
+[node name="HardButton" type="Button" parent="ScrollContainer/VBoxContainer/DifficultySetting/PanelContainer/HBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+disabled = true
+toggle_mode = true
+button_group = ExtResource("2_036qa")
+text = "Hard"
+
+[node name="SubtitleSetting" type="HBoxContainer" parent="ScrollContainer/VBoxContainer"]
+layout_mode = 2
+theme = ExtResource("1_d8vo7")
+
+[node name="Label" type="Label" parent="ScrollContainer/VBoxContainer/SubtitleSetting"]
+layout_mode = 2
+size_flags_horizontal = 3
+text = "Subtitle"
+
+[node name="SubtitleButton" type="CheckButton" parent="ScrollContainer/VBoxContainer/SubtitleSetting"]
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="SubtitleLanguageSetting" type="HBoxContainer" parent="ScrollContainer/VBoxContainer"]
+layout_mode = 2
+theme = ExtResource("1_d8vo7")
+
+[node name="Label" type="Label" parent="ScrollContainer/VBoxContainer/SubtitleLanguageSetting"]
+layout_mode = 2
+size_flags_horizontal = 3
+theme = ExtResource("1_d8vo7")
+text = "Subtitle Language"
+
+[node name="SubtitleLanguageOption" type="OptionButton" parent="ScrollContainer/VBoxContainer/SubtitleLanguageSetting"]
+layout_mode = 2
+theme = ExtResource("1_d8vo7")
+selected = 0
+item_count = 3
+popup/item_0/text = "English"
+popup/item_0/id = 0
+popup/item_1/text = "Spanish"
+popup/item_1/id = 1
+popup/item_2/text = "French"
+popup/item_2/id = 2
+
+[node name="BloodSetting" type="HBoxContainer" parent="ScrollContainer/VBoxContainer"]
+layout_mode = 2
+theme = ExtResource("1_d8vo7")
+
+[node name="Label" type="Label" parent="ScrollContainer/VBoxContainer/BloodSetting"]
+layout_mode = 2
+size_flags_horizontal = 3
+text = "Blood"
+
+[node name="BloodCheck" type="CheckButton" parent="ScrollContainer/VBoxContainer/BloodSetting"]
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="ControllerVibrationSetting" type="HBoxContainer" parent="ScrollContainer/VBoxContainer"]
+layout_mode = 2
+theme = ExtResource("1_d8vo7")
+
+[node name="Label" type="Label" parent="ScrollContainer/VBoxContainer/ControllerVibrationSetting"]
+layout_mode = 2
+size_flags_horizontal = 3
+text = "Controller Vibration"
+
+[node name="ControllerVibrationCheck" type="CheckButton" parent="ScrollContainer/VBoxContainer/ControllerVibrationSetting"]
+layout_mode = 2
+size_flags_horizontal = 3
+disabled = true
+
+[connection signal="toggled" from="ScrollContainer/VBoxContainer/DifficultySetting/PanelContainer/HBoxContainer/EasyButton" to="." method="_on_easy_button_toggled"]
+[connection signal="toggled" from="ScrollContainer/VBoxContainer/DifficultySetting/PanelContainer/HBoxContainer/NormalButton" to="." method="_on_normal_button_toggled"]
+[connection signal="toggled" from="ScrollContainer/VBoxContainer/DifficultySetting/PanelContainer/HBoxContainer/HardButton" to="." method="_on_hard_button_toggled"]
+[connection signal="toggled" from="ScrollContainer/VBoxContainer/SubtitleSetting/SubtitleButton" to="." method="_on_subtitle_button_toggled"]
+[connection signal="item_selected" from="ScrollContainer/VBoxContainer/SubtitleLanguageSetting/SubtitleLanguageOption" to="." method="_on_subtitle_language_option_item_selected"]
+[connection signal="toggled" from="ScrollContainer/VBoxContainer/BloodSetting/BloodCheck" to="." method="_on_blood_check_toggled"]
+[connection signal="toggled" from="ScrollContainer/VBoxContainer/ControllerVibrationSetting/ControllerVibrationCheck" to="." method="_on_controller_vibration_check_toggled"]
