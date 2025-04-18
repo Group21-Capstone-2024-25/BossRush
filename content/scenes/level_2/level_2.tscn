@@ -1,0 +1,7 @@
+[gd_scene load_steps=2 format=3 uid="uid://dwbubbj4mtsui"]
+
+[ext_resource type="PackedScene" uid="uid://bijiamr6xkn3o" path="res://content/scene_templates/arena/arena.tscn" id="1_rofts"]
+
+[node name="Level1" type="Node3D"]
+
+[node name="Arena" parent="." instance=ExtResource("1_rofts")]

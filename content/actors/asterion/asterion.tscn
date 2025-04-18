@@ -711,7 +711,7 @@ bones/1/name = "Hips"
 bones/1/parent = 0
 bones/1/rest = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.14441e-07, 1.21716, 0.0422787)
 bones/1/enabled = true
-bones/1/position = Vector3(-1.14441e-07, 1.21716, 0.0422787)
+bones/1/position = Vector3(-1.14441e-07, 1.21716, 0.0422785)
 bones/1/rotation = Quaternion(0, 0, 0, 1)
 bones/1/scale = Vector3(1, 1, 1)
 bones/2/name = "Spine"
@@ -817,7 +817,7 @@ bones/16/parent = 11
 bones/16/rest = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.192348, 0.137345, 0.0873795)
 bones/16/enabled = true
 bones/16/position = Vector3(-0.192348, 0.137345, 0.0873795)
-bones/16/rotation = Quaternion(-2.98023e-08, -5.96047e-08, 2.98023e-08, 1)
+bones/16/rotation = Quaternion(-2.98023e-08, -5.96046e-08, 2.98023e-08, 1)
 bones/16/scale = Vector3(1, 1, 1)
 bones/17/name = "LeftIndexIntermediate"
 bones/17/parent = 16
@@ -1139,7 +1139,7 @@ bones/62/parent = 61
 bones/62/rest = Transform3D(-1, 0, 0, 0, 1, 0, 0, 0, -1, 0.0238064, 0.530843, -0.149971)
 bones/62/enabled = true
 bones/62/position = Vector3(0.0238064, 0.530843, -0.149971)
-bones/62/rotation = Quaternion(-1.86264e-09, 1, 1.49012e-08, 6.98492e-10)
+bones/62/rotation = Quaternion(-1.86265e-09, 1, 1.49012e-08, 6.98492e-10)
 bones/62/scale = Vector3(1, 1, 1)
 bones/63/name = "RightFoot"
 bones/63/parent = 62
@@ -1153,7 +1153,7 @@ bones/64/parent = 63
 bones/64/rest = Transform3D(-1, 0, 0, 0, 1, 0, 0, 0, -1, 0.0550236, 0.22333, -0.275565)
 bones/64/enabled = true
 bones/64/position = Vector3(0.0550236, 0.22333, -0.275565)
-bones/64/rotation = Quaternion(-3.95127e-09, 1, -5.96047e-08, -1.31709e-09)
+bones/64/rotation = Quaternion(-3.95127e-09, 1, -5.96046e-08, -1.31709e-09)
 bones/64/scale = Vector3(1, 1, 1)
 bones/65/name = "Toe_End.R"
 bones/65/parent = 64
@@ -1168,12 +1168,12 @@ gi_mode = 0
 mesh = SubResource("ArrayMesh_qm36i")
 skin = SubResource("Skin_b2fjd")
 
-[node name="BoneAttachment3D" type="BoneAttachment3D" parent="GeneralSkeleton"]
-transform = Transform3D(1.38564e-07, -1, -1.78814e-07, -5.90754e-08, 1.78814e-07, -1, 1, 1.38564e-07, -5.90753e-08, -0.880782, 1.74429, 0.170706)
+[node name="WeaponSocket" type="BoneAttachment3D" parent="GeneralSkeleton"]
+transform = Transform3D(1.38563e-07, -1, -1.78814e-07, -5.90753e-08, 1.78814e-07, -1, 1, 1.38563e-07, -5.90753e-08, -0.880782, 1.74429, 0.170706)
 bone_name = "RightHand"
 bone_idx = 35
 
-[node name="Hammer" type="MeshInstance3D" parent="GeneralSkeleton/BoneAttachment3D"]
+[node name="Hammer" type="MeshInstance3D" parent="GeneralSkeleton/WeaponSocket"]
 transform = Transform3D(-1.71259e-05, 0.000638493, -0.00394868, -0.000170538, 0.00394501, 0.000638639, 0.00399633, 0.000171084, 1.03314e-05, -0.210494, 0.16213, 0.109969)
 gi_mode = 0
 mesh = ExtResource("3_ponmx")
@@ -1182,6 +1182,15 @@ skeleton = NodePath("")
 [node name="LookAtModifier3D" type="LookAtModifier3D" parent="GeneralSkeleton"]
 bone_name = "Head"
 bone = 6
+
+[node name="AudioSocket" type="BoneAttachment3D" parent="GeneralSkeleton"]
+transform = Transform3D(1, 2.16568e-21, -1.77669e-22, -2.16568e-21, 1, 5.29284e-10, 1.77669e-22, -5.29284e-10, 1, -1.14441e-07, 2.24488, 0.0610151)
+bone_name = "Head"
+bone_idx = 6
+
+[node name="AudioStreamPlayer3D" type="AudioStreamPlayer3D" parent="GeneralSkeleton/AudioSocket"]
+max_distance = 10.0
+bus = &"SFX"
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
 libraries = {

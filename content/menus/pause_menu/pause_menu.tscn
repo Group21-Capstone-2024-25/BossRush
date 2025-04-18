@@ -1,0 +1,109 @@
+[gd_scene load_steps=6 format=3 uid="uid://tn4shom7rx7t"]
+
+[ext_resource type="Theme" uid="uid://7nmlsyfocodh" path="res://resources/themes/default.theme" id="1_tpi2q"]
+[ext_resource type="Script" uid="uid://ddqs6hjin7nm4" path="res://content/menus/pause_menu/pause_menu.gd" id="2_7fvsj"]
+
+[sub_resource type="Gradient" id="Gradient_7fvsj"]
+offsets = PackedFloat32Array(0.2, 1)
+colors = PackedColorArray(0, 0, 0, 1, 0, 0, 0, 0)
+
+[sub_resource type="GradientTexture1D" id="GradientTexture1D_t7tam"]
+gradient = SubResource("Gradient_7fvsj")
+
+[sub_resource type="PlaceholderTexture2D" id="PlaceholderTexture2D_tpi2q"]
+size = Vector2(32, 32)
+
+[node name="PauseMenu" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme = ExtResource("1_tpi2q")
+script = ExtResource("2_7fvsj")
+
+[node name="TextureRect" type="TextureRect" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme = ExtResource("1_tpi2q")
+texture = SubResource("GradientTexture1D_t7tam")
+
+[node name="MarginContainer" type="MarginContainer" parent="."]
+layout_mode = 1
+anchors_preset = -1
+anchor_right = 0.25
+anchor_bottom = 1.0
+theme = ExtResource("1_tpi2q")
+
+[node name="VBoxContainer" type="VBoxContainer" parent="MarginContainer"]
+layout_mode = 2
+theme = ExtResource("1_tpi2q")
+alignment = 1
+
+[node name="ResumeButton" type="Button" parent="MarginContainer/VBoxContainer"]
+layout_mode = 2
+theme = ExtResource("1_tpi2q")
+text = "Resume"
+alignment = 0
+
+[node name="SaveButton" type="Button" parent="MarginContainer/VBoxContainer"]
+layout_mode = 2
+theme = ExtResource("1_tpi2q")
+text = "Save"
+alignment = 0
+
+[node name="LoadButton" type="Button" parent="MarginContainer/VBoxContainer"]
+layout_mode = 2
+theme = ExtResource("1_tpi2q")
+text = "Load"
+alignment = 0
+
+[node name="SettingsButton" type="Button" parent="MarginContainer/VBoxContainer"]
+layout_mode = 2
+theme = ExtResource("1_tpi2q")
+text = "Settings"
+alignment = 0
+
+[node name="QuitButton" type="Button" parent="MarginContainer/VBoxContainer"]
+layout_mode = 2
+theme = ExtResource("1_tpi2q")
+text = "Quit"
+alignment = 0
+
+[node name="MarginContainer2" type="MarginContainer" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="VBoxContainer" type="VBoxContainer" parent="MarginContainer2"]
+layout_mode = 2
+size_flags_horizontal = 8
+size_flags_vertical = 8
+
+[node name="SelectButton" type="Button" parent="MarginContainer2/VBoxContainer"]
+layout_mode = 2
+size_flags_vertical = 8
+text = "Select"
+icon = SubResource("PlaceholderTexture2D_tpi2q")
+
+[node name="BackButton" type="Button" parent="MarginContainer2/VBoxContainer"]
+layout_mode = 2
+size_flags_vertical = 8
+text = "Back"
+icon = SubResource("PlaceholderTexture2D_tpi2q")
+
+[connection signal="pressed" from="MarginContainer/VBoxContainer/ResumeButton" to="." method="_on_resume_button_pressed"]
+[connection signal="pressed" from="MarginContainer/VBoxContainer/SaveButton" to="." method="_on_save_button_pressed"]
+[connection signal="pressed" from="MarginContainer/VBoxContainer/LoadButton" to="." method="_on_load_button_pressed"]
+[connection signal="pressed" from="MarginContainer/VBoxContainer/SettingsButton" to="." method="_on_settings_button_pressed"]
+[connection signal="pressed" from="MarginContainer/VBoxContainer/QuitButton" to="." method="_on_quit_button_pressed"]
+[connection signal="pressed" from="MarginContainer2/VBoxContainer/SelectButton" to="." method="_on_select_button_pressed"]
+[connection signal="pressed" from="MarginContainer2/VBoxContainer/BackButton" to="." method="_on_back_button_pressed"]
