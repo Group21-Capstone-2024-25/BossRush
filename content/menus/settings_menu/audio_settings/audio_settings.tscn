@@ -1,7 +1,7 @@
 [gd_scene load_steps=3 format=3 uid="uid://cklyf1wupa8mx"]
 
 [ext_resource type="Theme" uid="uid://7nmlsyfocodh" path="res://resources/themes/default.theme" id="1_nxlx7"]
-[ext_resource type="Script" uid="uid://daqcfin7cwdrv" path="res://content/ui/audio_settings/audio_settings.gd" id="2_sivie"]
+[ext_resource type="Script" uid="uid://daqcfin7cwdrv" path="res://content/menus/settings_menu/audio_settings/audio_settings.gd" id="2_sivie"]
 
 [node name="Audio" type="MarginContainer"]
 anchors_preset = 15

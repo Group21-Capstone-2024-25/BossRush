@@ -1,7 +1,7 @@
 [gd_scene load_steps=3 format=3 uid="uid://ciyy7n4fk2agl"]
 
 [ext_resource type="Theme" uid="uid://7nmlsyfocodh" path="res://resources/themes/default.theme" id="1_kdet0"]
-[ext_resource type="Script" uid="uid://dgd4ubkbv35yb" path="res://content/ui/graphics_settings/graphics_settings.gd" id="2_f7i3w"]
+[ext_resource type="Script" uid="uid://dgd4ubkbv35yb" path="res://content/menus/settings_menu/graphics_settings/graphics_settings.gd" id="2_f7i3w"]
 
 [node name="Graphics" type="MarginContainer"]
 anchors_preset = 15

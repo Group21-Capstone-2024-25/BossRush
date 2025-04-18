@@ -1,7 +1,7 @@
 [gd_scene load_steps=3 format=3 uid="uid://dg0fveb5s1q55"]
 
 [ext_resource type="Theme" uid="uid://7nmlsyfocodh" path="res://resources/themes/default.theme" id="1_7nfjp"]
-[ext_resource type="Script" uid="uid://dvnnxgas51t0e" path="res://content/ui/control_settings/control_settings.gd" id="2_03vic"]
+[ext_resource type="Script" uid="uid://dvnnxgas51t0e" path="res://content/menus/settings_menu/control_settings/control_settings.gd" id="2_03vic"]
 
 [node name="Controls" type="MarginContainer"]
 anchors_preset = 15

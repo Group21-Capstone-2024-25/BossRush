@@ -1,10 +1,10 @@
 [gd_scene load_steps=7 format=3 uid="uid://ix8j8adfco2e"]
 
-[ext_resource type="PackedScene" uid="uid://78bwii1mgilk" path="res://content/ui/game_settings/game_settings.tscn" id="1_3ivbi"]
+[ext_resource type="PackedScene" uid="uid://78bwii1mgilk" path="res://content/menus/settings_menu/game_settings/game_settings.tscn" id="1_3ivbi"]
 [ext_resource type="Theme" uid="uid://7nmlsyfocodh" path="res://resources/themes/default.theme" id="1_mfpwo"]
-[ext_resource type="PackedScene" uid="uid://dg0fveb5s1q55" path="res://content/ui/control_settings/control_settings.tscn" id="2_mfpwo"]
-[ext_resource type="PackedScene" uid="uid://ciyy7n4fk2agl" path="res://content/ui/graphics_settings/graphics_settings.tscn" id="3_ggatp"]
-[ext_resource type="PackedScene" uid="uid://cklyf1wupa8mx" path="res://content/ui/audio_settings/audio_settings.tscn" id="4_tq6yh"]
+[ext_resource type="PackedScene" uid="uid://dg0fveb5s1q55" path="res://content/menus/settings_menu/control_settings/control_settings.tscn" id="2_mfpwo"]
+[ext_resource type="PackedScene" uid="uid://ciyy7n4fk2agl" path="res://content/menus/settings_menu/graphics_settings/graphics_settings.tscn" id="3_ggatp"]
+[ext_resource type="PackedScene" uid="uid://cklyf1wupa8mx" path="res://content/menus/settings_menu/audio_settings/audio_settings.tscn" id="4_tq6yh"]
 
 [sub_resource type="PlaceholderTexture2D" id="PlaceholderTexture2D_mfpwo"]
 size = Vector2(32, 32)

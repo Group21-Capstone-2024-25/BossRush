@@ -1,6 +1,6 @@
 [gd_scene load_steps=4 format=3 uid="uid://78bwii1mgilk"]
 
-[ext_resource type="Script" uid="uid://cyedoh7m4mtbq" path="res://content/ui/game_settings/game_settings.gd" id="1_3s35y"]
+[ext_resource type="Script" uid="uid://cyedoh7m4mtbq" path="res://content/menus/settings_menu/game_settings/game_settings.gd" id="1_3s35y"]
 [ext_resource type="Theme" uid="uid://7nmlsyfocodh" path="res://resources/themes/default.theme" id="1_d8vo7"]
 [ext_resource type="ButtonGroup" uid="uid://cawex2fqu0mtx" path="res://resources/buttongroups/difficulty_buttongroup.tres" id="2_036qa"]
 
