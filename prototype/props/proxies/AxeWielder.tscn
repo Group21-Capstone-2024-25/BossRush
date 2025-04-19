@@ -235,6 +235,7 @@ _data = {
 [sub_resource type="BlackboardPlan" id="BlackboardPlan_f5bcj"]
 
 [node name="AxeWielder" type="CharacterBody3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, 0)
 script = ExtResource("1_xckng")
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="."]
