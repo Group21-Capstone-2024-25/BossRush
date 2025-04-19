@@ -727,7 +727,7 @@ mesh = ExtResource("2_c1xra")
 skin = SubResource("Skin_xr4hv")
 
 [node name="BoneAttachment3D" type="BoneAttachment3D" parent="GeneralSkeleton"]
-transform = Transform3D(-5.43363e-08, -1, -1.19209e-07, -1.8046e-07, 1.19209e-07, -1, 1, -5.43363e-08, -1.8046e-07, -1.25015, 1.56393, 0.116344)
+transform = Transform3D(0.035252, -0.665576, 0.745497, 0.829956, -0.396048, -0.392835, 0.556714, 0.632578, 0.538437, -0.880338, 0.798112, -0.03363)
 bone_name = "RightHand"
 bone_idx = 31
 

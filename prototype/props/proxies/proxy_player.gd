@@ -1,14 +1,24 @@
 extends CharacterBody3D
 
-
+@onready var camera_mount: Node3D = $"Camera mount"
+@onready var _camera: Camera3D = $"Camera mount/SpringArm3D/Camera3D"
+@onready var _spring_arm: SpringArm3D = $"Camera mount/SpringArm"
+var _target : Node3D
 const SPEED = 5.0
 const JUMP_VELOCITY = 4.5
 
+@export var sens_horizontal = 0.5
+@export var sens_vertical = 0.5
+
+
+func _ready():
+	Input.mouse_mode = Input.MOUSE_MODE_CAPTURED
 
 func _physics_process(delta: float) -> void:
 	# Add the gravity.
 	if not is_on_floor():
 		velocity += get_gravity() * delta
+	
 
 	# Handle jump.
 	if Input.is_action_just_pressed("ui_accept") and is_on_floor():
@@ -16,7 +26,7 @@ func _physics_process(delta: float) -> void:
 
 	# Get the input direction and handle the movement/deceleration.
 	# As good practice, you should replace UI actions with custom gameplay actions.
-	var input_dir := Input.get_vector("ui_left", "ui_right", "ui_up", "ui_down")
+	var input_dir := Input.get_vector("move_left", "move_right", "move_forward", "move_backward")
 	var direction := (transform.basis * Vector3(input_dir.x, 0, input_dir.y)).normalized()
 	if direction:
 		velocity.x = direction.x * SPEED
@@ -26,3 +36,13 @@ func _physics_process(delta: float) -> void:
 		velocity.z = move_toward(velocity.z, 0, SPEED)
 
 	move_and_slide()
+
+
+func _input(event):
+	if event is InputEventMouseMotion:
+		rotate_y(deg_to_rad(-event.relative.x * sens_horizontal))
+		camera_mount.rotate_x(deg_to_rad(-event.relative.y * sens_vertical))
+
+
+func action_lockon(force_off : bool = false):
+	_target = null if force_off else _camera.get_nearest_visible_target(_target)
