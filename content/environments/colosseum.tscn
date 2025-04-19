@@ -1,8 +1,9 @@
-[gd_scene load_steps=89 format=3 uid="uid://qati5uaueveo"]
+[gd_scene load_steps=90 format=3 uid="uid://qati5uaueveo"]
 
 [ext_resource type="PackedScene" uid="uid://ds8o4de0ad4xc" path="res://import/Colosseum.glb" id="1_ra7og"]
 [ext_resource type="PackedScene" uid="uid://bnpbq80gp6660" path="res://content/actors/asterion/asterion.tscn" id="2_hoqlv"]
 [ext_resource type="PackedScene" uid="uid://dkpqkttbd6w67" path="res://prototype/props/proxies/proxy_player.tscn" id="3_u72se"]
+[ext_resource type="PackedScene" uid="uid://gnomaxguf7m1" path="res://content/actors/stomp/stomp.tscn" id="4_u72se"]
 
 [sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_hoqlv"]
 sky_horizon_color = Color(0.662243, 0.671743, 0.686743, 1)
@@ -685,8 +686,12 @@ navigation_mesh = SubResource("NavigationMesh_hoqlv")
 
 [node name="Asterion" parent="." instance=ExtResource("2_hoqlv")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.679906, 0.0929387, -0.592587)
+visible = false
 
 [node name="ProxyPlayer" parent="." instance=ExtResource("3_u72se")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.822062, 1.0117, 13.0004)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.822062, 1.0117, 23.5752)
+
+[node name="Stomp" parent="." instance=ExtResource("4_u72se")]
+transform = Transform3D(-0.999289, 0, 0.0377075, 0, 1, 0, -0.0377075, 0, -0.999289, 3.35612, 0.0554097, -0.157422)
 
 [editable path="Colosseum"]

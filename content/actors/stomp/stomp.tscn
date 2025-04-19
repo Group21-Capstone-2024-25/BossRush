@@ -1,6 +1,6 @@
-[gd_scene load_steps=63 format=3 uid="uid://gnomaxguf7m1"]
+[gd_scene load_steps=65 format=3 uid="uid://gnomaxguf7m1"]
 
-[ext_resource type="Script" uid="uid://b5pp10uxthdca" path="res://scripts/components/actor.gd" id="1_hgrc8"]
+[ext_resource type="Script" uid="uid://dykfj1imsg2vr" path="res://content/actors/stomp/stomp.gd" id="1_gcxnn"]
 [ext_resource type="ArrayMesh" uid="uid://4uyt7iehgwb3" path="res://resources/meshes/Cyclops_body.res" id="2_c1xra"]
 [ext_resource type="Script" uid="uid://cy5434uldqvld" path="res://scripts/components/hitbox.gd" id="3_gcxnn"]
 [ext_resource type="Animation" uid="uid://6adiw1fl1hjk" path="res://resources/animations/cyclops/RESET.res" id="3_sv031"]
@@ -56,6 +56,7 @@
 [ext_resource type="Animation" uid="uid://dvd3ogy3eh5jm" path="res://resources/animations/cyclops/creature_run.res" id="52_dh2ut"]
 [ext_resource type="Animation" uid="uid://b2k1ixrhjgvou" path="res://resources/animations/cyclops/creature_swiping.res" id="53_748qp"]
 [ext_resource type="Animation" uid="uid://nm4vaeyloxso" path="res://resources/animations/cyclops/creature_walking.res" id="54_qf2bc"]
+[ext_resource type="BehaviorTree" uid="uid://bg835kyv8653b" path="res://resources/ai/trees/stomp.tres" id="57_gcxnn"]
 
 [sub_resource type="Skin" id="Skin_xr4hv"]
 resource_name = "Skin"
@@ -303,8 +304,10 @@ _data = {
 &"creature_walking": ExtResource("54_qf2bc")
 }
 
+[sub_resource type="BlackboardPlan" id="BlackboardPlan_c53f7"]
+
 [node name="Stomp" type="CharacterBody3D"]
-script = ExtResource("1_hgrc8")
+script = ExtResource("1_gcxnn")
 metadata/_custom_type_script = "uid://b5pp10uxthdca"
 
 [node name="GeneralSkeleton" type="Skeleton3D" parent="."]
@@ -776,3 +779,9 @@ libraries = {
 &"": SubResource("AnimationLibrary_yuo3a")
 }
 autoplay = "club_idle"
+
+[node name="NavigationAgent3D" type="NavigationAgent3D" parent="."]
+
+[node name="BTPlayer" type="BTPlayer" parent="."]
+behavior_tree = ExtResource("57_gcxnn")
+blackboard_plan = SubResource("BlackboardPlan_c53f7")
