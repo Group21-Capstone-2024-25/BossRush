@@ -115,6 +115,7 @@ game_pause={
 [limbo_ai]
 
 behavior_tree/behavior_tree_default_dir="res://resources/ai"
+behavior_tree/user_task_dirs=PackedStringArray("res://resources/ai/tasks")
 
 [rendering]
 
