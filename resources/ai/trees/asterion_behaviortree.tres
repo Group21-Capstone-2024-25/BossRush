@@ -1,11 +1,10 @@
-[gd_resource type="BehaviorTree" load_steps=43 format=3 uid="uid://darg18gdbp81"]
+[gd_resource type="BehaviorTree" load_steps=38 format=3 uid="uid://darg18gdbp81"]
 
 [ext_resource type="Script" uid="uid://xlrcog6f8ski" path="res://resources/ai/tasks/is_player_in_attack_range.gd" id="1_sml01"]
 [ext_resource type="Script" uid="uid://xxddkhbqfioa" path="res://resources/ai/tasks/heavy_attack.gd" id="1_u0742"]
 [ext_resource type="Script" uid="uid://caqsg7n6wfjsv" path="res://resources/ai/tasks/light_attack.gd" id="2_cg7qs"]
 [ext_resource type="Script" uid="uid://dcvan5qkldak0" path="res://resources/ai/tasks/chase.gd" id="3_sml01"]
 [ext_resource type="Script" uid="uid://kjp2htrjecp2" path="res://resources/ai/tasks/choose_to_random_pos_axe.gd" id="4_pqofd"]
-[ext_resource type="Script" uid="uid://sy6rto00nj37" path="res://resources/ai/tasks/is_player_in_chase_range.gd" id="4_rvvy2"]
 [ext_resource type="Script" uid="uid://cg478wmrd07r8" path="res://resources/ai/tasks/move_to_pos_axe.gd" id="5_rvvy2"]
 
 [sub_resource type="BlackboardPlan" id="BlackboardPlan_04qbr"]
@@ -90,19 +89,6 @@ children = [SubResource("BTProbabilitySelector_ciihp")]
 custom_name = "Sequence - Attack Player"
 children = [SubResource("BTCheckAgentProperty_tfuri"), SubResource("BTDynamicSequence_as5iv")]
 
-[sub_resource type="BBVariant" id="BBVariant_tfuri"]
-type = 1
-saved_value = true
-resource_name = "true"
-
-[sub_resource type="BTCheckAgentProperty" id="BTCheckAgentProperty_v1c0o"]
-property = &"is_player_in_chase_range"
-value = SubResource("BBVariant_tfuri")
-script = ExtResource("4_rvvy2")
-
-[sub_resource type="BTAction" id="BTAction_ioji5"]
-script = ExtResource("3_sml01")
-
 [sub_resource type="BBNode" id="BBNode_5p2le"]
 saved_value = NodePath("AnimationPlayer")
 resource_name = "AnimationPlayer"
@@ -111,15 +97,18 @@ resource_name = "AnimationPlayer"
 animation_player = SubResource("BBNode_5p2le")
 animation_name = &"minotaur_run_forward"
 
+[sub_resource type="BTAction" id="BTAction_ioji5"]
+script = ExtResource("3_sml01")
+
 [sub_resource type="BTSequence" id="BTSequence_11df6"]
 custom_name = "Sequence- Chase"
-children = [SubResource("BTCheckAgentProperty_v1c0o"), SubResource("BTAction_ioji5"), SubResource("BTPlayAnimation_t8q51")]
-
-[sub_resource type="BTAction" id="BTAction_mvff0"]
-script = ExtResource("4_pqofd")
+children = [SubResource("BTPlayAnimation_t8q51"), SubResource("BTAction_ioji5")]
 
 [sub_resource type="BTAction" id="BTAction_1bjoq"]
 script = ExtResource("5_rvvy2")
+
+[sub_resource type="BTAction" id="BTAction_mvff0"]
+script = ExtResource("4_pqofd")
 
 [sub_resource type="BBNode" id="BBNode_57w7y"]
 saved_value = NodePath("AnimationPlayer")
@@ -127,22 +116,14 @@ resource_name = "AnimationPlayer"
 
 [sub_resource type="BTPlayAnimation" id="BTPlayAnimation_jngqx"]
 animation_player = SubResource("BBNode_57w7y")
-animation_name = &"minotaur_walk_forward"
+animation_name = &"minotaur_idle"
 
 [sub_resource type="BTSequence" id="BTSequence_arr3c"]
 custom_name = "Sequence - Wander"
-children = [SubResource("BTAction_mvff0"), SubResource("BTAction_1bjoq"), SubResource("BTPlayAnimation_jngqx")]
-
-[sub_resource type="BBNode" id="BBNode_sml01"]
-saved_value = NodePath("AnimationPlayer")
-resource_name = "AnimationPlayer"
-
-[sub_resource type="BTPlayAnimation" id="BTPlayAnimation_pqofd"]
-animation_player = SubResource("BBNode_sml01")
-animation_name = &"minotaur_idle"
+children = [SubResource("BTAction_1bjoq"), SubResource("BTAction_mvff0"), SubResource("BTPlayAnimation_jngqx")]
 
 [sub_resource type="BTSelector" id="BTSelector_he5ei"]
-children = [SubResource("BTSequence_v1c0o"), SubResource("BTSequence_11df6"), SubResource("BTSequence_arr3c"), SubResource("BTPlayAnimation_pqofd")]
+children = [SubResource("BTSequence_v1c0o"), SubResource("BTSequence_11df6"), SubResource("BTSequence_arr3c")]
 
 [resource]
 blackboard_plan = SubResource("BlackboardPlan_04qbr")

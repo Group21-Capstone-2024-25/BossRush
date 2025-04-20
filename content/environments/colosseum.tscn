@@ -310,6 +310,7 @@ collision_layer = 3
 collision_mask = 5
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="Floor/StaticBody3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.931243, 0)
 shape = SubResource("ConvexPolygonShape3D_k3ydp")
 
 [node name="Cube_005" type="MeshInstance3D" parent="."]
@@ -8181,10 +8182,13 @@ mesh = ExtResource("29_t824u")
 skeleton = NodePath("")
 
 [node name="Asterion" parent="." instance=ExtResource("30_3kav1")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.947061, 0.959417, -12.6929)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.947061, 0.230994, -6.82362)
+collision_layer = 33
+collision_mask = 65
 
 [node name="ProxyPlayer" parent="." instance=ExtResource("31_l8hfv")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.687013, 1.93897, 12.7057)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.687013, 1.24563, 12.7057)
 
 [node name="NavigationRegion3D" type="NavigationRegion3D" parent="."]
 navigation_mesh = SubResource("NavigationMesh_l8hfv")
+navigation_layers = 33

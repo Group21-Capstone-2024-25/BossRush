@@ -702,6 +702,7 @@ debug_fill = false
 
 [node name="GeneralSkeleton" type="Skeleton3D" parent="."]
 unique_name_in_owner = true
+transform = Transform3D(-1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, 0, 0, 0)
 motion_scale = 1.21716
 bones/0/name = "Root"
 bones/0/parent = -1
