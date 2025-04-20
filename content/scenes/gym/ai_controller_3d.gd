@@ -9,7 +9,8 @@ func get_obs() -> Dictionary:
 		asteriontest_rl.position.x,
 		asteriontest_rl.position.y,
 		target.position.x,
-		target.position.y
+		target.position.y,
+		(asteriontest_rl.position-target.position).length()
 	]
 	return {"obs": obs}
 

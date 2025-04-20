@@ -1,11 +1,11 @@
 [gd_scene load_steps=3 format=3 uid="uid://toi0k5fb2jub"]
 
 [ext_resource type="PackedScene" uid="uid://bijiamr6xkn3o" path="res://content/scene_templates/arena/arena.tscn" id="1_boxbk"]
-[ext_resource type="PackedScene" uid="uid://bnpbq80gp6660" path="res://content/actors/asterion/asterion.tscn" id="2_urm8v"]
+[ext_resource type="PackedScene" uid="uid://bc4ssqpgal46a" path="res://content/actors/yi_feng/yi_feng.tscn" id="2_urm8v"]
 
 [node name="Level1" type="Node3D"]
 
 [node name="Arena" parent="." instance=ExtResource("1_boxbk")]
 
-[node name="Asterion" parent="." instance=ExtResource("2_urm8v")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.1637, 0.0281712, -11.3268)
+[node name="YiFeng" parent="." instance=ExtResource("2_urm8v")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -11.7619)

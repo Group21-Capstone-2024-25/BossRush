@@ -751,7 +751,7 @@ bones/70/rotation = Quaternion(-4.27889e-10, -1.74623e-09, 1, 3.09478e-08)
 bones/70/scale = Vector3(1, 1, 1)
 
 [node name="Helmet" type="BoneAttachment3D" parent="GeneralSkeleton"]
-transform = Transform3D(1, 0, 0, 0, 1, 4.47035e-08, 0, -4.47035e-08, 1, -7.38955e-05, 1.78351, 0.0167294)
+transform = Transform3D(1, 0, 0, 0, 1, 4.47034e-08, 0, -4.47034e-08, 1, -7.38955e-05, 1.78351, 0.0167293)
 bone_name = "Helmet"
 bone_idx = 8
 
@@ -761,7 +761,7 @@ mesh = ExtResource("1_2u7ml")
 skeleton = NodePath("")
 
 [node name="ShoulderPad_L" type="BoneAttachment3D" parent="GeneralSkeleton"]
-transform = Transform3D(1, 0, 0, 0, 1, 2.38419e-07, 0, -2.38419e-07, 1, 0.317792, 1.59225, -0.0453128)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.317792, 1.59225, -0.0453128)
 bone_name = "ShoulderPad.L"
 bone_idx = 33
 
@@ -772,7 +772,7 @@ mesh = ExtResource("2_jvy56")
 skeleton = NodePath("")
 
 [node name="ShoulderPad_R" type="BoneAttachment3D" parent="GeneralSkeleton"]
-transform = Transform3D(1, 2.38419e-07, 8.94069e-08, -2.08616e-07, 1, 1.19209e-07, -1.19209e-07, -8.9407e-08, 1, -0.318132, 1.59226, -0.0453256)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.318132, 1.59225, -0.0453256)
 bone_name = "ShoulderPad.R"
 bone_idx = 58
 
@@ -783,7 +783,7 @@ mesh = ExtResource("3_yvu5x")
 skeleton = NodePath("")
 
 [node name="ThighArmour_L" type="BoneAttachment3D" parent="GeneralSkeleton"]
-transform = Transform3D(1, -7.4444e-08, -5.52774e-10, 7.4444e-08, 1, 9.02219e-10, 5.52774e-10, -9.02219e-10, 1, 0.172616, 0.803519, 0.00824676)
+transform = Transform3D(1, -7.4444e-08, -5.52774e-10, 7.4444e-08, 1, 9.02218e-10, 5.52774e-10, -9.02218e-10, 1, 0.172615, 0.803516, 0.00824677)
 bone_name = "ThighArmour.L"
 bone_idx = 64
 
@@ -794,7 +794,7 @@ mesh = ExtResource("4_nftu5")
 skeleton = NodePath("")
 
 [node name="ThighArmour_R" type="BoneAttachment3D" parent="GeneralSkeleton"]
-transform = Transform3D(1, 6.18956e-08, 8.55778e-10, -6.18956e-08, 1, 3.49246e-09, -8.55778e-10, -3.49246e-09, 1, -0.172621, 0.803519, 0.00824676)
+transform = Transform3D(1, 6.18956e-08, 8.55778e-10, -6.18956e-08, 1, 3.49246e-09, -8.55778e-10, -3.49246e-09, 1, -0.172621, 0.803515, 0.00824671)
 bone_name = "ThighArmour.R"
 bone_idx = 70
 
