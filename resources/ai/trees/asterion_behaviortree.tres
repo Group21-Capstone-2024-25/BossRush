@@ -1,10 +1,11 @@
-[gd_resource type="BehaviorTree" load_steps=41 format=3 uid="uid://darg18gdbp81"]
+[gd_resource type="BehaviorTree" load_steps=43 format=3 uid="uid://darg18gdbp81"]
 
 [ext_resource type="Script" uid="uid://xlrcog6f8ski" path="res://resources/ai/tasks/is_player_in_attack_range.gd" id="1_sml01"]
 [ext_resource type="Script" uid="uid://xxddkhbqfioa" path="res://resources/ai/tasks/heavy_attack.gd" id="1_u0742"]
 [ext_resource type="Script" uid="uid://caqsg7n6wfjsv" path="res://resources/ai/tasks/light_attack.gd" id="2_cg7qs"]
 [ext_resource type="Script" uid="uid://dcvan5qkldak0" path="res://resources/ai/tasks/chase.gd" id="3_sml01"]
 [ext_resource type="Script" uid="uid://kjp2htrjecp2" path="res://resources/ai/tasks/choose_to_random_pos_axe.gd" id="4_pqofd"]
+[ext_resource type="Script" uid="uid://d3qor2xh8fxbn" path="res://resources/ai/tasks/is_player_evading.gd" id="4_sml01"]
 [ext_resource type="Script" uid="uid://cg478wmrd07r8" path="res://resources/ai/tasks/move_to_pos_axe.gd" id="5_rvvy2"]
 
 [sub_resource type="BlackboardPlan" id="BlackboardPlan_04qbr"]
@@ -42,6 +43,7 @@ script = ExtResource("1_u0742")
 [sub_resource type="BTSequence" id="BTSequence_ck0ex"]
 custom_name = "Heavy Attack"
 children = [SubResource("BTPlayAnimation_naqeo"), SubResource("BTAwaitAnimation_e0lvr"), SubResource("BTAction_m85x0")]
+metadata/_weight_ = 1.67185
 
 [sub_resource type="BBNode" id="BBNode_mi1uw"]
 saved_value = NodePath("AnimationPlayer")
@@ -66,6 +68,7 @@ script = ExtResource("2_cg7qs")
 [sub_resource type="BTSequence" id="BTSequence_0hl71"]
 custom_name = "Light Attack"
 children = [SubResource("BTPlayAnimation_7i5fi"), SubResource("BTAwaitAnimation_b3i60"), SubResource("BTAction_mabtx")]
+metadata/_weight_ = 1.72796
 
 [sub_resource type="BBNode" id="BBNode_u0742"]
 saved_value = NodePath("AnimationPlayer")
@@ -78,6 +81,7 @@ animation_name = &"minotaur_block_idle"
 [sub_resource type="BTSequence" id="BTSequence_sml01"]
 custom_name = "Sequence - Block"
 children = [SubResource("BTPlayAnimation_cg7qs")]
+metadata/_weight_ = 1.1616
 
 [sub_resource type="BBNode" id="BBNode_cg7qs"]
 saved_value = NodePath(".")
@@ -87,7 +91,11 @@ resource_name = "."
 node = SubResource("BBNode_cg7qs")
 expression_string = "player.is_blocking"
 
+[sub_resource type="BTCondition" id="BTCondition_pqofd"]
+script = ExtResource("4_sml01")
+
 [sub_resource type="BTInvert" id="BTInvert_pqofd"]
+children = [SubResource("BTCondition_pqofd")]
 
 [sub_resource type="BTProbabilitySelector" id="BTProbabilitySelector_ciihp"]
 children = [SubResource("BTSequence_ck0ex"), SubResource("BTSequence_0hl71"), SubResource("BTSequence_sml01"), SubResource("BTEvaluateExpression_sml01"), SubResource("BTInvert_pqofd")]
