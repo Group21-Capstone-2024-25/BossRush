@@ -1,0 +1,118 @@
+[gd_resource type="BehaviorTree" load_steps=35 format=3 uid="uid://cty5eirnxkmys"]
+
+[ext_resource type="Script" uid="uid://xlrcog6f8ski" path="res://resources/ai/tasks/is_player_in_attack_range.gd" id="1_0k1nj"]
+[ext_resource type="Script" uid="uid://l3xd7fdooa0g" path="res://resources/ai/tasks/heavy_attack_stomp.gd" id="2_xxlxl"]
+[ext_resource type="Script" uid="uid://dowgnpm7s800u" path="res://resources/ai/tasks/light_attack_stomp.gd" id="3_b6xok"]
+[ext_resource type="Script" uid="uid://c7w7qgwdthgyb" path="res://resources/ai/tasks/chase_stomp.gd" id="4_4ob5j"]
+[ext_resource type="Script" uid="uid://cg478wmrd07r8" path="res://resources/ai/tasks/move_to_pos_axe.gd" id="5_i8bja"]
+[ext_resource type="Script" uid="uid://kjp2htrjecp2" path="res://resources/ai/tasks/choose_to_random_pos_axe.gd" id="6_4ugut"]
+
+[sub_resource type="BlackboardPlan" id="BlackboardPlan_s1ryf"]
+
+[sub_resource type="BBVariant" id="BBVariant_xxlxl"]
+type = 1
+saved_value = true
+resource_name = "true"
+
+[sub_resource type="BTCheckAgentProperty" id="BTCheckAgentProperty_b6xok"]
+property = &"is_player_in_attack_range"
+value = SubResource("BBVariant_xxlxl")
+script = ExtResource("1_0k1nj")
+
+[sub_resource type="BBNode" id="BBNode_b6xok"]
+saved_value = NodePath("AnimationPlayer")
+resource_name = "AnimationPlayer"
+
+[sub_resource type="BTPlayAnimation" id="BTPlayAnimation_b43a5"]
+animation_player = SubResource("BBNode_b6xok")
+animation_name = &"club_melee_combo_attack_1"
+
+[sub_resource type="BBNode" id="BBNode_xxlxl"]
+saved_value = NodePath("AnimationPlayer")
+resource_name = "AnimationPlayer"
+
+[sub_resource type="BTAwaitAnimation" id="BTAwaitAnimation_h2v37"]
+animation_player = SubResource("BBNode_xxlxl")
+animation_name = &"club_melee_combo_attack_1"
+max_time = 4.667
+
+[sub_resource type="BTAction" id="BTAction_4ob5j"]
+script = ExtResource("2_xxlxl")
+
+[sub_resource type="BTSequence" id="BTSequence_b43a5"]
+custom_name = "Heavy Attack"
+children = [SubResource("BTPlayAnimation_b43a5"), SubResource("BTAwaitAnimation_h2v37"), SubResource("BTAction_4ob5j")]
+
+[sub_resource type="BBNode" id="BBNode_b43a5"]
+saved_value = NodePath("AnimationPlayer")
+resource_name = "AnimationPlayer"
+
+[sub_resource type="BTPlayAnimation" id="BTPlayAnimation_h2v37"]
+animation_player = SubResource("BBNode_b43a5")
+animation_name = &"club_melee_combo_attack_2"
+
+[sub_resource type="BBNode" id="BBNode_h2v37"]
+saved_value = NodePath("AnimationPlayer")
+resource_name = "AnimationPlayer"
+
+[sub_resource type="BTAwaitAnimation" id="BTAwaitAnimation_4ob5j"]
+animation_player = SubResource("BBNode_h2v37")
+animation_name = &"club_melee_combo_attack_2"
+max_time = 4.2
+
+[sub_resource type="BTAction" id="BTAction_i8bja"]
+script = ExtResource("3_b6xok")
+
+[sub_resource type="BTSequence" id="BTSequence_h2v37"]
+custom_name = "Light Attack"
+children = [SubResource("BTPlayAnimation_h2v37"), SubResource("BTAwaitAnimation_4ob5j"), SubResource("BTAction_i8bja")]
+
+[sub_resource type="BTProbabilitySelector" id="BTProbabilitySelector_4ob5j"]
+children = [SubResource("BTSequence_b43a5"), SubResource("BTSequence_h2v37")]
+
+[sub_resource type="BTDynamicSequence" id="BTDynamicSequence_0k1nj"]
+children = [SubResource("BTProbabilitySelector_4ob5j")]
+
+[sub_resource type="BTSequence" id="BTSequence_xxlxl"]
+custom_name = "Sequence - Attack Player"
+children = [SubResource("BTCheckAgentProperty_b6xok"), SubResource("BTDynamicSequence_0k1nj")]
+
+[sub_resource type="BBNode" id="BBNode_oojau"]
+saved_value = NodePath("AnimationPlayer")
+resource_name = "AnimationPlayer"
+
+[sub_resource type="BTPlayAnimation" id="BTPlayAnimation_i1w6u"]
+animation_player = SubResource("BBNode_oojau")
+animation_name = &"club_run_forward"
+
+[sub_resource type="BTAction" id="BTAction_c1fmy"]
+script = ExtResource("4_4ob5j")
+
+[sub_resource type="BTSequence" id="BTSequence_4ob5j"]
+custom_name = "Sequence - Chase"
+children = [SubResource("BTPlayAnimation_i1w6u"), SubResource("BTAction_c1fmy")]
+
+[sub_resource type="BTAction" id="BTAction_bxvyh"]
+script = ExtResource("5_i8bja")
+
+[sub_resource type="BTAction" id="BTAction_x26py"]
+script = ExtResource("6_4ugut")
+
+[sub_resource type="BBNode" id="BBNode_4ob5j"]
+saved_value = NodePath("AnimationPlayer")
+resource_name = "AnimationPlayer"
+
+[sub_resource type="BTPlayAnimation" id="BTPlayAnimation_lq8g7"]
+animation_player = SubResource("BBNode_4ob5j")
+animation_name = &"club_idle"
+
+[sub_resource type="BTSequence" id="BTSequence_0r7io"]
+custom_name = "Sequence - Wander"
+children = [SubResource("BTAction_bxvyh"), SubResource("BTAction_x26py"), SubResource("BTPlayAnimation_lq8g7")]
+
+[sub_resource type="BTSelector" id="BTSelector_b6xok"]
+children = [SubResource("BTSequence_xxlxl"), SubResource("BTSequence_4ob5j"), SubResource("BTSequence_0r7io")]
+
+[resource]
+blackboard_plan = SubResource("BlackboardPlan_s1ryf")
+root_task = SubResource("BTSelector_b6xok")
