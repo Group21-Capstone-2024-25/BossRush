@@ -5,7 +5,7 @@ const ATTACK_DURATION := 1.5  # Adjust to match your heavy animation duration
 
 func _enter():
 	timer = 0.0
-	agent.play_animation("heavy_attack")
+	agent.play_animation("minotaur_attack_360_high")
 
 func _tick(delta: float) -> Status:
 	timer += delta

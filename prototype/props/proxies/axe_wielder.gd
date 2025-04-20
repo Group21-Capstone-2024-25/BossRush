@@ -40,6 +40,8 @@ func chase_player(delta: float):
 	direction.y = 0  # stay grounded
 	velocity.x = direction.x * SPEED
 	velocity.z = direction.z * SPEED
+	
+	look_at(player_pos)
 
 	play_animation("chase")
 

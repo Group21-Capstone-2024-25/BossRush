@@ -1,4 +1,4 @@
-[gd_scene load_steps=57 format=3 uid="uid://bc4ssqpgal46a"]
+[gd_scene load_steps=59 format=3 uid="uid://bc4ssqpgal46a"]
 
 [ext_resource type="Script" uid="uid://b5pp10uxthdca" path="res://scripts/components/actor.gd" id="1_iwkav"]
 [ext_resource type="ArrayMesh" uid="uid://xj1tcp2pbbx2" path="res://resources/meshes/ChineseMage_body.res" id="1_qnm4u"]
@@ -52,6 +52,7 @@
 [ext_resource type="Animation" uid="uid://l45l3b1gpqjc" path="res://resources/animations/mage/mage_walk_left.res" id="35_mtle3"]
 [ext_resource type="Animation" uid="uid://dedpe4emdx8om" path="res://resources/animations/mage/mage_walk_right.res" id="36_fbdrs"]
 [ext_resource type="Script" uid="uid://dy0h08l1jbwow" path="res://scripts/components/hurtbox.gd" id="37_28ep8"]
+[ext_resource type="BehaviorTree" uid="uid://cn7yh61cfpb88" path="res://resources/ai/trees/yifeng_behaviortree.tres" id="53_d8n6a"]
 
 [sub_resource type="CapsuleShape3D" id="CapsuleShape3D_dn3r1"]
 
@@ -310,6 +311,8 @@ _data = {
 &"mage_walk_left": ExtResource("35_mtle3"),
 &"mage_walk_right": ExtResource("36_fbdrs")
 }
+
+[sub_resource type="BlackboardPlan" id="BlackboardPlan_x61bd"]
 
 [node name="YiFeng" type="CharacterBody3D"]
 script = ExtResource("1_iwkav")
@@ -807,3 +810,7 @@ libraries = {
 &"": SubResource("AnimationLibrary_4lqno")
 }
 autoplay = "mage_idle_1"
+
+[node name="BTPlayer" type="BTPlayer" parent="."]
+behavior_tree = ExtResource("53_d8n6a")
+blackboard_plan = SubResource("BlackboardPlan_x61bd")

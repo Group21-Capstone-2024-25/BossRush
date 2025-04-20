@@ -1,6 +1,6 @@
-[gd_scene load_steps=45 format=4 uid="uid://bnpbq80gp6660"]
+[gd_scene load_steps=47 format=4 uid="uid://bnpbq80gp6660"]
 
-[ext_resource type="Script" uid="uid://b5pp10uxthdca" path="res://scripts/components/actor.gd" id="1_a7max"]
+[ext_resource type="Script" uid="uid://dkrbbakhff05x" path="res://content/actors/asterion/asterion.gd" id="1_ikc5a"]
 [ext_resource type="Material" uid="uid://bbnp73dec7345" path="res://resources/materials/Minotaur.tres" id="2_0atse"]
 [ext_resource type="ArrayMesh" uid="uid://dyb7retr2i22f" path="res://resources/meshes/Hammer_mesh.res" id="3_ponmx"]
 [ext_resource type="Animation" uid="uid://cpgm8psn5q2un" path="res://resources/animations/minotaur/minotaur_block_idle.res" id="3_t2fsn"]
@@ -37,6 +37,7 @@
 [ext_resource type="Animation" uid="uid://b5poqiurswmrv" path="res://resources/animations/minotaur/minotaur_walk_right.res" id="34_sn8vd"]
 [ext_resource type="Script" uid="uid://dy0h08l1jbwow" path="res://scripts/components/hurtbox.gd" id="35_e5l1w"]
 [ext_resource type="Script" uid="uid://cy5434uldqvld" path="res://scripts/components/hitbox.gd" id="36_ponmx"]
+[ext_resource type="BehaviorTree" uid="uid://darg18gdbp81" path="res://resources/ai/trees/asterion_behaviortree.tres" id="38_ikc5a"]
 
 [sub_resource type="CapsuleShape3D" id="CapsuleShape3D_wn6ps"]
 
@@ -688,8 +689,10 @@ _data = {
 radius = 0.336659
 height = 1.22483
 
+[sub_resource type="BlackboardPlan" id="BlackboardPlan_yxcwd"]
+
 [node name="Asterion" type="CharacterBody3D"]
-script = ExtResource("1_a7max")
+script = ExtResource("1_ikc5a")
 metadata/_custom_type_script = "uid://b5pp10uxthdca"
 
 [node name="ControllerCollider" type="CollisionShape3D" parent="."]
@@ -1182,6 +1185,12 @@ skeleton = NodePath("")
 [node name="LookAtModifier3D" type="LookAtModifier3D" parent="GeneralSkeleton"]
 bone_name = "Head"
 bone = 6
+use_angle_limitation = true
+symmetry_limitation = true
+primary_limit_angle = 3.14159
+primary_damp_threshold = 1.0
+secondary_limit_angle = 3.14159
+secondary_damp_threshold = 1.0
 
 [node name="AudioSocket" type="BoneAttachment3D" parent="GeneralSkeleton"]
 transform = Transform3D(1, 2.16568e-21, -1.77669e-22, -2.16568e-21, 1, 5.29284e-10, 1.77669e-22, -5.29284e-10, 1, -1.14441e-07, 2.24488, 0.0610151)
@@ -1208,13 +1217,18 @@ shape = SubResource("CapsuleShape3D_ikc5a")
 debug_color = Color(0, 1, 0, 0.419608)
 
 [node name="Hitbox" type="Area3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.756088, 1.45881)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.756088, 1.20819)
 script = ExtResource("36_ponmx")
 metadata/_custom_type_script = "uid://cy5434uldqvld"
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="Hitbox"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0.0257465)
 shape = SubResource("CapsuleShape3D_yxcwd")
 disabled = true
 debug_color = Color(1, 0, 0, 0.419608)
 
 [node name="NavigationAgent3D" type="NavigationAgent3D" parent="."]
+
+[node name="BTPlayer" type="BTPlayer" parent="."]
+behavior_tree = ExtResource("38_ikc5a")
+blackboard_plan = SubResource("BlackboardPlan_yxcwd")

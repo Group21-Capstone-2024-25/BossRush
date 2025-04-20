@@ -1,4 +1,4 @@
-[gd_resource type="BehaviorTree" load_steps=32 format=3 uid="uid://emdchu1wo3a0"]
+[gd_resource type="BehaviorTree" load_steps=28 format=3 uid="uid://emdchu1wo3a0"]
 
 [ext_resource type="Script" uid="uid://xxddkhbqfioa" path="res://resources/ai/tasks/heavy_attack.gd" id="1_algqx"]
 [ext_resource type="Script" uid="uid://xlrcog6f8ski" path="res://resources/ai/tasks/is_player_in_attack_range.gd" id="1_hxuxl"]
@@ -18,39 +18,23 @@ var/proxy_state/hint_string = ""
 [sub_resource type="BTCondition" id="BTCondition_qk7po"]
 script = ExtResource("1_hxuxl")
 
-[sub_resource type="BBNode" id="BBNode_ovvsv"]
-saved_value = NodePath("AnimationPlayer")
-resource_name = "AnimationPlayer"
-
-[sub_resource type="BTPlayAnimation" id="BTPlayAnimation_8as4i"]
-animation_player = SubResource("BBNode_ovvsv")
-animation_name = &"heavy_attack"
-
 [sub_resource type="BTAction" id="BTAction_i3wii"]
 script = ExtResource("1_algqx")
 
 [sub_resource type="BTSequence" id="BTSequence_ptd3t"]
 custom_name = "Sequence - Heavy"
-children = [SubResource("BTPlayAnimation_8as4i"), SubResource("BTAction_i3wii")]
+children = [SubResource("BTAction_i3wii")]
 
 [sub_resource type="BTProbability" id="BTProbability_poygq"]
 run_chance = 0.4
 children = [SubResource("BTSequence_ptd3t")]
-
-[sub_resource type="BBNode" id="BBNode_hxuxl"]
-saved_value = NodePath("AnimationPlayer")
-resource_name = "AnimationPlayer"
-
-[sub_resource type="BTPlayAnimation" id="BTPlayAnimation_k0lvr"]
-animation_player = SubResource("BBNode_hxuxl")
-animation_name = &"light_attack"
 
 [sub_resource type="BTAction" id="BTAction_ovvsv"]
 script = ExtResource("2_i3wii")
 
 [sub_resource type="BTSequence" id="BTSequence_qk7po"]
 custom_name = "Sequence-Light"
-children = [SubResource("BTPlayAnimation_k0lvr"), SubResource("BTAction_ovvsv")]
+children = [SubResource("BTAction_ovvsv")]
 
 [sub_resource type="BTSelector" id="BTSelector_i3wii"]
 children = [SubResource("BTProbability_poygq"), SubResource("BTSequence_qk7po")]
@@ -68,7 +52,7 @@ resource_name = "AnimationPlayer"
 
 [sub_resource type="BTPlayAnimation" id="BTPlayAnimation_x2my1"]
 animation_player = SubResource("BBNode_p05o7")
-animation_name = &"chase"
+animation_name = &"minotaur_run_forward"
 
 [sub_resource type="BTAction" id="BTAction_o7xig"]
 script = ExtResource("3_poygq")
@@ -93,7 +77,7 @@ resource_name = "AnimationPlayer"
 
 [sub_resource type="BTPlayAnimation" id="BTPlayAnimation_58v87"]
 animation_player = SubResource("BBNode_qk7po")
-animation_name = &"idle"
+animation_name = &"minotaur_idle"
 
 [sub_resource type="BTSelector" id="BTSelector_algqx"]
 children = [SubResource("BTSequence_poygq"), SubResource("BTSequence_8as4i"), SubResource("BTSequence_5r2cd"), SubResource("BTPlayAnimation_58v87")]

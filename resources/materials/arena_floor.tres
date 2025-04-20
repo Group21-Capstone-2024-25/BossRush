@@ -1,0 +1,5 @@
+[gd_resource type="StandardMaterial3D" format=3 uid="uid://b250yb76wftao"]
+
+[resource]
+resource_name = "arena_floor"
+albedo_color = Color(0.598691, 0.502272, 0.308932, 1)
