@@ -1,3 +1,841 @@
-[gd_scene format=3 uid="uid://c3uvl7vi3gyen"]
+[gd_scene load_steps=49 format=3 uid="uid://c3uvl7vi3gyen"]
 
-[node name="RlTraining" type="Node3D"]
+[ext_resource type="Script" uid="uid://dsimp82wt2v4q" path="res://content/scenes/gym/asteriontest_rl.gd" id="1_c46s1"]
+[ext_resource type="ArrayMesh" uid="uid://dovi4adai76l7" path="res://resources/meshes/ChineseWarrior1_body.res" id="2_c46s1"]
+[ext_resource type="ArrayMesh" uid="uid://ch7fnt627pkxd" path="res://resources/meshes/Minotaur_Minotaur.res" id="2_qsgrw"]
+[ext_resource type="Script" uid="uid://kc6q6c754s52" path="res://content/scenes/gym/ai_controller_3d.gd" id="4_qsec4"]
+[ext_resource type="Animation" uid="uid://uc3h2ktka7cq" path="res://resources/animations/minotaur/RESET.res" id="5_3qp7g"]
+[ext_resource type="Animation" uid="uid://cpgm8psn5q2un" path="res://resources/animations/minotaur/minotaur_block_idle.res" id="6_vgngy"]
+[ext_resource type="Animation" uid="uid://cg604ctn7fo5j" path="res://resources/animations/minotaur/minotaur_block_react_large.res" id="7_wlnlt"]
+[ext_resource type="Animation" uid="uid://c3eq8cs0rnq50" path="res://resources/animations/minotaur/minotaur_disarm_over_shoulder.res" id="8_vqlaa"]
+[ext_resource type="Animation" uid="uid://b1igmfb2nqmnt" path="res://resources/animations/minotaur/minotaur_disarm_underarm.res" id="9_vjydn"]
+[ext_resource type="Animation" uid="uid://btqmuq0m2phsq" path="res://resources/animations/minotaur/minotaur_idle.res" id="10_8knma"]
+[ext_resource type="Animation" uid="uid://0yx1i5rg1s0k" path="res://resources/animations/minotaur/minotaur_idle_looking_1.res" id="11_gf7de"]
+[ext_resource type="Animation" uid="uid://di4jfqk50v2tc" path="res://resources/animations/minotaur/minotaur_idle_looking_2.res" id="12_uqjnc"]
+[ext_resource type="Animation" uid="uid://bo4wauw7g8rur" path="res://resources/animations/minotaur/minotaur_jump.res" id="13_mqgr1"]
+[ext_resource type="Animation" uid="uid://wb7utfuxw7fi" path="res://resources/animations/minotaur/minotaur_melee_attack_360_high.res" id="14_8f3cw"]
+[ext_resource type="Animation" uid="uid://b1pf3xdfwjhat" path="res://resources/animations/minotaur/minotaur_melee_attack_360_low.res" id="15_5b6io"]
+[ext_resource type="Animation" uid="uid://caya6ktme8p6x" path="res://resources/animations/minotaur/minotaur_melee_attack_backhand.res" id="16_2wsbk"]
+[ext_resource type="Animation" uid="uid://bngnx21i1ocok" path="res://resources/animations/minotaur/minotaur_melee_attack_downward.res" id="17_x0xml"]
+[ext_resource type="Animation" uid="uid://cmbf6m2f6kgwa" path="res://resources/animations/minotaur/minotaur_melee_attack_horizontal.res" id="18_pobv5"]
+[ext_resource type="Animation" uid="uid://ctngj8fonraxm" path="res://resources/animations/minotaur/minotaur_melee_attack_kick_1.res" id="19_lk5xf"]
+[ext_resource type="Animation" uid="uid://bf86skh1xc1ye" path="res://resources/animations/minotaur/minotaur_melee_attack_kick_2.res" id="20_8807m"]
+[ext_resource type="Animation" uid="uid://o1aayfqh5qjc" path="res://resources/animations/minotaur/minotaur_melee_combo_attack_1.res" id="21_lvhx3"]
+[ext_resource type="Animation" uid="uid://dc3xuv7ilv16m" path="res://resources/animations/minotaur/minotaur_melee_combo_attack_2.res" id="22_drkur"]
+[ext_resource type="Animation" uid="uid://dd0b144rkntip" path="res://resources/animations/minotaur/minotaur_melee_combo_attack_3.res" id="23_j4ada"]
+[ext_resource type="Animation" uid="uid://bsfwqwenyttpe" path="res://resources/animations/minotaur/minotaur_melee_run_jump_attack.res" id="24_c7mrm"]
+[ext_resource type="Animation" uid="uid://2orss37fhmbb" path="res://resources/animations/minotaur/minotaur_react_large_from_left.res" id="25_euqgg"]
+[ext_resource type="Animation" uid="uid://iq8ktuy8dnec" path="res://resources/animations/minotaur/minotaur_react_large_from_right.res" id="26_eauxx"]
+[ext_resource type="Animation" uid="uid://bs3ek2c6n5s0k" path="res://resources/animations/minotaur/minotaur_react_large_gut.res" id="27_f57t8"]
+[ext_resource type="Animation" uid="uid://bq15dvm322xk" path="res://resources/animations/minotaur/minotaur_run_back.res" id="28_ush3x"]
+[ext_resource type="Animation" uid="uid://nxdk34ky7473" path="res://resources/animations/minotaur/minotaur_run_forward.res" id="29_r74ig"]
+[ext_resource type="Animation" uid="uid://b1lci6r62t2s3" path="res://resources/animations/minotaur/minotaur_taunt_battlecry.res" id="30_gvlxv"]
+[ext_resource type="Animation" uid="uid://eksv6fr2t6p" path="res://resources/animations/minotaur/minotaur_taunt_chest_thump.res" id="31_c71gt"]
+[ext_resource type="Animation" uid="uid://b4i76honj4g8m" path="res://resources/animations/minotaur/minotaur_turn_left_90.res" id="32_6ki82"]
+[ext_resource type="Animation" uid="uid://b4hbbetsr32ta" path="res://resources/animations/minotaur/minotaur_turn_right_90.res" id="33_w86jy"]
+[ext_resource type="Animation" uid="uid://dhf8tfix8rmm0" path="res://resources/animations/minotaur/minotaur_walk_back.res" id="34_s85ef"]
+[ext_resource type="Animation" uid="uid://beg6ye2aj04gk" path="res://resources/animations/minotaur/minotaur_walk_forward.res" id="35_723n3"]
+[ext_resource type="Animation" uid="uid://5torrxb5e054" path="res://resources/animations/minotaur/minotaur_walk_left.res" id="36_u6qck"]
+[ext_resource type="Animation" uid="uid://b5poqiurswmrv" path="res://resources/animations/minotaur/minotaur_walk_right.res" id="37_d4am3"]
+
+[sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_pugji"]
+sky_horizon_color = Color(0.662243, 0.671743, 0.686743, 1)
+ground_horizon_color = Color(0.662243, 0.671743, 0.686743, 1)
+
+[sub_resource type="Sky" id="Sky_qsgrw"]
+sky_material = SubResource("ProceduralSkyMaterial_pugji")
+
+[sub_resource type="Environment" id="Environment_c46s1"]
+background_mode = 2
+sky = SubResource("Sky_qsgrw")
+tonemap_mode = 2
+glow_enabled = true
+
+[sub_resource type="CapsuleShape3D" id="CapsuleShape3D_qsec4"]
+
+[sub_resource type="BoxMesh" id="BoxMesh_qsec4"]
+size = Vector3(15, 1, 15)
+
+[sub_resource type="ConvexPolygonShape3D" id="ConvexPolygonShape3D_2csai"]
+points = PackedVector3Array(-7.61905, -0.619048, -7.61905, 7.61905, 0.571429, 7.61905, 7.61905, -0.619048, 7.61905, 7.61905, 0.571429, -7.61905, -7.61905, 0.571429, 7.61905, -7.61905, -0.619048, 7.61905, 7.61905, -0.619048, -7.61905, -7.61905, 0.571429, -7.61905)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_8b74g"]
+size = Vector3(15, 1, 1)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_2jmqy"]
+size = Vector3(1, 1, 15)
+
+[sub_resource type="Skin" id="Skin_qm36i"]
+resource_name = "Skin"
+bind_count = 65
+bind/0/name = &"Hips"
+bind/0/bone = -1
+bind/0/pose = Transform3D(1, 0, 0, 0, 1, -2.2881e-08, 0, -2.2881e-08, 1, 1.14441e-07, -1.21716, -0.0422787)
+bind/1/name = &"Spine"
+bind/1/bone = -1
+bind/1/pose = Transform3D(1, 0, 0, 0, 1, -2.6077e-08, 0, -1.49012e-08, 1, 1.14441e-07, -1.40189, -0.0319472)
+bind/2/name = &"Chest"
+bind/2/bone = -1
+bind/2/pose = Transform3D(1, 1.23084e-21, -1.05879e-22, 1.21099e-21, 1, -2.98023e-08, 1.05879e-22, -1.86265e-08, 1, 1.14441e-07, -1.61741, -0.0198939)
+bind/3/name = &"UpperChest"
+bind/3/bone = -1
+bind/3/pose = Transform3D(1, -4.00355e-21, -1.05879e-22, 1.1018e-21, 1, -2.98023e-08, 0, -1.86265e-08, 1, 1.14441e-07, -1.86371, -0.0061186)
+bind/4/name = &"Neck"
+bind/4/bone = -1
+bind/4/pose = Transform3D(1, -2.3161e-23, -1.05879e-22, -1.73154e-21, 1, -2.6077e-08, 1.58819e-22, -2.6077e-08, 1, 1.14441e-07, -2.1408, 0.0093786)
+bind/5/name = &"Head"
+bind/5/bone = -1
+bind/5/pose = Transform3D(1, -2.31611e-23, -1.05879e-22, -1.73154e-21, 1, -2.6077e-08, 1.58819e-22, -2.6077e-08, 1, 1.14441e-07, -2.24489, -0.0610154)
+bind/6/name = &"HeadTop_End"
+bind/6/bone = -1
+bind/6/pose = Transform3D(1, -4.35877e-23, -4.21988e-16, -2.11918e-21, 1, -1.2666e-07, 4.21988e-16, 7.45058e-08, 1, 1.14441e-07, -2.41179, -0.173887)
+bind/7/name = &"LeftShoulder"
+bind/7/bone = -1
+bind/7/pose = Transform3D(2.99886e-07, 1.60187e-07, 1, 1, -1.49012e-07, -4.65661e-08, 2.38419e-07, 1, -3.42727e-07, 0.0109055, -0.129114, -2.08438)
+bind/8/name = &"LeftUpperArm"
+bind/8/bone = -1
+bind/8/pose = Transform3D(-3.03611e-07, -1.49012e-07, -1, 1, -1.49012e-07, -4.84288e-08, -1.78814e-07, -1, 3.46452e-07, -0.00479615, -0.397803, 1.97029)
+bind/9/name = &"LeftLowerArm"
+bind/9/bone = -1
+bind/9/pose = Transform3D(-2.08616e-07, -1, 3.27826e-07, 1, -1.19209e-07, 0, 2.98023e-07, 8.9407e-08, 1, 1.80555, -0.669209, -0.00581592)
+bind/10/name = &"LeftHand"
+bind/10/bone = -1
+bind/10/pose = Transform3D(-3.0268e-07, -5.7742e-08, -1, 1, 0, -2.32831e-08, -2.38419e-07, -1, 2.79397e-07, 0.170706, -0.880782, 1.74429)
+bind/11/name = &"LeftThumbMetacarpal"
+bind/11/bone = -1
+bind/11/pose = Transform3D(2.38419e-07, 1, -1.19209e-07, 0.816993, -5.96046e-08, 0.577702, 0.577702, -9.59262e-08, -0.816993, -1.68089, -0.869829, -0.310831)
+bind/12/name = &"LeftThumbProximal"
+bind/12/bone = -1
+bind/12/pose = Transform3D(2.68221e-07, 1, -5.96046e-08, 0.816993, -8.9407e-08, 0.577702, 0.577702, -6.70552e-08, -0.816993, -1.63017, -0.911124, -0.264006)
+bind/13/name = &"LeftThumbDistal"
+bind/13/bone = -1
+bind/13/pose = Transform3D(2.38419e-07, 1, 0, 0.816993, 0, 0.577702, 0.577702, -6.33299e-08, -0.816993, -1.58483, -0.930004, -0.214366)
+bind/14/name = &"HandThumb4.L"
+bind/14/bone = -1
+bind/14/pose = Transform3D(0.791769, -0.462821, -0.398621, -0.0212649, -0.67309, 0.739255, -0.610451, -0.576842, -0.542774, 0.174068, 0.766592, 1.65045)
+bind/15/name = &"LeftIndexProximal"
+bind/15/bone = -1
+bind/15/pose = Transform3D(-3.55765e-07, -3.1665e-08, -1, 1, 5.96046e-08, -1.22003e-07, -2.38419e-07, -1, 2.47732e-07, 0.363054, -1.01813, 1.65691)
+bind/16/name = &"LeftIndexIntermediate"
+bind/16/bone = -1
+bind/16/pose = Transform3D(-4.02331e-07, 8.9407e-08, -1, 1, -5.96046e-08, -1.3411e-07, -2.38419e-07, -1, 2.38419e-07, 0.396697, -1.05023, 1.63421)
+bind/17/name = &"LeftIndexDistal"
+bind/17/bone = -1
+bind/17/pose = Transform3D(-4.39584e-07, 8.9407e-08, -1, 1, -5.96046e-08, -1.41561e-07, -2.08616e-07, -1, 2.6077e-07, 0.42459, -1.07274, 1.60042)
+bind/18/name = &"HandIndex4.L"
+bind/18/bone = -1
+bind/18/pose = Transform3D(0.539142, -0.332585, -0.773766, 0.559659, -0.545071, 0.624244, -0.629371, -0.769601, -0.107737, 0.28237, -0.0250729, 1.9526)
+bind/19/name = &"LeftMiddleProximal"
+bind/19/bone = -1
+bind/19/pose = Transform3D(-2.81259e-07, -8.9407e-08, -1, 1, 2.98023e-08, -7.45058e-09, -2.68221e-07, -1, 2.98023e-07, 0.329596, -1.05632, 1.66998)
+bind/20/name = &"LeftMiddleIntermediate"
+bind/20/bone = -1
+bind/20/pose = Transform3D(-2.23517e-07, -7.45058e-08, -1, 1, 8.9407e-08, -2.98023e-08, -3.57628e-07, -1, 2.68221e-07, 0.359477, -1.09494, 1.64453)
+bind/21/name = &"LeftMiddleDistal"
+bind/21/bone = -1
+bind/21/pose = Transform3D(-3.12924e-07, -5.96046e-08, -1, 1, -2.98023e-08, -1.49012e-08, -3.27826e-07, -1, 2.68221e-07, 0.382916, -1.12208, 1.60829)
+bind/22/name = &"HandMiddle4.L"
+bind/22/bone = -1
+bind/22/pose = Transform3D(0.446288, -0.21381, -0.868972, 0.520456, -0.72791, 0.4464, -0.727978, -0.651484, -0.213579, 0.176204, 0.379083, 1.94636)
+bind/23/name = &"LeftRingProximal"
+bind/23/bone = -1
+bind/23/pose = Transform3D(-2.55182e-07, -8.9407e-08, -1, 1, -8.9407e-08, -1.15484e-07, -1.78814e-07, -1, 2.79397e-07, 0.280605, -1.06574, 1.667)
+bind/24/name = &"LeftRingIntermediate"
+bind/24/bone = -1
+bind/24/pose = Transform3D(-2.68221e-07, -6.70552e-08, -1, 1, -1.49012e-07, -5.96046e-08, -2.68221e-07, -1, 2.83122e-07, 0.295907, -1.10729, 1.64292)
+bind/25/name = &"LeftRingDistal"
+bind/25/bone = -1
+bind/25/pose = Transform3D(-3.35276e-07, -2.98023e-08, -1, 1, -1.78814e-07, -3.35276e-08, -2.08616e-07, -1, 2.98023e-07, 0.307181, -1.13916, 1.61047)
+bind/26/name = &"HandRing4.L"
+bind/26/bone = -1
+bind/26/pose = Transform3D(0.280784, -0.0827841, -0.956194, 0.756572, -0.593929, 0.273586, -0.590559, -0.800248, -0.104133, 0.107184, -0.0268298, 1.99351)
+bind/27/name = &"LeftLittleProximal"
+bind/27/bone = -1
+bind/27/pose = Transform3D(-3.7998e-07, -5.21541e-08, -1, 1, 5.96046e-08, -4.47035e-08, -2.38419e-07, -1, 3.27826e-07, 0.235677, -1.0705, 1.66205)
+bind/28/name = &"LeftLittleIntermediate"
+bind/28/bone = -1
+bind/28/pose = Transform3D(-3.65078e-07, -4.47035e-08, -1, 1, 0, -2.98023e-08, -2.08616e-07, -1, 3.12924e-07, 0.23703, -1.10539, 1.62695)
+bind/29/name = &"LeftLittleDistal"
+bind/29/bone = -1
+bind/29/pose = Transform3D(-3.65078e-07, -6.70552e-08, -1, 1, 5.96046e-08, -3.72529e-08, -1.19209e-07, -1, 3.27826e-07, 0.23786, -1.13138, 1.59948)
+bind/30/name = &"HandPinky4.L"
+bind/30/bone = -1
+bind/30/pose = Transform3D(0.114515, 0.0632261, -0.991408, 0.817455, -0.573078, 0.057875, -0.564494, -0.817058, -0.11731, 0.00547992, -0.0491888, 1.97342)
+bind/31/name = &"RightShoulder"
+bind/31/bone = -1
+bind/31/pose = Transform3D(1.60187e-07, -6.33299e-08, -1, -1, -2.98023e-08, -9.68575e-08, 0, 1, -1.45286e-07, -0.00785105, -0.129115, -2.08438)
+bind/32/name = &"RightUpperArm"
+bind/32/bone = -1
+bind/32/pose = Transform3D(-1.56462e-07, 6.33299e-08, 1, -1, 0, -9.87202e-08, 0, -1, 1.49012e-07, 0.00479636, -0.397803, 1.97029)
+bind/33/name = &"RightLowerArm"
+bind/33/bone = -1
+bind/33/pose = Transform3D(5.96046e-08, 1, -8.9407e-08, -1, -8.9407e-08, -5.96046e-08, -2.08616e-07, 2.98023e-08, 1, -1.80555, -0.669209, -0.0058158)
+bind/34/name = &"RightHand"
+bind/34/bone = -1
+bind/34/pose = Transform3D(-2.22586e-07, 1.00583e-07, 1, -1, -8.9407e-08, -1.29454e-07, -5.96046e-08, -1, 1.78814e-07, -0.170707, -0.880782, 1.74429)
+bind/35/name = &"RightThumbMetacarpal"
+bind/35/bone = -1
+bind/35/pose = Transform3D(-8.9407e-08, -1, 8.9407e-08, -0.816993, -8.9407e-08, 0.577702, -0.577702, -1.39698e-07, -0.816992, 1.68089, -0.869828, -0.310831)
+bind/36/name = &"RightThumbProximal"
+bind/36/bone = -1
+bind/36/pose = Transform3D(-5.96046e-08, -1, 1.19209e-07, -0.816993, -2.68221e-07, 0.577702, -0.577702, -8.9407e-08, -0.816993, 1.63017, -0.911124, -0.264006)
+bind/37/name = &"RightThumbDistal"
+bind/37/bone = -1
+bind/37/pose = Transform3D(-8.9407e-08, -1, 1.78814e-07, -0.816993, -1.49012e-07, 0.577702, -0.577702, -9.68575e-08, -0.816993, 1.58483, -0.930004, -0.214366)
+bind/38/name = &"HandThumb4.R"
+bind/38/bone = -1
+bind/38/pose = Transform3D(0.791769, 0.462821, 0.398621, 0.0212652, -0.67309, 0.739255, 0.61045, -0.576843, -0.542774, -0.174067, 0.766593, 1.65045)
+bind/39/name = &"RightIndexProximal"
+bind/39/bone = -1
+bind/39/pose = Transform3D(-1.79745e-07, 1.08033e-07, 1, -1, -8.9407e-08, -1.42492e-07, -8.9407e-08, -1, 1.09896e-07, -0.363054, -1.01813, 1.65691)
+bind/40/name = &"RightIndexIntermediate"
+bind/40/bone = -1
+bind/40/pose = Transform3D(-1.78814e-07, 8.9407e-08, 1, -1, -1.78814e-07, -4.47035e-08, -2.98023e-08, -1, 5.96046e-08, -0.396697, -1.05022, 1.63421)
+bind/41/name = &"RightIndexDistal"
+bind/41/bone = -1
+bind/41/pose = Transform3D(-1.56462e-07, 6.70552e-08, 1, -1, -1.78814e-07, -1.49012e-08, -1.19209e-07, -1, 1.04308e-07, -0.42459, -1.07274, 1.60042)
+bind/42/name = &"HandIndex4.R"
+bind/42/bone = -1
+bind/42/pose = Transform3D(0.539142, 0.332585, 0.773766, -0.559659, -0.545071, 0.624243, 0.629371, -0.769601, -0.107737, -0.28237, -0.025072, 1.9526)
+bind/43/name = &"RightMiddleProximal"
+bind/43/bone = -1
+bind/43/pose = Transform3D(-1.88127e-07, 1.37836e-07, 1, -1, -8.9407e-08, -1.41561e-07, 0, -1, 1.19209e-07, -0.329596, -1.05632, 1.66998)
+bind/44/name = &"RightMiddleIntermediate"
+bind/44/bone = -1
+bind/44/pose = Transform3D(-1.19209e-07, 1.78814e-07, 1, -1, -2.98023e-08, -1.49012e-07, 2.98023e-08, -1, 8.9407e-08, -0.359477, -1.09494, 1.64453)
+bind/45/name = &"RightMiddleDistal"
+bind/45/bone = -1
+bind/45/pose = Transform3D(-1.04308e-07, 1.3411e-07, 1, -1, -8.9407e-08, -1.49012e-07, 0, -1, 8.9407e-08, -0.382916, -1.12208, 1.60829)
+bind/46/name = &"HandMiddle4.R"
+bind/46/bone = -1
+bind/46/pose = Transform3D(0.446289, 0.21381, 0.868972, -0.520456, -0.727911, 0.446399, 0.727978, -0.651484, -0.213579, -0.176205, 0.379084, 1.94636)
+bind/47/name = &"RightRingProximal"
+bind/47/bone = -1
+bind/47/pose = Transform3D(-2.2538e-07, 1.30385e-07, 1, -1, -5.96046e-08, -2.36556e-07, -1.19209e-07, -1, 1.08033e-07, -0.280605, -1.06574, 1.667)
+bind/48/name = &"RightRingIntermediate"
+bind/48/bone = -1
+bind/48/pose = Transform3D(-2.45869e-07, 1.49012e-07, 1, -1, 2.98023e-08, -1.93715e-07, -1.49012e-07, -1, 1.41561e-07, -0.295908, -1.10729, 1.64292)
+bind/49/name = &"RightRingDistal"
+bind/49/bone = -1
+bind/49/pose = Transform3D(-2.38419e-07, 1.78814e-07, 1, -1, 8.9407e-08, -2.34693e-07, -2.38419e-07, -1, 1.71363e-07, -0.307181, -1.13916, 1.61047)
+bind/50/name = &"HandRing4.R"
+bind/50/bone = -1
+bind/50/pose = Transform3D(0.280784, 0.0827841, 0.956194, -0.756571, -0.593928, 0.273585, 0.590559, -0.800247, -0.104133, -0.107184, -0.0268291, 1.99351)
+bind/51/name = &"RightLittleProximal"
+bind/51/bone = -1
+bind/51/pose = Transform3D(-2.45869e-07, 1.19209e-07, 1, -1, -8.9407e-08, -1.19209e-07, -1.49012e-07, -1, 2.08616e-07, -0.235677, -1.07049, 1.66204)
+bind/52/name = &"RightLittleIntermediate"
+bind/52/bone = -1
+bind/52/pose = Transform3D(-2.5332e-07, 1.2666e-07, 1, -1, -1.78814e-07, -1.04308e-07, -1.19209e-07, -1, 1.78814e-07, -0.23703, -1.10539, 1.62695)
+bind/53/name = &"RightLittleDistal"
+bind/53/bone = -1
+bind/53/pose = Transform3D(-2.5332e-07, 1.2666e-07, 1, -1, -2.08616e-07, -8.9407e-08, 0, -1, 1.63913e-07, -0.23786, -1.13138, 1.59948)
+bind/54/name = &"HandPinky4.R"
+bind/54/bone = -1
+bind/54/pose = Transform3D(0.114515, -0.0632261, 0.991408, -0.817455, -0.573078, 0.0578744, 0.564494, -0.817059, -0.11731, -0.00547995, -0.0491885, 1.97342)
+bind/55/name = &"LeftUpperLeg"
+bind/55/bone = -1
+bind/55/pose = Transform3D(-1, -1.69641e-07, 3.20629e-07, -7.95956e-08, -1, -1.63913e-07, -3.62762e-07, 1.93715e-07, 1, 0.185166, 1.1146, -0.0470538)
+bind/56/name = &"LeftLowerLeg"
+bind/56/bone = -1
+bind/56/pose = Transform3D(1, 1.86265e-07, -3.20375e-07, -7.61356e-08, -1, -1.78814e-07, 3.61353e-07, -1.9744e-07, -1, -0.208972, 0.583759, -0.089442)
+bind/57/name = &"LeftFoot"
+bind/57/bone = -1
+bind/57/pose = Transform3D(-1, -2.27243e-07, 3.27826e-07, -3.76254e-07, 2.98023e-07, 1, 9.31323e-08, 1, 1.49012e-07, 0.257072, 0.10243, -0.29957)
+bind/58/name = &"LeftToes"
+bind/58/bone = -1
+bind/58/pose = Transform3D(1, 2.68221e-07, -1.60187e-07, -3.94881e-07, 5.96046e-08, 1, -4.47035e-08, -1, -2.98023e-07, -0.312096, -0.115889, 0.024)
+bind/59/name = &"Toe_End.L"
+bind/59/bone = -1
+bind/59/pose = Transform3D(-0.93592, 0.0840919, 0.342028, 0.296977, -0.333683, 0.894682, 0.189365, 0.938927, 0.287328, 0.250441, -0.287263, -0.114932)
+bind/60/name = &"RightUpperLeg"
+bind/60/bone = -1
+bind/60/pose = Transform3D(-1, 7.05377e-08, -1.09025e-07, 5.20059e-08, -1, -5.96046e-08, 1.26669e-07, 8.9407e-08, 1, -0.185166, 1.1146, -0.0521929)
+bind/61/name = &"RightLowerLeg"
+bind/61/bone = -1
+bind/61/pose = Transform3D(1, -7.27596e-08, 1.11759e-07, 5.47152e-09, -1, -5.96046e-08, -1.49012e-07, -5.96046e-08, -1, 0.208972, 0.583759, -0.097778)
+bind/62/name = &"RightFoot"
+bind/62/bone = -1
+bind/62/pose = Transform3D(-1, 8.19564e-08, -8.9407e-08, 1.71363e-07, 1.19209e-07, 1, 3.72529e-09, 1, -5.96046e-08, -0.257072, 0.107556, -0.29957)
+bind/63/name = &"RightToes"
+bind/63/bone = -1
+bind/63/pose = Transform3D(1, 0, 2.12342e-07, 1.3411e-07, 3.27826e-07, 1, 7.45058e-08, -1, 1.49012e-07, 0.312096, -0.115774, 0.024005)
+bind/64/name = &"Toe_End.R"
+bind/64/bone = -1
+bind/64/pose = Transform3D(-0.932276, -0.0964177, -0.348661, -0.299207, -0.336176, 0.893006, -0.203313, 0.936851, 0.284561, -0.248279, -0.286863, -0.118887)
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_b2fjd"]
+_data = {
+&"RESET": ExtResource("5_3qp7g"),
+&"minotaur_block_idle": ExtResource("6_vgngy"),
+&"minotaur_block_react_large": ExtResource("7_wlnlt"),
+&"minotaur_disarm_over_shoulder": ExtResource("8_vqlaa"),
+&"minotaur_disarm_underarm": ExtResource("9_vjydn"),
+&"minotaur_idle": ExtResource("10_8knma"),
+&"minotaur_idle_looking_1": ExtResource("11_gf7de"),
+&"minotaur_idle_looking_2": ExtResource("12_uqjnc"),
+&"minotaur_jump": ExtResource("13_mqgr1"),
+&"minotaur_melee_attack_360_high": ExtResource("14_8f3cw"),
+&"minotaur_melee_attack_360_low": ExtResource("15_5b6io"),
+&"minotaur_melee_attack_backhand": ExtResource("16_2wsbk"),
+&"minotaur_melee_attack_downward": ExtResource("17_x0xml"),
+&"minotaur_melee_attack_horizontal": ExtResource("18_pobv5"),
+&"minotaur_melee_attack_kick_1": ExtResource("19_lk5xf"),
+&"minotaur_melee_attack_kick_2": ExtResource("20_8807m"),
+&"minotaur_melee_combo_attack_1": ExtResource("21_lvhx3"),
+&"minotaur_melee_combo_attack_2": ExtResource("22_drkur"),
+&"minotaur_melee_combo_attack_3": ExtResource("23_j4ada"),
+&"minotaur_melee_run_jump_attack": ExtResource("24_c7mrm"),
+&"minotaur_react_large_from_left": ExtResource("25_euqgg"),
+&"minotaur_react_large_from_right": ExtResource("26_eauxx"),
+&"minotaur_react_large_gut": ExtResource("27_f57t8"),
+&"minotaur_run_back": ExtResource("28_ush3x"),
+&"minotaur_run_forward": ExtResource("29_r74ig"),
+&"minotaur_taunt_battlecry": ExtResource("30_gvlxv"),
+&"minotaur_taunt_chest_thump": ExtResource("31_c71gt"),
+&"minotaur_turn_left_90": ExtResource("32_6ki82"),
+&"minotaur_turn_right_90": ExtResource("33_w86jy"),
+&"minotaur_walk_back": ExtResource("34_s85ef"),
+&"minotaur_walk_forward": ExtResource("35_723n3"),
+&"minotaur_walk_left": ExtResource("36_u6qck"),
+&"minotaur_walk_right": ExtResource("37_d4am3")
+}
+
+[sub_resource type="CapsuleShape3D" id="CapsuleShape3D_843tj"]
+
+[node name="RlTraining_main" type="Node3D"]
+
+[node name="DirectionalLight3D" type="DirectionalLight3D" parent="."]
+transform = Transform3D(-0.866023, -0.433016, 0.250001, 0, 0.499998, 0.866027, -0.500003, 0.749999, -0.43301, 0, 0, 0)
+shadow_enabled = true
+
+[node name="WorldEnvironment" type="WorldEnvironment" parent="."]
+environment = SubResource("Environment_c46s1")
+
+[node name="Target" type="Area3D" parent="."]
+transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, 5, 0.5, 0)
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="Target"]
+mesh = ExtResource("2_c46s1")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Target"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.884726, 0)
+shape = SubResource("CapsuleShape3D_qsec4")
+
+[node name="Floor" type="MeshInstance3D" parent="."]
+mesh = SubResource("BoxMesh_qsec4")
+
+[node name="StaticBody3D" type="StaticBody3D" parent="Floor"]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Floor/StaticBody3D"]
+shape = SubResource("ConvexPolygonShape3D_2csai")
+
+[node name="Wall" type="Area3D" parent="."]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Wall"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -7.9979)
+shape = SubResource("BoxShape3D_8b74g")
+
+[node name="CollisionShape3D3" type="CollisionShape3D" parent="Wall"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 7.94674)
+shape = SubResource("BoxShape3D_8b74g")
+
+[node name="CollisionShape3D2" type="CollisionShape3D" parent="Wall"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -8.01495, 0, 0)
+shape = SubResource("BoxShape3D_2jmqy")
+
+[node name="CollisionShape3D4" type="CollisionShape3D" parent="Wall"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 7.96379, 0, 0)
+shape = SubResource("BoxShape3D_2jmqy")
+
+[node name="AIController3D" type="Node3D" parent="."]
+script = ExtResource("4_qsec4")
+metadata/_custom_type_script = "uid://bwi3p6j0pp8gv"
+
+[node name="Asteriontest_rl" type="CharacterBody3D" parent="."]
+transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, -5, 0.5, 0)
+script = ExtResource("1_c46s1")
+
+[node name="GeneralSkeleton" type="Skeleton3D" parent="Asteriontest_rl"]
+unique_name_in_owner = true
+motion_scale = 1.21716
+bones/0/name = "Root"
+bones/0/parent = -1
+bones/0/rest = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0)
+bones/0/enabled = true
+bones/0/position = Vector3(0, 0, 0)
+bones/0/rotation = Quaternion(0, 0, 0, 1)
+bones/0/scale = Vector3(1, 1, 1)
+bones/1/name = "Hips"
+bones/1/parent = 0
+bones/1/rest = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.14441e-07, 1.21716, 0.0422787)
+bones/1/enabled = true
+bones/1/position = Vector3(-1.14441e-07, 1.21716, 0.0422787)
+bones/1/rotation = Quaternion(0, 0, 0, 1)
+bones/1/scale = Vector3(1, 1, 1)
+bones/2/name = "Spine"
+bones/2/parent = 1
+bones/2/rest = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.184727, -0.0103315)
+bones/2/enabled = true
+bones/2/position = Vector3(0, 0.184727, -0.0103315)
+bones/2/rotation = Quaternion(-2.64642e-10, 0, 0, 1)
+bones/2/scale = Vector3(1, 1, 1)
+bones/3/name = "Chest"
+bones/3/parent = 2
+bones/3/rest = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.215515, -0.0120534)
+bones/3/enabled = true
+bones/3/position = Vector3(0, 0.215515, -0.0120534)
+bones/3/rotation = Quaternion(0, 1.70444e-23, 6.09987e-22, 1)
+bones/3/scale = Vector3(1, 1, 1)
+bones/4/name = "UpperChest"
+bones/4/parent = 3
+bones/4/rest = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.73534e-14, 0.246303, -0.0137753)
+bones/4/enabled = true
+bones/4/position = Vector3(-1.73534e-14, 0.246303, -0.0137753)
+bones/4/rotation = Quaternion(9.40395e-37, -1.05879e-22, -1.69262e-21, 1)
+bones/4/scale = Vector3(1, 1, 1)
+bones/5/name = "Neck"
+bones/5/parent = 4
+bones/5/rest = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -5.80543e-16, 0.277091, -0.0154972)
+bones/5/enabled = true
+bones/5/position = Vector3(-5.80543e-16, 0.277091, -0.0154972)
+bones/5/rotation = Quaternion(9.40395e-38, 0, -2.06795e-25, 1)
+bones/5/scale = Vector3(1, 1, 1)
+bones/6/name = "Head"
+bones/6/parent = 5
+bones/6/rest = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 3.96261e-18, 0.104089, 0.070394)
+bones/6/enabled = true
+bones/6/position = Vector3(3.96261e-18, 0.104089, 0.070394)
+bones/6/rotation = Quaternion(0, 0, 0, 1)
+bones/6/scale = Vector3(1, 1, 1)
+bones/7/name = "HeadTop_End"
+bones/7/parent = 6
+bones/7/rest = Transform3D(1, -1.10139e-23, 4.21988e-16, 3.45195e-22, 1, 1.00583e-07, -4.21988e-16, -1.00583e-07, 1, -2.57479e-17, 0.166897, 0.112871)
+bones/7/enabled = true
+bones/7/position = Vector3(-2.57479e-17, 0.166897, 0.112871)
+bones/7/rotation = Quaternion(-5.02914e-08, 2.10994e-16, 1.83209e-22, 1)
+bones/7/scale = Vector3(1, 1, 1)
+bones/8/name = "LeftShoulder"
+bones/8/parent = 4
+bones/8/rest = Transform3D(0, 1, 0, 0, 0, 1, 1, 0, 0, 0.129114, 0.220673, -0.0170245)
+bones/8/enabled = true
+bones/8/position = Vector3(0.129114, 0.220673, -0.0170245)
+bones/8/rotation = Quaternion(0.5, 0.5, 0.5, -0.5)
+bones/8/scale = Vector3(1, 1, 1)
+bones/9/name = "LeftUpperArm"
+bones/9/parent = 8
+bones/9/rest = Transform3D(-1, 0, 0, 0, 1, 0, 0, 0, -1, 0.00610939, 0.268689, -0.114097)
+bones/9/enabled = true
+bones/9/position = Vector3(0.00610939, 0.268689, -0.114097)
+bones/9/rotation = Quaternion(-2.98023e-08, 1, -2.98023e-08, -2.98023e-08)
+bones/9/scale = Vector3(1, 1, 1)
+bones/10/name = "LeftLowerArm"
+bones/10/parent = 9
+bones/10/rest = Transform3D(0, 0, -1, 0, 1, 0, 1, 0, 0, -0.0106122, 0.271406, 0.164735)
+bones/10/enabled = true
+bones/10/position = Vector3(-0.0106122, 0.271406, 0.164735)
+bones/10/rotation = Quaternion(9.48304e-08, -0.707107, 1.05367e-08, 0.707107)
+bones/10/scale = Vector3(1, 1, 1)
+bones/11/name = "LeftHand"
+bones/11/parent = 10
+bones/11/rest = Transform3D(0, 0, 1, 0, 1, 0, -1, 0, 0, 0.0612581, 0.211573, 0.164891)
+bones/11/enabled = true
+bones/11/position = Vector3(0.0612581, 0.211573, 0.164891)
+bones/11/rotation = Quaternion(-2.93121e-08, 0.707107, 5.49816e-08, 0.707107)
+bones/11/scale = Vector3(1, 1, 1)
+bones/12/name = "LeftThumbMetacarpal"
+bones/12/parent = 11
+bones/12/rest = Transform3D(0, -0.577, 0.816, 0, 0.816, 0.577, -1, 0, 0, -0.0775464, 0.00834794, 0.063404)
+bones/12/enabled = true
+bones/12/position = Vector3(-0.0775464, 0.00834794, 0.063404)
+bones/12/rotation = Quaternion(-0.214187, 0.673887, 0.214187, 0.673887)
+bones/12/scale = Vector3(1, 0.999392, 0.999392)
+bones/13/name = "LeftThumbProximal"
+bones/13/parent = 12
+bones/13/rest = Transform3D(1, 0, 0, 0, 1, 2.98023e-08, 0, -2.98023e-08, 1, -0.0507227, 0.0412952, -0.0468257)
+bones/13/enabled = true
+bones/13/position = Vector3(-0.0507227, 0.0412952, -0.0468257)
+bones/13/rotation = Quaternion(2.98023e-08, -4.47035e-08, 2.98023e-08, 1)
+bones/13/scale = Vector3(1.00001, 0.999996, 0.999992)
+bones/14/name = "LeftThumbDistal"
+bones/14/parent = 13
+bones/14/rest = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.0453379, 0.0188798, -0.0496392)
+bones/14/enabled = true
+bones/14/position = Vector3(-0.0453379, 0.0188798, -0.0496392)
+bones/14/rotation = Quaternion(2.98023e-08, 0, 2.98023e-08, 1)
+bones/14/scale = Vector3(1, 1, 1)
+bones/15/name = "HandThumb4.L"
+bones/15/parent = 14
+bones/15/rest = Transform3D(-0.462821, -0.67309, -0.576843, 0.416585, 0.409695, -0.812295, 0.783077, -0.616251, 0.0907836, -0.0362297, 0.0240672, -0.0280957)
+bones/15/enabled = true
+bones/15/position = Vector3(-0.0362297, 0.0240672, -0.0280957)
+bones/15/rotation = Quaternion(0.0961422, -0.667384, 0.534695, 0.509369)
+bones/15/scale = Vector3(1.00048, 1.00033, 1.00041)
+bones/16/name = "LeftIndexProximal"
+bones/16/parent = 11
+bones/16/rest = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.192348, 0.137345, 0.0873795)
+bones/16/enabled = true
+bones/16/position = Vector3(-0.192348, 0.137345, 0.0873795)
+bones/16/rotation = Quaternion(-2.98023e-08, -5.96047e-08, 2.98023e-08, 1)
+bones/16/scale = Vector3(1, 1, 1)
+bones/17/name = "LeftIndexIntermediate"
+bones/17/parent = 16
+bones/17/rest = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.0336432, 0.0320985, 0.0227053)
+bones/17/enabled = true
+bones/17/position = Vector3(-0.0336432, 0.0320985, 0.0227053)
+bones/17/rotation = Quaternion(0, 0, 5.96046e-08, 1)
+bones/17/scale = Vector3(1, 1, 1)
+bones/18/name = "LeftIndexDistal"
+bones/18/parent = 17
+bones/18/rest = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.0278929, 0.0225135, 0.0337846)
+bones/18/enabled = true
+bones/18/position = Vector3(-0.0278929, 0.0225135, 0.0337846)
+bones/18/rotation = Quaternion(0, 5.96046e-08, 0, 1)
+bones/18/scale = Vector3(1, 1, 1)
+bones/19/name = "HandIndex4.L"
+bones/19/parent = 18
+bones/19/rest = Transform3D(0.773765, -0.624243, 0.107737, 0.539142, 0.559658, -0.629371, 0.332585, 0.545071, 0.769601, -0.0199158, 0.0179636, 0.0174585)
+bones/19/enabled = true
+bones/19/position = Vector3(-0.0199158, 0.0179636, 0.0174585)
+bones/19/rotation = Quaternion(0.333357, -0.0638214, 0.330218, 0.88077)
+bones/19/scale = Vector3(1, 0.999999, 1)
+bones/20/name = "LeftMiddleProximal"
+bones/20/parent = 11
+bones/20/rest = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.15889, 0.175541, 0.0743103)
+bones/20/enabled = true
+bones/20/position = Vector3(-0.15889, 0.175541, 0.0743103)
+bones/20/rotation = Quaternion(0, 0, 5.96046e-08, 1)
+bones/20/scale = Vector3(1, 1, 1)
+bones/21/name = "LeftMiddleIntermediate"
+bones/21/parent = 20
+bones/21/rest = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.0298807, 0.0386152, 0.0254554)
+bones/21/enabled = true
+bones/21/position = Vector3(-0.0298807, 0.0386152, 0.0254554)
+bones/21/rotation = Quaternion(-2.98023e-08, -2.98023e-08, -2.98023e-08, 1)
+bones/21/scale = Vector3(1, 1, 1)
+bones/22/name = "LeftMiddleDistal"
+bones/22/parent = 21
+bones/22/rest = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.0234394, 0.0271417, 0.0362385)
+bones/22/enabled = true
+bones/22/position = Vector3(-0.0234394, 0.0271417, 0.0362385)
+bones/22/rotation = Quaternion(-4.47035e-08, 2.98023e-08, -4.47035e-08, 1)
+bones/22/scale = Vector3(1, 1, 1)
+bones/23/name = "HandMiddle4.L"
+bones/23/parent = 22
+bones/23/rest = Transform3D(0.868971, -0.446399, 0.213579, 0.446289, 0.520456, -0.727978, 0.21381, 0.72791, 0.651485, -0.0166808, 0.0188943, 0.026651)
+bones/23/enabled = true
+bones/23/position = Vector3(-0.0166808, 0.0188943, 0.026651)
+bones/23/rotation = Quaternion(0.417442, -6.60324e-05, 0.255958, 0.871911)
+bones/23/scale = Vector3(1, 1, 1)
+bones/24/name = "LeftRingProximal"
+bones/24/parent = 11
+bones/24/rest = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.109899, 0.184953, 0.0772913)
+bones/24/enabled = true
+bones/24/position = Vector3(-0.109899, 0.184953, 0.0772913)
+bones/24/rotation = Quaternion(5.96046e-08, -1.49012e-08, 4.47035e-08, 1)
+bones/24/scale = Vector3(1, 1, 1)
+bones/25/name = "LeftRingIntermediate"
+bones/25/parent = 24
+bones/25/rest = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.0153024, 0.0415549, 0.0240832)
+bones/25/enabled = true
+bones/25/position = Vector3(-0.0153024, 0.0415549, 0.0240832)
+bones/25/rotation = Quaternion(0, 1.49012e-08, -4.47035e-08, 1)
+bones/25/scale = Vector3(1, 1, 1)
+bones/26/name = "LeftRingDistal"
+bones/26/parent = 25
+bones/26/rest = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.011273, 0.0318669, 0.0324441)
+bones/26/enabled = true
+bones/26/position = Vector3(-0.011273, 0.0318669, 0.0324441)
+bones/26/rotation = Quaternion(-1.49012e-08, -4.47035e-08, 1.49012e-08, 1)
+bones/26/scale = Vector3(1, 1, 1)
+bones/27/name = "HandRing4.L"
+bones/27/parent = 26
+bones/27/rest = Transform3D(0.956194, -0.273585, 0.104133, 0.280784, 0.756571, -0.590559, 0.082784, 0.593928, 0.800248, -0.0102393, 0.028329, 0.0222376)
+bones/27/enabled = true
+bones/27/position = Vector3(-0.0102393, 0.028329, 0.0222376)
+bones/27/rotation = Quaternion(0.315981, 0.00569535, 0.147887, 0.937152)
+bones/27/scale = Vector3(1, 0.999999, 1)
+bones/28/name = "LeftLittleProximal"
+bones/28/parent = 11
+bones/28/rest = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.0649706, 0.189713, 0.0822478)
+bones/28/enabled = true
+bones/28/position = Vector3(-0.0649706, 0.189713, 0.0822478)
+bones/28/rotation = Quaternion(-1.49012e-08, 1.49012e-08, 1.49012e-08, 1)
+bones/28/scale = Vector3(1, 1, 1)
+bones/29/name = "LeftLittleIntermediate"
+bones/29/parent = 28
+bones/29/rest = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.00135298, 0.0348994, 0.0350992)
+bones/29/enabled = true
+bones/29/position = Vector3(-0.00135298, 0.0348994, 0.0350992)
+bones/29/rotation = Quaternion(7.45058e-08, 2.98023e-08, -2.98023e-08, 1)
+bones/29/scale = Vector3(1, 1, 1)
+bones/30/name = "LeftLittleDistal"
+bones/30/parent = 29
+bones/30/rest = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.000830072, 0.0259863, 0.027468)
+bones/30/enabled = true
+bones/30/position = Vector3(-0.000830072, 0.0259863, 0.027468)
+bones/30/rotation = Quaternion(1.49012e-08, 0, 0, 1)
+bones/30/scale = Vector3(1, 1, 1)
+bones/31/name = "HandPinky4.L"
+bones/31/parent = 30
+bones/31/rest = Transform3D(0.991407, -0.0578746, 0.11731, 0.114515, 0.817454, -0.564494, -0.0632262, 0.573077, 0.817058, -0.00192278, 0.0221879, 0.0156107)
+bones/31/enabled = true
+bones/31/position = Vector3(-0.00192278, 0.0221879, 0.0156107)
+bones/31/rotation = Quaternion(0.298703, 0.0474053, 0.0452661, 0.952093)
+bones/31/scale = Vector3(1, 0.999999, 1)
+bones/32/name = "RightShoulder"
+bones/32/parent = 4
+bones/32/rest = Transform3D(0, -1, 0, 0, 0, 1, -1, 0, 0, -0.129114, 0.220673, -0.0139698)
+bones/32/enabled = true
+bones/32/position = Vector3(-0.129114, 0.220673, -0.0139698)
+bones/32/rotation = Quaternion(0.5, -0.5, -0.5, -0.5)
+bones/32/scale = Vector3(1, 1, 1)
+bones/33/name = "RightUpperArm"
+bones/33/parent = 32
+bones/33/rest = Transform3D(-1, 0, 0, 0, 1, 0, 0, 0, -1, -0.0030547, 0.268689, -0.114097)
+bones/33/enabled = true
+bones/33/position = Vector3(-0.0030547, 0.268689, -0.114097)
+bones/33/rotation = Quaternion(-2.98023e-08, 1, 2.98023e-08, 2.98023e-08)
+bones/33/scale = Vector3(1, 1, 1)
+bones/34/name = "RightLowerArm"
+bones/34/parent = 33
+bones/34/rest = Transform3D(0, 0, 1, 0, 1, 0, -1, 0, 0, 0.0106122, 0.271406, 0.164735)
+bones/34/enabled = true
+bones/34/position = Vector3(0.0106122, 0.271406, 0.164735)
+bones/34/rotation = Quaternion(1.05367e-08, 0.707107, -9.48304e-08, 0.707107)
+bones/34/scale = Vector3(1, 1, 1)
+bones/35/name = "RightHand"
+bones/35/parent = 34
+bones/35/rest = Transform3D(0, 0, -1, 0, 1, 0, 1, 0, 0, -0.0612583, 0.211573, 0.164891)
+bones/35/enabled = true
+bones/35/position = Vector3(-0.0612583, 0.211573, 0.164891)
+bones/35/rotation = Quaternion(-2.47674e-08, -0.707107, 2.47674e-08, 0.707107)
+bones/35/scale = Vector3(1, 1, 1)
+bones/36/name = "RightThumbMetacarpal"
+bones/36/parent = 35
+bones/36/rest = Transform3D(0, 0.577, -0.816, 0, 0.816, 0.577, 1, 0, 0, 0.0775463, 0.00834793, 0.063404)
+bones/36/enabled = true
+bones/36/position = Vector3(0.0775463, 0.00834793, 0.063404)
+bones/36/rotation = Quaternion(-0.214187, -0.673887, -0.214187, 0.673887)
+bones/36/scale = Vector3(1, 0.999392, 0.999392)
+bones/37/name = "RightThumbProximal"
+bones/37/parent = 36
+bones/37/rest = Transform3D(1, 0, 0, 0, 1, 2.98023e-08, 0, -2.98023e-08, 1, 0.0507227, 0.0412952, -0.0468257)
+bones/37/enabled = true
+bones/37/position = Vector3(0.0507227, 0.0412952, -0.0468257)
+bones/37/rotation = Quaternion(-7.45058e-08, -4.44089e-16, 2.98023e-08, 1)
+bones/37/scale = Vector3(1.00001, 0.999996, 0.999992)
+bones/38/name = "RightThumbDistal"
+bones/38/parent = 37
+bones/38/rest = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.0453377, 0.0188798, -0.0496393)
+bones/38/enabled = true
+bones/38/position = Vector3(0.0453377, 0.0188798, -0.0496393)
+bones/38/rotation = Quaternion(-1.49012e-08, -1.04308e-07, 5.96046e-08, 1)
+bones/38/scale = Vector3(1, 1, 1)
+bones/39/name = "HandThumb4.R"
+bones/39/parent = 38
+bones/39/rest = Transform3D(-0.462821, 0.67309, 0.576842, -0.416586, 0.409696, -0.812295, -0.783077, -0.616251, 0.0907838, 0.0362297, 0.0240671, -0.0280959)
+bones/39/enabled = true
+bones/39/position = Vector3(0.0362297, 0.0240671, -0.0280959)
+bones/39/rotation = Quaternion(0.096142, 0.667384, -0.534695, 0.509369)
+bones/39/scale = Vector3(1.00048, 1.00033, 1.00041)
+bones/40/name = "RightIndexProximal"
+bones/40/parent = 35
+bones/40/rest = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.192348, 0.137345, 0.0873796)
+bones/40/enabled = true
+bones/40/position = Vector3(0.192348, 0.137345, 0.0873796)
+bones/40/rotation = Quaternion(-1.49012e-08, 0, 1.49012e-08, 1)
+bones/40/scale = Vector3(1, 1, 1)
+bones/41/name = "RightIndexIntermediate"
+bones/41/parent = 40
+bones/41/rest = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.0336432, 0.0320984, 0.0227053)
+bones/41/enabled = true
+bones/41/position = Vector3(0.0336432, 0.0320984, 0.0227053)
+bones/41/rotation = Quaternion(-2.98023e-08, 8.9407e-08, -8.9407e-08, 1)
+bones/41/scale = Vector3(1, 1, 1)
+bones/42/name = "RightIndexDistal"
+bones/42/parent = 41
+bones/42/rest = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.027893, 0.0225137, 0.0337846)
+bones/42/enabled = true
+bones/42/position = Vector3(0.027893, 0.0225137, 0.0337846)
+bones/42/rotation = Quaternion(5.96046e-08, -5.96046e-08, 5.96046e-08, 1)
+bones/42/scale = Vector3(1, 1, 1)
+bones/43/name = "HandIndex4.R"
+bones/43/parent = 42
+bones/43/rest = Transform3D(0.773766, 0.624243, -0.107737, -0.539142, 0.559659, -0.629371, -0.332585, 0.545071, 0.7696, 0.0199157, 0.0179636, 0.0174585)
+bones/43/enabled = true
+bones/43/position = Vector3(0.0199157, 0.0179636, 0.0174585)
+bones/43/rotation = Quaternion(0.333357, 0.0638214, -0.330218, 0.88077)
+bones/43/scale = Vector3(1, 1, 1)
+bones/44/name = "RightMiddleProximal"
+bones/44/parent = 35
+bones/44/rest = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.15889, 0.175541, 0.0743104)
+bones/44/enabled = true
+bones/44/position = Vector3(0.15889, 0.175541, 0.0743104)
+bones/44/rotation = Quaternion(-2.98023e-08, -2.98023e-08, -2.98023e-08, 1)
+bones/44/scale = Vector3(1, 1, 1)
+bones/45/name = "RightMiddleIntermediate"
+bones/45/parent = 44
+bones/45/rest = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.0298807, 0.0386151, 0.0254556)
+bones/45/enabled = true
+bones/45/position = Vector3(0.0298807, 0.0386151, 0.0254556)
+bones/45/rotation = Quaternion(5.96046e-08, -5.96046e-08, 5.96046e-08, 1)
+bones/45/scale = Vector3(1, 1, 1)
+bones/46/name = "RightMiddleDistal"
+bones/46/parent = 45
+bones/46/rest = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.0234395, 0.0271416, 0.0362386)
+bones/46/enabled = true
+bones/46/position = Vector3(0.0234395, 0.0271416, 0.0362386)
+bones/46/rotation = Quaternion(5.96046e-08, -5.96046e-08, 0, 1)
+bones/46/scale = Vector3(1, 1, 1)
+bones/47/name = "HandMiddle4.R"
+bones/47/parent = 46
+bones/47/rest = Transform3D(0.868971, 0.446399, -0.213579, -0.446289, 0.520456, -0.727978, -0.21381, 0.72791, 0.651484, 0.0166807, 0.0188943, 0.0266511)
+bones/47/enabled = true
+bones/47/position = Vector3(0.0166807, 0.0188943, 0.0266511)
+bones/47/rotation = Quaternion(0.417442, 6.61478e-05, -0.255957, 0.871911)
+bones/47/scale = Vector3(1, 1, 1)
+bones/48/name = "RightRingProximal"
+bones/48/parent = 35
+bones/48/rest = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.109899, 0.184953, 0.0772915)
+bones/48/enabled = true
+bones/48/position = Vector3(0.109899, 0.184953, 0.0772915)
+bones/48/rotation = Quaternion(-2.98023e-08, -2.98023e-08, 8.9407e-08, 1)
+bones/48/scale = Vector3(1, 1, 1)
+bones/49/name = "RightRingIntermediate"
+bones/49/parent = 48
+bones/49/rest = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.0153024, 0.0415551, 0.0240833)
+bones/49/enabled = true
+bones/49/position = Vector3(0.0153024, 0.0415551, 0.0240833)
+bones/49/rotation = Quaternion(0, 5.96046e-08, 5.96046e-08, 1)
+bones/49/scale = Vector3(1, 1, 1)
+bones/50/name = "RightRingDistal"
+bones/50/parent = 49
+bones/50/rest = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.011273, 0.0318669, 0.0324441)
+bones/50/enabled = true
+bones/50/position = Vector3(0.011273, 0.0318669, 0.0324441)
+bones/50/rotation = Quaternion(0, 0, 0, 1)
+bones/50/scale = Vector3(1, 1, 1)
+bones/51/name = "HandRing4.R"
+bones/51/parent = 50
+bones/51/rest = Transform3D(0.956194, 0.273585, -0.104134, -0.280784, 0.756571, -0.590559, -0.082784, 0.593929, 0.800247, 0.0102393, 0.0283289, 0.0222379)
+bones/51/enabled = true
+bones/51/position = Vector3(0.0102393, 0.0283289, 0.0222379)
+bones/51/rotation = Quaternion(0.315981, -0.00569534, -0.147887, 0.937152)
+bones/51/scale = Vector3(0.999999, 1, 1)
+bones/52/name = "RightLittleProximal"
+bones/52/parent = 35
+bones/52/rest = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.0649705, 0.189713, 0.0822478)
+bones/52/enabled = true
+bones/52/position = Vector3(0.0649705, 0.189713, 0.0822478)
+bones/52/rotation = Quaternion(-2.98023e-08, -2.98023e-08, -2.98023e-08, 1)
+bones/52/scale = Vector3(1, 1, 1)
+bones/53/name = "RightLittleIntermediate"
+bones/53/parent = 52
+bones/53/rest = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.00135303, 0.0348998, 0.0350991)
+bones/53/enabled = true
+bones/53/position = Vector3(0.00135303, 0.0348998, 0.0350991)
+bones/53/rotation = Quaternion(0, 0, 0, 1)
+bones/53/scale = Vector3(1, 1, 1)
+bones/54/name = "RightLittleDistal"
+bones/54/parent = 53
+bones/54/rest = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.000830013, 0.0259862, 0.027468)
+bones/54/enabled = true
+bones/54/position = Vector3(0.000830013, 0.0259862, 0.027468)
+bones/54/rotation = Quaternion(1.49012e-07, -1.49012e-08, -2.98023e-08, 1)
+bones/54/scale = Vector3(1, 1, 1)
+bones/55/name = "HandPinky4.R"
+bones/55/parent = 54
+bones/55/rest = Transform3D(0.991407, 0.0578745, -0.11731, -0.114515, 0.817455, -0.564494, 0.0632262, 0.573078, 0.817058, 0.00192282, 0.022188, 0.0156106)
+bones/55/enabled = true
+bones/55/position = Vector3(0.00192282, 0.022188, 0.0156106)
+bones/55/rotation = Quaternion(0.298703, -0.0474052, -0.0452659, 0.952093)
+bones/55/scale = Vector3(0.999999, 1, 1)
+bones/56/name = "LeftUpperLeg"
+bones/56/parent = 1
+bones/56/rest = Transform3D(-1, 0, 0, 0, -1, 0, 0, 0, 1, 0.185165, -0.102563, 0.00477498)
+bones/56/enabled = true
+bones/56/position = Vector3(0.185165, -0.102563, 0.00477498)
+bones/56/rotation = Quaternion(0, -3.46065e-09, 1, 0)
+bones/56/scale = Vector3(1, 1, 1)
+bones/57/name = "LeftLowerLeg"
+bones/57/parent = 56
+bones/57/rest = Transform3D(-1, 0, 0, 0, 1, 0, 0, 0, -1, -0.0238064, 0.530843, -0.136496)
+bones/57/enabled = true
+bones/57/position = Vector3(-0.0238064, 0.530843, -0.136496)
+bones/57/rotation = Quaternion(-3.72529e-09, 1, -1.49012e-08, -6.98492e-10)
+bones/57/scale = Vector3(1, 1, 1)
+bones/58/name = "LeftFoot"
+bones/58/parent = 57
+bones/58/rest = Transform3D(-1, 0, 0, 0, 0, -1, 0, -1, 0, 0.0481003, 0.284189, 0.012988)
+bones/58/enabled = true
+bones/58/position = Vector3(0.0481003, 0.284189, 0.012988)
+bones/58/rotation = Quaternion(1.31709e-09, 0.707107, -0.707107, 1.31709e-09)
+bones/58/scale = Vector3(1, 1, 1)
+bones/59/name = "LeftToes"
+bones/59/parent = 58
+bones/59/rest = Transform3D(-1, 0, 0, 0, 1, 0, 0, 0, -1, -0.0550238, 0.218319, -0.27557)
+bones/59/enabled = true
+bones/59/position = Vector3(-0.0550238, 0.218319, -0.27557)
+bones/59/rotation = Quaternion(-7.90253e-09, 1, 0, 2.63418e-09)
+bones/59/scale = Vector3(1, 1, 1)
+bones/60/name = "Toe_End.L"
+bones/60/parent = 59
+bones/60/rest = Transform3D(-0.93592, 0.296978, 0.189365, 0.342029, 0.894686, 0.287328, -0.0840919, 0.333684, -0.938927, 0.0293716, 0.0884865, 0.0330022)
+bones/60/enabled = true
+bones/60/position = Vector3(0.0293716, 0.0884865, 0.0330022)
+bones/60/rotation = Quaternion(0.164563, 0.970764, 0.159929, 0.0704231)
+bones/60/scale = Vector3(1, 1, 1)
+bones/61/name = "RightUpperLeg"
+bones/61/parent = 1
+bones/61/rest = Transform3D(-1, 0, 0, 0, -1, 0, 0, 0, 1, -0.185165, -0.102563, 0.00991424)
+bones/61/enabled = true
+bones/61/position = Vector3(-0.185165, -0.102563, 0.00991424)
+bones/61/rotation = Quaternion(0, -1.83618e-08, 1, 0)
+bones/61/scale = Vector3(1, 1, 1)
+bones/62/name = "RightLowerLeg"
+bones/62/parent = 61
+bones/62/rest = Transform3D(-1, 0, 0, 0, 1, 0, 0, 0, -1, 0.0238064, 0.530843, -0.149971)
+bones/62/enabled = true
+bones/62/position = Vector3(0.0238064, 0.530843, -0.149971)
+bones/62/rotation = Quaternion(-1.86264e-09, 1, 1.49012e-08, 6.98492e-10)
+bones/62/scale = Vector3(1, 1, 1)
+bones/63/name = "RightFoot"
+bones/63/parent = 62
+bones/63/rest = Transform3D(-1, 0, 0, 0, 0, -1, 0, -1, 0, -0.0481001, 0.284189, 0.00977794)
+bones/63/enabled = true
+bones/63/position = Vector3(-0.0481001, 0.284189, 0.00977794)
+bones/63/rotation = Quaternion(1.31709e-09, 0.707107, -0.707107, 1.31709e-09)
+bones/63/scale = Vector3(1, 1, 1)
+bones/64/name = "RightToes"
+bones/64/parent = 63
+bones/64/rest = Transform3D(-1, 0, 0, 0, 1, 0, 0, 0, -1, 0.0550236, 0.22333, -0.275565)
+bones/64/enabled = true
+bones/64/position = Vector3(0.0550236, 0.22333, -0.275565)
+bones/64/rotation = Quaternion(-3.95127e-09, 1, -5.96047e-08, -1.31709e-09)
+bones/64/scale = Vector3(1, 1, 1)
+bones/65/name = "Toe_End.R"
+bones/65/parent = 64
+bones/65/rest = Transform3D(-0.932276, -0.299207, -0.203313, -0.348661, 0.893008, 0.284561, 0.0964175, 0.336177, -0.936851, -0.0293716, 0.0876621, 0.0330008)
+bones/65/enabled = true
+bones/65/position = Vector3(-0.0293716, 0.0876621, 0.0330008)
+bones/65/rotation = Quaternion(-0.167009, 0.969811, 0.160015, -0.0772653)
+bones/65/scale = Vector3(1, 1, 1)
+
+[node name="Minotaur" type="MeshInstance3D" parent="Asteriontest_rl/GeneralSkeleton"]
+gi_mode = 0
+mesh = ExtResource("2_qsgrw")
+skin = SubResource("Skin_qm36i")
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="Asteriontest_rl"]
+libraries = {
+&"": SubResource("AnimationLibrary_b2fjd")
+}
+autoplay = "minotaur_run_forward"
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Asteriontest_rl"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.15661, 0)
+shape = SubResource("CapsuleShape3D_843tj")
+
+[connection signal="body_entered" from="Target" to="Asteriontest_rl" method="_on_target_body_entered"]
+[connection signal="body_entered" from="Wall" to="Asteriontest_rl" method="_on_wall_body_entered"]
