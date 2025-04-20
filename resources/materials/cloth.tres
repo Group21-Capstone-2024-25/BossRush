@@ -3,4 +3,4 @@
 [resource]
 resource_name = "cloth"
 cull_mode = 2
-metallic = 1.0
+albedo_color = Color(0.44, 0.16676, 0.1364, 1)

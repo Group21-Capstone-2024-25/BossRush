@@ -13,6 +13,7 @@ enum PlayerState {
 @onready var stamina_bar: ProgressBar = $UI/VBoxContainer/StaminaBar
 @onready var health_bar: ProgressBar = $UI/VBoxContainer/HealthBar
 @onready var camera_mount: Node3D = $CameraMount
+@onready var enemy: Actor = get_tree().get_first_node_in_group("Enemy")
 
 var speed: float = 5.0
 var camera_max_angle: float = 1.0

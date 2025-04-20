@@ -1,36 +1,31 @@
 [gd_scene load_steps=11 format=3 uid="uid://hpg31hlc465y"]
 
 [ext_resource type="PackedScene" uid="uid://bijiamr6xkn3o" path="res://content/scene_templates/arena/arena.tscn" id="1_pyauw"]
-[ext_resource type="Material" uid="uid://danv0x1dylbkl" path="res://prototype/materials/prototype_dark.material" id="2_iifvh"]
 [ext_resource type="PackedScene" uid="uid://cjt7j7iawm8n5" path="res://content/player/player.tscn" id="3_v6wfo"]
 [ext_resource type="Script" uid="uid://b5pp10uxthdca" path="res://scripts/components/actor.gd" id="4_mo2t6"]
-[ext_resource type="ArrayMesh" uid="uid://bxrxnnkusrixy" path="res://resources/meshes/Scarecrow_smartinius scarecrow complete mesh.res" id="5_qyl0o"]
+[ext_resource type="ArrayMesh" uid="uid://cm55fnhu0nf53" path="res://resources/meshes/Scarecrow_smartinius scarecrow complete mesh.res" id="5_qyl0o"]
 [ext_resource type="Script" uid="uid://dy0h08l1jbwow" path="res://scripts/components/hurtbox.gd" id="6_3wexv"]
-
-[sub_resource type="BoxMesh" id="BoxMesh_v6wfo"]
-material = ExtResource("2_iifvh")
-size = Vector3(20, 1, 20)
-
-[sub_resource type="BoxShape3D" id="BoxShape3D_6c5no"]
-size = Vector3(20, 1, 20)
 
 [sub_resource type="CapsuleShape3D" id="CapsuleShape3D_f807p"]
 
 [sub_resource type="SphereShape3D" id="SphereShape3D_muv4u"]
 radius = 0.357897
 
+[sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_vd13c"]
+sky_top_color = Color(0.855319, 0.851758, 0.660188, 1)
+sky_horizon_color = Color(1, 1, 1, 1)
+ground_bottom_color = Color(0, 0, 0, 1)
+
+[sub_resource type="Sky" id="Sky_mo2t6"]
+sky_material = SubResource("ProceduralSkyMaterial_vd13c")
+
+[sub_resource type="Environment" id="Environment_qyl0o"]
+background_mode = 2
+sky = SubResource("Sky_mo2t6")
+
 [node name="Tutorial" type="Node3D"]
 
 [node name="Arena" parent="." instance=ExtResource("1_pyauw")]
-
-[node name="Floor" type="StaticBody3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.5, 0)
-
-[node name="MeshInstance3D" type="MeshInstance3D" parent="Floor"]
-mesh = SubResource("BoxMesh_v6wfo")
-
-[node name="CollisionShape3D" type="CollisionShape3D" parent="Floor"]
-shape = SubResource("BoxShape3D_6c5no")
 
 [node name="Player" parent="." instance=ExtResource("3_v6wfo")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 2)
@@ -57,3 +52,9 @@ metadata/_custom_type_script = "uid://dy0h08l1jbwow"
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, 0)
 shape = SubResource("SphereShape3D_muv4u")
 debug_color = Color(0, 1, 0, 0.419608)
+
+[node name="WorldEnvironment" type="WorldEnvironment" parent="."]
+environment = SubResource("Environment_qyl0o")
+
+[node name="DirectionalLight3D" type="DirectionalLight3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 0.407024, 0.913418, 0, -0.913418, 0.407024, 0, 5.31591, 0)
