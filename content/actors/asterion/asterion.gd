@@ -13,7 +13,7 @@ const CHASE_RANGE: float = 10.0
 func _physics_process(delta: float) -> void:
 	if not is_on_floor():
 		velocity += get_gravity() * delta
-	look_at(Vector3(player.global_position.x, global_position.y,player.global_position.x),Vector3.UP)
+	look_at(Vector3(player.global_position.x, global_position.y,player.global_position.x),Vector3.UP, true)
 	move_and_slide()
 
 # Play animation safely (avoids restarting same anim)
@@ -62,6 +62,8 @@ func check_if_player_in_range(therange: float, mode: String) -> bool:
 
 	return false
 
-# Called from die task
+func check_if_player_is_blocking()-> bool:
+	return player.is_blocking
+	
 func die():
 	play_animation("die")

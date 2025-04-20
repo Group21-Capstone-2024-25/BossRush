@@ -8,6 +8,7 @@
 [node name="Arena" type="Node3D"]
 
 [node name="NavigationRegion3D" type="NavigationRegion3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -1.16713, 0)
 navigation_mesh = ExtResource("1_i027p")
 
 [node name="AmbientAudio" type="Node3D" parent="."]
@@ -98,7 +99,7 @@ light_size = 10.0
 spot_range = 18.5579
 
 [node name="Asterion" parent="." instance=ExtResource("3_u6u3o")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.362974, 0.0281736, -8.99802)
+transform = Transform3D(-1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, 0.362974, 0.0281736, -8.99802)
 
 [node name="Player" parent="." instance=ExtResource("4_6pv6a")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.134634, 0.0155312, 16.3384)

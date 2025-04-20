@@ -702,7 +702,6 @@ debug_fill = false
 
 [node name="GeneralSkeleton" type="Skeleton3D" parent="."]
 unique_name_in_owner = true
-transform = Transform3D(-1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, 0, 0, 0)
 motion_scale = 1.21716
 bones/0/name = "Root"
 bones/0/parent = -1
@@ -1173,7 +1172,7 @@ mesh = SubResource("ArrayMesh_qm36i")
 skin = SubResource("Skin_b2fjd")
 
 [node name="WeaponSocket" type="BoneAttachment3D" parent="GeneralSkeleton"]
-transform = Transform3D(-0.159693, -0.753155, 0.638166, 0.761694, -0.505232, -0.405663, 0.627949, 0.421306, 0.654356, -0.601843, 1.3633, 0.0617274)
+transform = Transform3D(1.38563e-07, -1, -1.78814e-07, -5.90753e-08, 1.78814e-07, -1, 1, 1.38563e-07, -5.90753e-08, -0.880782, 1.74429, 0.170706)
 bone_name = "RightHand"
 bone_idx = 35
 
@@ -1194,7 +1193,7 @@ secondary_limit_angle = 3.14159
 secondary_damp_threshold = 1.0
 
 [node name="AudioSocket" type="BoneAttachment3D" parent="GeneralSkeleton"]
-transform = Transform3D(0.99646, -0.0840623, 0.00146231, 0.0818008, 0.96534, -0.247845, 0.0194229, 0.247088, 0.968799, -0.191992, 2.04852, 0.305286)
+transform = Transform3D(1, 2.16568e-21, -1.77669e-22, -2.16568e-21, 1, 5.29284e-10, 1.77669e-22, -5.29284e-10, 1, -1.14441e-07, 2.24488, 0.0610151)
 bone_name = "Head"
 bone_idx = 6
 
@@ -1225,7 +1224,6 @@ metadata/_custom_type_script = "uid://cy5434uldqvld"
 [node name="CollisionShape3D" type="CollisionShape3D" parent="Hitbox"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0.0257465)
 shape = SubResource("CapsuleShape3D_yxcwd")
-disabled = true
 debug_color = Color(1, 0, 0, 0.419608)
 
 [node name="NavigationAgent3D" type="NavigationAgent3D" parent="."]

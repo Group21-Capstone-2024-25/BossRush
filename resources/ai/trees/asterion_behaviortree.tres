@@ -1,4 +1,4 @@
-[gd_resource type="BehaviorTree" load_steps=38 format=3 uid="uid://darg18gdbp81"]
+[gd_resource type="BehaviorTree" load_steps=41 format=3 uid="uid://darg18gdbp81"]
 
 [ext_resource type="Script" uid="uid://xlrcog6f8ski" path="res://resources/ai/tasks/is_player_in_attack_range.gd" id="1_sml01"]
 [ext_resource type="Script" uid="uid://xxddkhbqfioa" path="res://resources/ai/tasks/heavy_attack.gd" id="1_u0742"]
@@ -79,8 +79,18 @@ animation_name = &"minotaur_block_idle"
 custom_name = "Sequence - Block"
 children = [SubResource("BTPlayAnimation_cg7qs")]
 
+[sub_resource type="BBNode" id="BBNode_cg7qs"]
+saved_value = NodePath(".")
+resource_name = "."
+
+[sub_resource type="BTEvaluateExpression" id="BTEvaluateExpression_sml01"]
+node = SubResource("BBNode_cg7qs")
+expression_string = "player.is_blocking"
+
+[sub_resource type="BTInvert" id="BTInvert_pqofd"]
+
 [sub_resource type="BTProbabilitySelector" id="BTProbabilitySelector_ciihp"]
-children = [SubResource("BTSequence_ck0ex"), SubResource("BTSequence_0hl71"), SubResource("BTSequence_sml01")]
+children = [SubResource("BTSequence_ck0ex"), SubResource("BTSequence_0hl71"), SubResource("BTSequence_sml01"), SubResource("BTEvaluateExpression_sml01"), SubResource("BTInvert_pqofd")]
 
 [sub_resource type="BTDynamicSequence" id="BTDynamicSequence_as5iv"]
 children = [SubResource("BTProbabilitySelector_ciihp")]
