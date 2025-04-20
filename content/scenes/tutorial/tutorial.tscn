@@ -1,59 +1,7 @@
-[gd_scene load_steps=11 format=3 uid="uid://hpg31hlc465y"]
+[gd_scene load_steps=2 format=3 uid="uid://hpg31hlc465y"]
 
 [ext_resource type="PackedScene" uid="uid://bijiamr6xkn3o" path="res://content/scene_templates/arena/arena.tscn" id="1_pyauw"]
-[ext_resource type="Material" uid="uid://danv0x1dylbkl" path="res://prototype/materials/prototype_dark.material" id="2_iifvh"]
-[ext_resource type="PackedScene" uid="uid://cjt7j7iawm8n5" path="res://content/player/player.tscn" id="3_v6wfo"]
-[ext_resource type="Script" uid="uid://b5pp10uxthdca" path="res://scripts/components/actor.gd" id="4_mo2t6"]
-[ext_resource type="ArrayMesh" uid="uid://bxrxnnkusrixy" path="res://resources/meshes/Scarecrow_smartinius scarecrow complete mesh.res" id="5_qyl0o"]
-[ext_resource type="Script" uid="uid://dy0h08l1jbwow" path="res://scripts/components/hurtbox.gd" id="6_3wexv"]
-
-[sub_resource type="BoxMesh" id="BoxMesh_v6wfo"]
-material = ExtResource("2_iifvh")
-size = Vector3(20, 1, 20)
-
-[sub_resource type="BoxShape3D" id="BoxShape3D_6c5no"]
-size = Vector3(20, 1, 20)
-
-[sub_resource type="CapsuleShape3D" id="CapsuleShape3D_f807p"]
-
-[sub_resource type="SphereShape3D" id="SphereShape3D_muv4u"]
-radius = 0.357897
 
 [node name="Tutorial" type="Node3D"]
 
 [node name="Arena" parent="." instance=ExtResource("1_pyauw")]
-
-[node name="Floor" type="StaticBody3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.5, 0)
-
-[node name="MeshInstance3D" type="MeshInstance3D" parent="Floor"]
-mesh = SubResource("BoxMesh_v6wfo")
-
-[node name="CollisionShape3D" type="CollisionShape3D" parent="Floor"]
-shape = SubResource("BoxShape3D_6c5no")
-
-[node name="Player" parent="." instance=ExtResource("3_v6wfo")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 2)
-
-[node name="Scarecrow" type="CharacterBody3D" parent="." groups=["Enemy"]]
-transform = Transform3D(-1, 0, 8.74228e-08, 0, 1, 0, -8.74228e-08, 0, -1, 0, 0, -1.5)
-script = ExtResource("4_mo2t6")
-metadata/_custom_type_script = "uid://b5pp10uxthdca"
-
-[node name="MeshInstance3D" type="MeshInstance3D" parent="Scarecrow"]
-transform = Transform3D(1.3, 0, 0, 0, -5.68248e-08, -1.3, 0, 1.3, -5.68248e-08, 0, 0, 0)
-mesh = ExtResource("5_qyl0o")
-skeleton = NodePath("")
-
-[node name="CollisionShape3D" type="CollisionShape3D" parent="Scarecrow"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, 0)
-shape = SubResource("CapsuleShape3D_f807p")
-
-[node name="Hurtbox" type="Area3D" parent="Scarecrow"]
-script = ExtResource("6_3wexv")
-metadata/_custom_type_script = "uid://dy0h08l1jbwow"
-
-[node name="CollisionShape3D" type="CollisionShape3D" parent="Scarecrow/Hurtbox"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, 0)
-shape = SubResource("SphereShape3D_muv4u")
-debug_color = Color(0, 1, 0, 0.419608)

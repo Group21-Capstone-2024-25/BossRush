@@ -1,4 +1,4 @@
-[gd_scene load_steps=17 format=3 uid="uid://15pdlv3wc6hb"]
+[gd_scene load_steps=15 format=3 uid="uid://15pdlv3wc6hb"]
 
 [ext_resource type="Script" uid="uid://b5pp10uxthdca" path="res://scripts/components/actor.gd" id="1_yo2lg"]
 [ext_resource type="ArrayMesh" uid="uid://cbw22efcwhl4l" path="res://resources/meshes/ChineseWarrior2_helmet.res" id="2_w4xt8"]
@@ -10,7 +10,6 @@
 [ext_resource type="ArrayMesh" uid="uid://foyc3spkhans" path="res://resources/meshes/ChineseWarrior2_body.res" id="8_ka2iv"]
 [ext_resource type="Script" uid="uid://dy0h08l1jbwow" path="res://scripts/components/hurtbox.gd" id="9_5t0sh"]
 [ext_resource type="Script" uid="uid://cy5434uldqvld" path="res://scripts/components/hitbox.gd" id="10_vs1sh"]
-[ext_resource type="BehaviorTree" uid="uid://dtl2ivjc8ybom" path="res://resources/ai/trees/luwei_behaviortree.tres" id="11_hbunf"]
 
 [sub_resource type="CapsuleShape3D" id="CapsuleShape3D_yo2lg"]
 
@@ -220,8 +219,6 @@ height = 1.6
 [sub_resource type="CapsuleShape3D" id="CapsuleShape3D_4jcws"]
 radius = 0.273519
 height = 1.35319
-
-[sub_resource type="BlackboardPlan" id="BlackboardPlan_fw5wq"]
 
 [node name="LuWei" type="CharacterBody3D"]
 script = ExtResource("1_yo2lg")
@@ -741,7 +738,7 @@ bones/71/rotation = Quaternion(3.59627e-07, 0.707107, 0.707107, 2.88504e-07)
 bones/71/scale = Vector3(1, 1, 1)
 
 [node name="Helmet" type="BoneAttachment3D" parent="GeneralSkeleton"]
-transform = Transform3D(1, 0, 0, 0, 0, -1, 0, 1, 0, 6.98492e-10, 0, 0)
+transform = Transform3D(1, 0, 0, 0, 1.78814e-07, -1, 0, 1, 1.78814e-07, 6.98492e-10, -2.38419e-07, 7.45058e-09)
 bone_name = "Helmet"
 bone_idx = 8
 
@@ -751,7 +748,7 @@ mesh = ExtResource("2_w4xt8")
 skeleton = NodePath("")
 
 [node name="Mask" type="BoneAttachment3D" parent="GeneralSkeleton"]
-transform = Transform3D(1, 0, 0, 0, 0, -1, 0, 1, 0, 6.98492e-10, 0, 0)
+transform = Transform3D(1, 0, 0, 0, 1.78814e-07, -1, 0, 1, 1.78814e-07, 6.98492e-10, -2.38419e-07, 7.45058e-09)
 bone_name = "Mask"
 bone_idx = 9
 
@@ -761,7 +758,7 @@ mesh = ExtResource("3_hbunf")
 skeleton = NodePath("")
 
 [node name="ShoulderGuard_L" type="BoneAttachment3D" parent="GeneralSkeleton"]
-transform = Transform3D(1, 0, -3.72529e-08, -3.72529e-08, 1.37836e-07, -1, 0, 1, 1.37836e-07, 5.96046e-08, 5.126e-06, -2.98023e-08)
+transform = Transform3D(1, -1.19209e-07, -3.72529e-08, -3.72529e-08, 1.37836e-07, -1, 1.19209e-07, 1, 1.37836e-07, -7.45058e-08, -2.38419e-07, 7.45058e-08)
 bone_name = "ShoulderGuard.L"
 bone_idx = 34
 
@@ -772,7 +769,7 @@ mesh = ExtResource("4_fw5wq")
 skeleton = NodePath("")
 
 [node name="ShoulderGuard_R" type="BoneAttachment3D" parent="GeneralSkeleton"]
-transform = Transform3D(1, 0, -2.98023e-08, -2.98023e-08, -1.11759e-08, -1, 0, 1, -1.11759e-08, 2.83122e-07, 5.126e-06, 2.23517e-08)
+transform = Transform3D(1, 0, -2.98023e-08, -2.98023e-08, -1.11759e-08, -1, 0, 1, -1.11759e-08, -1.04308e-07, -7.15256e-07, 0)
 bone_name = "ShoulderGuard.R"
 bone_idx = 59
 
@@ -783,7 +780,7 @@ mesh = ExtResource("5_ins3v")
 skeleton = NodePath("")
 
 [node name="ThighGuard_L" type="BoneAttachment3D" parent="GeneralSkeleton"]
-transform = Transform3D(1, 4.84297e-08, 8.10017e-07, 8.10017e-07, 0, -1, -4.84297e-08, 1, 0, 1.71363e-07, 1.54972e-06, 9.96515e-08)
+transform = Transform3D(1, 4.84287e-08, 8.10018e-07, 8.10018e-07, 1.19209e-07, -1, -4.84288e-08, 1, 1.78814e-07, 8.19564e-08, 5.96046e-08, 1.29454e-07)
 bone_name = "ThighGuard.L"
 bone_idx = 65
 
@@ -794,7 +791,7 @@ mesh = ExtResource("6_qsx3w")
 skeleton = NodePath("")
 
 [node name="ThighGuard_R" type="BoneAttachment3D" parent="GeneralSkeleton"]
-transform = Transform3D(1, -1.00583e-07, -9.16595e-07, -9.16595e-07, 0, -1, 1.00583e-07, 1, 0, 1.63913e-07, 1.54972e-06, 1.79745e-07)
+transform = Transform3D(1, -1.00583e-07, -9.16596e-07, -9.16596e-07, 0, -1, 1.00583e-07, 1, 0, -4.47035e-08, 3.57628e-07, 1.4063e-07)
 bone_name = "ThighGuard.R"
 bone_idx = 71
 
@@ -829,7 +826,3 @@ disabled = true
 debug_color = Color(1, 0, 0, 0.419608)
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
-
-[node name="BTPlayer" type="BTPlayer" parent="."]
-behavior_tree = ExtResource("11_hbunf")
-blackboard_plan = SubResource("BlackboardPlan_fw5wq")

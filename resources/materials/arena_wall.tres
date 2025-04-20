@@ -1,8 +1,0 @@
-[gd_resource type="StandardMaterial3D" load_steps=2 format=3 uid="uid://cejg5copf3c76"]
-
-[ext_resource type="Texture2D" uid="uid://cbat8t84oprj6" path="res://resources/textures/arenawall_albedo.png" id="1_4vnmc"]
-
-[resource]
-resource_name = "arena_wall"
-albedo_texture = ExtResource("1_4vnmc")
-texture_filter = 0

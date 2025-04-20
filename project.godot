@@ -41,7 +41,6 @@ project/assembly_name="BossRush"
 
 Player=""
 navigation_mesh_source_group=""
-Enemy=""
 
 [input]
 
@@ -115,7 +114,7 @@ game_pause={
 
 [limbo_ai]
 
-behavior_tree/behavior_tree_default_dir="res://resources/ai/tasks"
+behavior_tree/behavior_tree_default_dir="res://resources/ai"
 
 [rendering]
 

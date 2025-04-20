@@ -1,8 +1,0 @@
-[gd_resource type="StandardMaterial3D" load_steps=2 format=3 uid="uid://c6t2rnr0qr1j"]
-
-[ext_resource type="Texture2D" uid="uid://kj6ryacj626y" path="res://resources/textures/entrances_albedo.png" id="1_43jn6"]
-
-[resource]
-resource_name = "arena_entrance"
-albedo_texture = ExtResource("1_43jn6")
-texture_filter = 0

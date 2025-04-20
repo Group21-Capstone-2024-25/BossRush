@@ -32,10 +32,9 @@ theme = ExtResource("1_mfpwo")
 layout_mode = 2
 size_flags_horizontal = 3
 theme = ExtResource("1_mfpwo")
-current_tab = 3
+current_tab = 0
 
 [node name="Game" parent="MarginContainer/TabContainer" instance=ExtResource("1_3ivbi")]
-visible = false
 layout_mode = 2
 
 [node name="Controls" parent="MarginContainer/TabContainer" instance=ExtResource("2_mfpwo")]
@@ -47,6 +46,7 @@ visible = false
 layout_mode = 2
 
 [node name="Audio" parent="MarginContainer/TabContainer" instance=ExtResource("4_tq6yh")]
+visible = false
 layout_mode = 2
 
 [node name="BackButton" type="Button" parent="MarginContainer"]
