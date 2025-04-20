@@ -1,0 +1,104 @@
+[gd_scene load_steps=5 format=3 uid="uid://donsg6m5ln03"]
+
+[ext_resource type="NavigationMesh" uid="uid://evet1eyqqymd" path="res://resources/navmeshes/colosseum_navmesh.tres" id="1_i027p"]
+[ext_resource type="PackedScene" uid="uid://qati5uaueveo" path="res://content/environments/colosseum.tscn" id="2_e27og"]
+[ext_resource type="PackedScene" uid="uid://bnpbq80gp6660" path="res://content/actors/asterion/asterion.tscn" id="3_u6u3o"]
+[ext_resource type="PackedScene" uid="uid://cjt7j7iawm8n5" path="res://content/player/player.tscn" id="4_6pv6a"]
+
+[node name="Arena" type="Node3D"]
+
+[node name="NavigationRegion3D" type="NavigationRegion3D" parent="."]
+navigation_mesh = ExtResource("1_i027p")
+
+[node name="AmbientAudio" type="Node3D" parent="."]
+
+[node name="CrowdCheerAudio_1" type="AudioStreamPlayer3D" parent="AmbientAudio"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 10, 20)
+autoplay = true
+max_distance = 50.0
+bus = &"SFX"
+
+[node name="CrowdCheerAudio_2" type="AudioStreamPlayer3D" parent="AmbientAudio"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -20, 10, 0)
+autoplay = true
+max_distance = 50.0
+bus = &"SFX"
+
+[node name="CrowdCheerAudio_3" type="AudioStreamPlayer3D" parent="AmbientAudio"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 10, -20)
+autoplay = true
+max_distance = 50.0
+bus = &"SFX"
+
+[node name="CrowdCheerAudio_4" type="AudioStreamPlayer3D" parent="AmbientAudio"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 20, 10, 0)
+autoplay = true
+max_distance = 50.0
+bus = &"SFX"
+
+[node name="Colosseum" parent="." instance=ExtResource("2_e27og")]
+
+[node name="Lights" type="Node3D" parent="."]
+visible = false
+
+[node name="SpotLight3D" type="SpotLight3D" parent="Lights"]
+transform = Transform3D(0.453991, -2.38668e-08, 0.891007, -0.891007, -3.89471e-08, 0.453991, 2.38668e-08, -1, -3.89471e-08, 20, 7.5, 0)
+light_color = Color(0.992712, 0.939875, 0.575768, 1)
+light_energy = 7.0
+light_size = 10.0
+spot_range = 18.5579
+
+[node name="SpotLight3D2" type="SpotLight3D" parent="Lights"]
+transform = Transform3D(-0.453991, -6.35559e-08, -0.891007, -0.891007, -3.89471e-08, 0.453991, -6.35559e-08, 1, -3.89471e-08, -20, 7.5, 0)
+light_color = Color(0.992712, 0.939875, 0.575768, 1)
+light_energy = 7.0
+light_size = 10.0
+spot_range = 18.5579
+
+[node name="SpotLight3D3" type="SpotLight3D" parent="Lights"]
+transform = Transform3D(-1.98248e-08, 1, 4.75422e-09, -0.891236, -1.98248e-08, 0.453539, 0.453539, 4.75422e-09, 0.891236, 0, 7.5, 20)
+light_color = Color(0.992712, 0.939875, 0.575768, 1)
+light_energy = 7.0
+light_size = 10.0
+spot_range = 18.5579
+
+[node name="SpotLight3D4" type="SpotLight3D" parent="Lights"]
+transform = Transform3D(4.02228e-09, -1, -7.78943e-08, -0.891007, -3.89471e-08, 0.453991, -0.453991, 6.75782e-08, -0.891007, 0, 7.5, -20)
+light_color = Color(0.992712, 0.939875, 0.575768, 1)
+light_energy = 7.0
+light_size = 10.0
+spot_range = 18.5579
+
+[node name="SpotLight3D5" type="SpotLight3D" parent="Lights"]
+transform = Transform3D(0.32102, -0.707107, 0.630037, -0.891007, -5.22242e-08, 0.453991, -0.32102, -0.707107, -0.630037, 14.1421, 7.5, -14.1421)
+light_color = Color(0.992712, 0.939875, 0.575768, 1)
+light_energy = 7.0
+light_size = 10.0
+spot_range = 18.5579
+
+[node name="SpotLight3D6" type="SpotLight3D" parent="Lights"]
+transform = Transform3D(-0.32102, 0.707107, -0.630037, -0.891007, -5.22242e-08, 0.453991, 0.32102, 0.707107, 0.630037, -14.1421, 7.5, 14.1421)
+light_color = Color(0.992712, 0.939875, 0.575768, 1)
+light_energy = 7.0
+light_size = 10.0
+spot_range = 18.5579
+
+[node name="SpotLight3D7" type="SpotLight3D" parent="Lights"]
+transform = Transform3D(0.320701, 0.707107, 0.630199, -0.891236, -6.54439e-09, 0.453539, 0.320701, -0.707107, 0.630199, 14.1421, 7.5, 14.1421)
+light_color = Color(0.992712, 0.939875, 0.575768, 1)
+light_energy = 7.0
+light_size = 10.0
+spot_range = 18.5579
+
+[node name="SpotLight3D8" type="SpotLight3D" parent="Lights"]
+transform = Transform3D(-0.32102, -0.707107, -0.630037, -0.891007, -5.22242e-08, 0.453991, -0.32102, 0.707107, -0.630037, -14.1421, 7.5, -14.1421)
+light_color = Color(0.992712, 0.939875, 0.575768, 1)
+light_energy = 7.0
+light_size = 10.0
+spot_range = 18.5579
+
+[node name="Asterion" parent="." instance=ExtResource("3_u6u3o")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.362974, 0.0281736, -8.99802)
+
+[node name="Player" parent="." instance=ExtResource("4_6pv6a")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.134634, 0.0155312, 16.3384)
