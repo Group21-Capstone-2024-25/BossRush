@@ -1,11 +1,7 @@
-[gd_scene load_steps=3 format=3 uid="uid://dwbubbj4mtsui"]
+[gd_scene load_steps=2 format=3 uid="uid://dwbubbj4mtsui"]
 
 [ext_resource type="PackedScene" uid="uid://bijiamr6xkn3o" path="res://content/scene_templates/arena/arena.tscn" id="1_rofts"]
-[ext_resource type="PackedScene" uid="uid://gnomaxguf7m1" path="res://content/actors/stomp/stomp.tscn" id="2_vpm2h"]
 
 [node name="Level1" type="Node3D"]
 
 [node name="Arena" parent="." instance=ExtResource("1_rofts")]
-
-[node name="Stomp" parent="." instance=ExtResource("2_vpm2h")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.00666714, 0.0402224, -7.87115)
