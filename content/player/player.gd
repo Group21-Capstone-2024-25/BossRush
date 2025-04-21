@@ -16,8 +16,8 @@ enum PlayerState {
 @onready var enemy: Actor = get_tree().get_first_node_in_group("Enemy")
 
 var speed: float = 5.0
-var camera_max_angle: float = deg_to_rad(90)
-var camera_min_angle: float = deg_to_rad(-90)
+var camera_max_angle: float = 1.0
+var camera_min_angle: float = 1.0
 var current_state: PlayerState = PlayerState.MOVE
 
 @export var horizontal_sensitivity: float = 0.1
@@ -26,8 +26,8 @@ var current_state: PlayerState = PlayerState.MOVE
 func _input(event: InputEvent) -> void:
 	if event is InputEventMouseMotion:
 		rotate_y(deg_to_rad(-event.relative.x * horizontal_sensitivity))
-		camera_mount.rotate_x(deg_to_rad(-event.relative.y * vertical_sensitivity))
-		camera_mount.rotation.x=clamp(camera_mount.rotation.x, camera_min_angle, camera_max_angle)
+		camera_mount.rotate_x(deg_to_rad(event.relative.y * vertical_sensitivity))
+		camera_mount
 
 func _ready() -> void:
 	Input.mouse_mode = Input.MOUSE_MODE_CAPTURED

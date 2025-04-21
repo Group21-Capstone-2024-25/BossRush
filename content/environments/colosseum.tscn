@@ -1,4 +1,4 @@
-[gd_scene load_steps=114 format=3 uid="uid://qati5uaueveo"]
+[gd_scene load_steps=117 format=3 uid="uid://qati5uaueveo"]
 
 [ext_resource type="ArrayMesh" uid="uid://jbdgp2seif15" path="res://resources/meshes/Colosseum_Circle.res" id="1_k3ydp"]
 [ext_resource type="ArrayMesh" uid="uid://bddchse0ffyre" path="res://resources/meshes/Colosseum_Cube_008.res" id="2_3kav1"]
@@ -29,6 +29,8 @@
 [ext_resource type="ArrayMesh" uid="uid://b82q4kqrklkpq" path="res://resources/meshes/Colosseum_Cube_033.res" id="27_s5ond"]
 [ext_resource type="ArrayMesh" uid="uid://bay7dw040tisd" path="res://resources/meshes/Colosseum_Cube_021.res" id="28_sth8e"]
 [ext_resource type="ArrayMesh" uid="uid://bjniv3mw2pyat" path="res://resources/meshes/Colosseum_Plane.res" id="29_t824u"]
+[ext_resource type="PackedScene" uid="uid://bnpbq80gp6660" path="res://content/actors/asterion/asterion.tscn" id="30_3kav1"]
+[ext_resource type="PackedScene" uid="uid://dkpqkttbd6w67" path="res://prototype/props/proxies/proxy_player.tscn" id="31_l8hfv"]
 
 [sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_l8hfv"]
 sky_horizon_color = Color(0.662243, 0.671743, 0.686743, 1)
@@ -285,6 +287,8 @@ points = PackedVector3Array(1.61406, 5.866, 1.20534, -1.59631, -0.00381074, 0.74
 
 [sub_resource type="ConvexPolygonShape3D" id="ConvexPolygonShape3D_7jv0k"]
 points = PackedVector3Array(1.61406, 5.866, 1.20534, -1.59631, -0.00381074, 0.747009, -1.52318, -0.0400752, 0, -1.52318, 5.90708, 0, -1.54322, 5.77374, 1.9985, 1.56329, 0.0932585, 1.9985, 1.54325, -0.0400752, 0, -1.54322, 0.0932585, 1.9985, 1.54325, 5.90708, 0, 1.56329, 5.77319, 1.9985, 1.61406, 0.000424302, 1.20534, -1.59631, 5.87081, 0.747009)
+
+[sub_resource type="NavigationMesh" id="NavigationMesh_l8hfv"]
 
 [node name="Colosseum" type="Node3D"]
 
@@ -8176,3 +8180,15 @@ transform = Transform3D(0.261249, 0, 0.426321, 0, 1, 0, -0.426321, 0, 0.261249, 
 gi_mode = 2
 mesh = ExtResource("29_t824u")
 skeleton = NodePath("")
+
+[node name="Asterion" parent="." instance=ExtResource("30_3kav1")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.947061, 0.230994, -6.82362)
+collision_layer = 33
+collision_mask = 65
+
+[node name="ProxyPlayer" parent="." instance=ExtResource("31_l8hfv")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.687013, 1.24563, 12.7057)
+
+[node name="NavigationRegion3D" type="NavigationRegion3D" parent="."]
+navigation_mesh = SubResource("NavigationMesh_l8hfv")
+navigation_layers = 33
