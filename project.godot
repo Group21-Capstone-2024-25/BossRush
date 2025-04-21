@@ -37,10 +37,6 @@ window/stretch/mode="viewport"
 
 project/assembly_name="BossRush"
 
-[editor_plugins]
-
-enabled=PackedStringArray("res://addons/godot_rl_agents/plugin.cfg")
-
 [global_group]
 
 Player=""
