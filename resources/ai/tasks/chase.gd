@@ -14,7 +14,7 @@ func _tick(delta: float) -> Status:
 	agent.nav_agent.target_position = player_pos
 	var move_dir = (agent.nav_agent.get_next_path_position() - self_pos).normalized()
 
-
+	# ✅ Smoothly rotate to face the player
 	var current_rot = agent.global_transform.basis.get_rotation_quaternion()
 	var target_rot = Transform3D().looking_at(player_pos - self_pos, Vector3.UP).basis.get_rotation_quaternion()
 	var new_rot = current_rot.slerp(target_rot, delta * 5.0)
