@@ -1172,7 +1172,7 @@ mesh = SubResource("ArrayMesh_qm36i")
 skin = SubResource("Skin_b2fjd")
 
 [node name="WeaponSocket" type="BoneAttachment3D" parent="GeneralSkeleton"]
-transform = Transform3D(1.38563e-07, -1, -1.78814e-07, -5.90753e-08, 1.78814e-07, -1, 1, 1.38563e-07, -5.90753e-08, -0.880782, 1.74429, 0.170706)
+transform = Transform3D(0.0997198, -0.671355, 0.734397, 0.83912, 0.453387, 0.300528, -0.534727, 0.586279, 0.608559, -0.532778, 1.72002, 0.479384)
 bone_name = "RightHand"
 bone_idx = 35
 
@@ -1193,7 +1193,7 @@ secondary_limit_angle = 3.14159
 secondary_damp_threshold = 1.0
 
 [node name="AudioSocket" type="BoneAttachment3D" parent="GeneralSkeleton"]
-transform = Transform3D(1, 2.16568e-21, -1.77669e-22, -2.16568e-21, 1, 5.29284e-10, 1.77669e-22, -5.29284e-10, 1, -1.14441e-07, 2.24488, 0.0610151)
+transform = Transform3D(0.986422, -0.163068, 0.0195272, 0.16347, 0.963431, -0.212316, 0.0158087, 0.212625, 0.977006, -0.241357, 1.907, 0.258513)
 bone_name = "Head"
 bone_idx = 6
 
@@ -1226,8 +1226,6 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0.0257465)
 shape = SubResource("CapsuleShape3D_yxcwd")
 disabled = true
 debug_color = Color(1, 0, 0, 0.419608)
-
-[node name="NavigationAgent3D" type="NavigationAgent3D" parent="."]
 
 [node name="BTPlayer" type="BTPlayer" parent="."]
 behavior_tree = ExtResource("38_ikc5a")

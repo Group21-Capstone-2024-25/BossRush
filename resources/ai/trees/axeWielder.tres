@@ -1,7 +1,7 @@
 [gd_resource type="BehaviorTree" load_steps=28 format=3 uid="uid://emdchu1wo3a0"]
 
-[ext_resource type="Script" uid="uid://xxddkhbqfioa" path="res://resources/ai/tasks/heavy_attack.gd" id="1_algqx"]
-[ext_resource type="Script" uid="uid://xlrcog6f8ski" path="res://resources/ai/tasks/is_player_in_attack_range.gd" id="1_hxuxl"]
+[ext_resource type="Script" uid="uid://xxddkhbqfioa" path="res://resources/ai/tasks/attack.gd" id="1_algqx"]
+[ext_resource type="Script" uid="uid://xlrcog6f8ski" path="res://resources/ai/tasks/is_player_in_range.gd" id="1_hxuxl"]
 [ext_resource type="Script" uid="uid://caqsg7n6wfjsv" path="res://resources/ai/tasks/light_attack.gd" id="2_i3wii"]
 [ext_resource type="Script" uid="uid://dcvan5qkldak0" path="res://resources/ai/tasks/chase.gd" id="3_poygq"]
 [ext_resource type="Script" uid="uid://kjp2htrjecp2" path="res://resources/ai/tasks/choose_to_random_pos_axe.gd" id="4_8as4i"]

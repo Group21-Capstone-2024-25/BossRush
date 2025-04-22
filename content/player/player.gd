@@ -1,5 +1,5 @@
 class_name Player
-extends CharacterBody3D
+extends Actor
 
 enum PlayerState {
 	MOVE,
@@ -14,6 +14,7 @@ enum PlayerState {
 @onready var health_bar: ProgressBar = $UI/VBoxContainer/HealthBar
 @onready var camera_mount: Node3D = $CameraMount
 @onready var enemy: Actor = get_tree().get_first_node_in_group("Enemy")
+@onready var animation_tree: AnimationTree = $AnimationTree
 
 var speed: float = 5.0
 var camera_max_angle: float = 1.0
@@ -36,11 +37,19 @@ func _physics_process(delta: float) -> void:
 	if not is_on_floor():
 		velocity += get_gravity() * delta
 	
-	if Input.is_action_just_pressed("action_attack"):
-		if current_state == PlayerState.ATTACK:
-			pass
+	if Input.is_action_pressed("action_block"):
+		is_blocking = true
+		animation_tree.set("parameters/conditions/not_blocking", false)
+		animation_tree.set("parameters/conditions/is_blocking", true)
+		return
+	else:
+		is_blocking = false
+		animation_tree.set("parameters/conditions/is_blocking", false)
+		animation_tree.set("parameters/conditions/not_blocking", true)
 	
 	var input_dir := Input.get_vector("move_left", "move_right", "move_forward", "move_backward")
+	animation_tree.set("parameters/movement/blend_position", input_dir)
+	
 	var direction := (transform.basis * Vector3(input_dir.x, 0, input_dir.y)).normalized()
 	if direction:
 		velocity.x = direction.x * speed
@@ -50,11 +59,3 @@ func _physics_process(delta: float) -> void:
 		velocity.z = move_toward(velocity.z, 0, speed)
 
 	move_and_slide()
-
-
-
-func evaluate_state(state: PlayerState) -> PlayerState:
-	return PlayerState.MOVE
-
-func handle_state(state: PlayerState):
-	pass

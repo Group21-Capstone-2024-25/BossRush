@@ -286,6 +286,7 @@ collision_layer = 3
 collision_mask = 5
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="Floor/StaticBody3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.891135, 0)
 shape = SubResource("ConvexPolygonShape3D_k3ydp")
 
 [node name="Cube_005" type="MeshInstance3D" parent="."]
